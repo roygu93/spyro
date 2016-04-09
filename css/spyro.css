@@ -1,3 +1,4 @@
+
 .navbar-fixed-top {
 	margin-bottom: 0;
 }
@@ -15,4 +16,32 @@
 
 #download_icon, #save_icon, #refresh_icon {
 	height: 30px;
+
+
+.sidebar {
+    display: inline-block;
+    float: left;
+    width: 7%;
+    /*background-color: rgba(94, 182, 171, 0.756862745098039);*/
+    border-right: 1px; 
+    height: 50vh;
+}
+
+.content{
+    float: left;
+    display: inline-block;
+    /*background-color: blue;*/
+    width:93%;
+    margin: 0;
+    padding-left:7px;
+}
+
+.section-header > h1{
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom:5px;
+    font-size:18pt;
+    font-weight: 200;
+    font-style: italic;
 }
