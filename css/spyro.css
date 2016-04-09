@@ -65,3 +65,9 @@
     margin-right:auto;
     display:block;
 }
+
+#side-menu > li > a{
+    padding-top:0;
+}
+
+
