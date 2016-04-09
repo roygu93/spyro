@@ -1,3 +1,18 @@
 .navbar-fixed-top {
 	margin-bottom: 0;
 }
+
+.nav-icons {
+	
+}
+
+.icon_links {
+	padding: 10px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border-right: 1px solid gray;
+}
+
+#download_icon, #save_icon, #refresh_icon {
+	height: 30px;
+}
