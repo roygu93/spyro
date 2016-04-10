@@ -23,6 +23,7 @@
     <![endif]-->
 
     <link rel="stylesheet" href="css/spyro.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
     <script type="text/javascript" src="js/index.js"></script>
 </head>
 
@@ -39,40 +40,71 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img src="img/spyro.png" alt="Logo" height="30" style="margin-top: -5px;"/>
+                <img src="img/spyro.png" alt="Logo" height="30" class="navbar-logo"/>
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <!--<ul class="nav navbar-nav">-->
+                <!--<li class="active"><a href="#">Home</a></li>-->
+                <!--<li><a href="#about">About</a></li>-->
+                <!--<li><a href="#contact">Contact</a></li>-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">Action</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li class="dropdown-header">Nav header</li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
-                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+                <li><a href="../navbar/">About</a></li>
+                <li><a href="../navbar-fixed-top/">Tool</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
-<div class="jumbotron" style="background: url('img/genome_sequence.jpg'); -webkit-background-size: cover; background-size: cover; height: 400px; margin-top: -20px;"></div>
+<div class="jumbotron banner">
+    <div class="banner-ribbon">
+        <p>Want a better way to analyze your data?</p>
+    </div>
+</div>
 
 <div class="container">
+    <div class="col-md-4">
+        <img src="img/house.png" alt="House" class="info"/>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dolor error fugiat quibusdam
+            quo sed tenetur vero? Autem dolores ea exercitationem libero maxime odit provident quasi repellendus velit veniam?
+        </div>
+    </div>
+    <div class="col-md-4">
+        <img src="img/magnify.png" alt="Magnify" class="info"/>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at, atque consequuntur distinctio
+            eaque et eum fugit hic impedit inventore ipsam ipsum labore libero magnam odio optio reprehenderit sint voluptatem!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <img src="img/slide.png" alt="Slide" class="info"/>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem consectetur dicta dolorum error
+            nesciunt quis rerum sapiente! Accusantium aliquid atque commodi doloribus iste nemo nisi omnis placeat tempora ut?
+        </div>
+    </div>
 
+
+    <div class="col-md-offset-1 col-md-5 affiliates">
+        <img src="img/SpiralGeneticsLogo.png" alt="Spiral Genetics Logo" style="width: 100%;"/>
+    </div>
+    <div class="col-md-5 affiliates">
+        <img src="img/ischool.png" alt="iSchool Logo" style="width: 100%; margin-top: 25px;"/>
+    </div>
 </div>
 
 <!-- Bootstrap core JavaScript
