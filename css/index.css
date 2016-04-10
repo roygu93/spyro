@@ -41,3 +41,13 @@
 .affiliates {
     margin-top: 30px;
 }
+
+.col-about {
+    width: 22%;
+    display: inline-block;
+}
+
+.space {
+    clear: both;
+    padding: 50px;
+}

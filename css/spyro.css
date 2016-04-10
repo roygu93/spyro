@@ -129,6 +129,17 @@
     top: -15px;
 }
 
+.aboutHeader {
+	text-align: center;
+	margin:	5px;
+}
 
+.aboutBody {
+	text-align: center;	
+}
+
+p {
+	display: inline;
+}
 
 
