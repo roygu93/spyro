@@ -1,4 +1,6 @@
 
+
+/********** Top Nav Bar **********/
 .navbar-fixed-top {
     margin-bottom: 0;
 }
@@ -18,44 +20,32 @@
     height: 30px;
 }
 
-.topSection {
+
+/* Jen's CSS Modification */ 
+
+/********** Sections **********/
+#topSection {
     margin-top:50px;
 }
 
-.topSection > div {
-    padding-top:10px;
+
+#bottomSection {
+    /*margin-top:50vh;*/
+    height:45vh;
+    /*width:100vw;*/
+    /*display:block;*/
+    /*border-top: 10px solid black;*/
 }
 
+
+/********** SideBar **********/
 .sidebar {
     display: inline-block;
     float: left;
     width: 75px;
     background-color: rgba(94, 182, 171, 0.756862745098039);
     border-right: 1px; 
-    height: 50vh;
-}
-
-.content{
-    float: left;
-    display: inline-block;
-    /*background-color: blue;*/
-    width:92vw;
-    margin: 0;
-    padding-left:7px;
-}
-
-.section-header > h1{
-    margin: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    margin-bottom:5px;
-    font-size:18pt;
-    font-weight: 200;
-    font-style: italic;
-}
-
-.FileDirectoryContent {
-    display: none;
+    height: 44vh;
 }
 
 .sidebar-icons{
@@ -66,8 +56,79 @@
     display:block;
 }
 
-#side-menu > li > a{
-    padding-top:0;
+.sidebarBottom {
+    background-color: rgba(169, 198, 98, 1);
+    display: block;
 }
+
+/********** Background Shading for SideBar Selections **********/
+#selected-top {
+    background-color: #4b9188;
+}
+
+
+#selected-bottom {
+    background-color: #879e4e;
+}
+
+
+
+/********** Content **********/
+.section-header > h1{
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom:5px;
+    font-size:15pt;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.content{
+    float: left;
+    display: inline-block;
+    /*background-color: blue;*/
+    width: calc(100vw - 75px);
+    margin: 0;
+    height: 44vh;
+    padding-left:10px;
+    padding-top:10px;
+    overflow: scroll;
+}
+
+#bottomSection > .content {
+    background-color: grey;
+}
+
+/********** Secondary Sections **********/
+.FileDirectoryContent {
+    display: none;
+}
+
+
+
+/********** Divider Bar **********/
+/*Divider Bar*/
+.hr {
+    text-align: center;
+    height: 45vh;
+
+}
+
+.hr > hr{
+    display: block;
+    border-width: 8px;
+    border-color: rgba(11, 72, 107, 1);
+    width: 100vw;
+    margin: 0;
+}
+
+.hr > img{
+    position: relative;
+    height: 10px;
+    top: -15px;
+}
+
+
 
 
