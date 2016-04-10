@@ -31,10 +31,14 @@
 
 #bottomSection {
     /*margin-top:50vh;*/
-    height:45vh;
+    /*height:45vh;*/
     /*width:100vw;*/
     /*display:block;*/
     /*border-top: 10px solid black;*/
+    float:left;
+    position:absolute;
+    top:50vh;
+    overflow: scroll;
 }
 
 
@@ -59,6 +63,7 @@
 .sidebarBottom {
     background-color: rgba(169, 198, 98, 1);
     display: block;
+    margin-top:5px;
 }
 
 /********** Background Shading for SideBar Selections **********/
@@ -88,7 +93,7 @@
     float: left;
     display: inline-block;
     /*background-color: blue;*/
-    width: calc(100vw - 78px);
+    width: calc(100vw - 75px);
     margin: 0;
     height: 44vh;
     padding-left:10px;
@@ -97,7 +102,7 @@
 }
 
 #bottomSection > .content {
-    background-color: grey;
+    background-color: none;
 }
 
 /********** Secondary Sections **********/
@@ -111,22 +116,25 @@
 /*Divider Bar*/
 .hr {
     text-align: center;
-    height: 45vh;
-
+    height:7px;
+    /*position:abolute;*/
+    z-index:100;
+    cursor: row-resize;
 }
 
 .hr > hr{
     display: block;
-    border-width: 8px;
+    border-width: 12px;
     border-color: rgba(11, 72, 107, 1);
     width: 100vw;
     margin: 0;
+    
 }
 
 .hr > img{
     position: relative;
-    height: 10px;
-    top: -15px;
+    height: 12px;
+    top: -17px;
 }
 
 

@@ -27,6 +27,8 @@
     <![endif]-->
 
     <link rel="stylesheet" href="css/spyro.css"/>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <script type="text/javascript" src="js/index.js"></script>
   </head>
@@ -92,11 +94,12 @@
     <!--
     TODO:
      - Need to fix sidebar "class=active" and change background color
-     - resizing the window doesn't resize the content div
+     - [FIXED] resizing the window doesn't resize the content div
+     - Roy's chrome doesn't render the tool correctly
    -->
     <div id="topSection">
-      <div class="navbar-default sidebar" role="navigation">
-          <ul class="nav nav-stacked " class="side-menu">
+      <div class="navbar-default sidebar sidebarTop" role="navigation">
+          <ul class="nav nav-stacked ">
             <li>
                 <a href="dashboard.html" id="selected-top"> <img src="./img/FamilyView.png" class="sidebar-icons"/></a>
             </li>
@@ -128,15 +131,16 @@
     TODO: 
      - if you reduce the height of the window sad things happen :( and z-index doesn't fix it 
     -->
-    <div class='hr'>
-      <hr>
-      <img src='./img/DividerGrips.png' alt=''>
-    </div>
+    
 
     <!-- BOTTOM PART -->
     <div id="bottomSection">
+      <div class="hr">
+        <hr id="divider">
+        <img src='./img/DividerGrips.png' alt=''>
+      </div>
       <div class="navbar-default sidebar sidebarBottom" role="navigation">
-          <ul class="nav nav-stacked " class="side-menu-bottom">
+          <ul class="nav nav-stacked ">
             <li>
                 <a href="dashboard.html" id="selected-bottom"> <img src="./img/BarGraph.png" class="sidebar-icons"/></a>
             </li>
