@@ -94,14 +94,14 @@
      - Need to fix sidebar "class=active" and change background color
      - resizing the window doesn't resize the content div
    -->
-    <div class="topSection">
+    <div id="topSection">
       <div class="navbar-default sidebar" role="navigation">
-          <ul class="nav nav-stacked " id="side-menu">
+          <ul class="nav nav-stacked " class="side-menu">
             <li>
-                <a href="index.html"> <img src="./img/FamilyView.png" class="sidebar-icons"/></a>
+                <a href="dashboard.html" id="selected-top"> <img src="./img/FamilyView.png" class="sidebar-icons"/></a>
             </li>
             <li>
-                <a href="index.html"> <img src="./img/FileDirectory.png" class="sidebar-icons"/></a>
+                <a href="dashboard.html"> <img src="./img/FileDirectory.png" class="sidebar-icons"/></a>
             </li>
           </ul>
       </div>
@@ -124,10 +124,45 @@
     </div>
 
 
+    <!-- 
+    TODO: 
+     - if you reduce the height of the window sad things happen :( and z-index doesn't fix it 
+    -->
+    <div class='hr'>
+      <hr>
+      <img src='./img/DividerGrips.png' alt=''>
+    </div>
+
+    <!-- BOTTOM PART -->
+    <div id="bottomSection">
+      <div class="navbar-default sidebar sidebarBottom" role="navigation">
+          <ul class="nav nav-stacked " class="side-menu-bottom">
+            <li>
+                <a href="dashboard.html" id="selected-bottom"> <img src="./img/BarGraph.png" class="sidebar-icons"/></a>
+            </li>
+            <li>
+                <a href="dashboard.html"> <img src="./img/BioGraph.png" class="sidebar-icons"/></a>
+            </li>
+          </ul>
+      </div>
+    
+
+      <div class="content">
+        <div class="FamilyViewContent">
+          <div class="section-header">
+          <h1>Data Visualization</h1>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Sprial Genetics  •  iSchool  •  Capstone 2016</p>
       </div>
     </footer>
 
