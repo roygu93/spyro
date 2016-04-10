@@ -14,6 +14,9 @@
 
 .banner-ribbon {
     background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1)); /*Safari 5.1-6*/
+    background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1)); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1)); /*Fx 3.6-15*/
     bottom: 0;
     font-style: italic;
     left: 0;
