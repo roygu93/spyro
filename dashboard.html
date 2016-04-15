@@ -27,8 +27,29 @@
     <![endif]-->
 
     <link rel="stylesheet" href="css/spyro.css"/>
-
     <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript">
+      function displayData() {
+        var buttons = document.getElementsByClassName("multiple-family-buttons");
+        var selected = [];
+
+        if(event.target.className.indexOf("active") > -1) {
+          var index = event.target.className.indexOf(" active");
+          event.target.className = event.target.className.substr(0, index);
+        } else {
+          event.target.className += " active";
+        }
+
+        for(var i = 0; i < buttons.length; i++) {
+            if(buttons[i].className.indexOf("active") > -1) {
+                selected.push(buttons[i].id);
+            }
+        }
+
+        document.getElementById("data-vis-body").innerHTML = selected;
+      }
+    </script>
   </head>
 
   <body>
@@ -106,9 +127,58 @@
       <div class="content">
         <div class="FamilyViewContent">
           <div class="section-header">
-          <h1>Family View</h1>
+            <h1>Family View</h1>
           </div>
         </div>
+         <div class="section-body" style="width: 100%; height: 100%; text-align: center;">
+            <div class="multiple-family-cards">
+                <h3>Family X</h3>
+                <div class="multiple-family-buttons" id="Family_X||Mother" onclick="displayData()">
+                  Mother
+                </div>
+                <div class="multiple-family-buttons" id="Family_X||Father" onclick="displayData()">
+                  Father
+                </div>
+                <div class="multiple-family-buttons" id="Family_X||Child" onclick="displayData()">
+                  Child
+                </div>
+            </div>
+            <div class="multiple-family-cards">
+                <h3>Family Y</h3>
+                <div class="multiple-family-buttons" id="Family_Y||Mother" onclick="displayData()">
+                  Mother
+                </div>
+                <div class="multiple-family-buttons" id="Family_Y||Father" onclick="displayData()">
+                  Father
+                </div>
+                <div class="multiple-family-buttons" id="Family_Y||Child" onclick="displayData()">
+                  Child
+                </div>
+            </div>
+            <div class="multiple-family-cards">
+                <h3>Family Z</h3>
+                <div class="multiple-family-buttons" id="Family_Z||Mother" onclick="displayData()">
+                  Mother
+                </div>
+                <div class="multiple-family-buttons" id="Family_Z||Father" onclick="displayData()">
+                  Father
+                </div>
+                <div class="multiple-family-buttons" id="Family_Z||Child" onclick="displayData()">
+                  Child
+                </div>
+            </div>
+
+            <div class="family-tree-button">
+              <li class="dropdown">
+                <a href="#" class="family-tree-button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select a Family</a>
+                <ul class="dropdown-menu">
+                  <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family X</label></li>
+                  <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family Y</label></li>
+                  <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family Z</label></li>
+                </ul>
+              </li>
+            </div>
+          </div>
 
         <div class="FileDirectoryContent">
           <div class="section-header">
@@ -146,7 +216,10 @@
       <div class="content">
         <div class="FamilyViewContent">
           <div class="section-header">
-          <h1>Data Visualization</h1>
+            <h1>Data Visualization</h1>
+            <div id="data-vis-body">
+
+            </div>
           </div>
         </div>
         

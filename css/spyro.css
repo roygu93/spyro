@@ -89,6 +89,7 @@
     display: inline-block;
     /*background-color: blue;*/
     width: calc(100vw - 78px);
+    width: 94%;
     margin: 0;
     height: 44vh;
     padding-left:10px;
@@ -104,8 +105,6 @@
 .FileDirectoryContent {
     display: none;
 }
-
-
 
 /********** Divider Bar **********/
 /*Divider Bar*/
@@ -142,4 +141,51 @@ p {
 	display: inline;
 }
 
+.multiple-family-cards {
 
+}
+
+.multiple-family-buttons {
+    background-color: #eee;
+    width: 80%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.active {
+    background-color: gray;
+}
+
+.multiple-family-cards {
+    background-color: teal; 
+    width: 15%; 
+    height: 200px; 
+    display: inline-block
+}
+
+.family-tree-button {
+    background-color: teal;
+    display: inline-block;
+    padding: 10px;
+    color: #eee;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.select-family-labels {
+    color: black;
+}
+
+.select-family-checkboxes {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.select-member-labels {
+    vertical-align: sub;
+}
