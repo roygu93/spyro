@@ -32,28 +32,6 @@
 
 
     <script type="text/javascript" src="js/index.js"></script>
-
-    <script type="text/javascript">
-      function displayData() {
-        var buttons = document.getElementsByClassName("multiple-family-buttons");
-        var selected = [];
-
-        if(event.target.className.indexOf("active") > -1) {
-          var index = event.target.className.indexOf(" active");
-          event.target.className = event.target.className.substr(0, index);
-        } else {
-          event.target.className += " active";
-        }
-
-        for(var i = 0; i < buttons.length; i++) {
-            if(buttons[i].className.indexOf("active") > -1) {
-                selected.push(buttons[i].id);
-            }
-        }
-
-        document.getElementById("data-vis-body").innerHTML = selected;
-      }
-    </script>
   </head>
 
   <body>
@@ -138,37 +116,37 @@
          <div class="section-body" style="width: 100%; height: 100%; text-align: center;">
             <div class="multiple-family-cards">
                 <h3>Family X</h3>
-                <div class="multiple-family-buttons" id="Family_X||Mother" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_x_mother">
                   Mother
                 </div>
-                <div class="multiple-family-buttons" id="Family_X||Father" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_x_father">
                   Father
                 </div>
-                <div class="multiple-family-buttons" id="Family_X||Child" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_x_child">
                   Child
                 </div>
             </div>
             <div class="multiple-family-cards">
                 <h3>Family Y</h3>
-                <div class="multiple-family-buttons" id="Family_Y||Mother" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_y_mother">
                   Mother
                 </div>
-                <div class="multiple-family-buttons" id="Family_Y||Father" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_y_father">
                   Father
                 </div>
-                <div class="multiple-family-buttons" id="Family_Y||Child" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_y_child">
                   Child
                 </div>
             </div>
             <div class="multiple-family-cards">
                 <h3>Family Z</h3>
-                <div class="multiple-family-buttons" id="Family_Z||Mother" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_z_mother">
                   Mother
                 </div>
-                <div class="multiple-family-buttons" id="Family_Z||Father" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_z_father">
                   Father
                 </div>
-                <div class="multiple-family-buttons" id="Family_Z||Child" onclick="displayData()">
+                <div class="multiple-family-buttons" id="family_z_child">
                   Child
                 </div>
             </div>
