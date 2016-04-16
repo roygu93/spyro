@@ -1,0 +1,53 @@
+.navbar-logo {
+    margin-top: -5px;
+}
+
+.banner {
+    background: url('../img/genome_sequence.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    margin-top: -20px;
+    position: relative;
+    width: inherit;
+    height: 350px;
+}
+
+.banner-ribbon {
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1)); /*Safari 5.1-6*/
+    background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1)); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1)); /*Fx 3.6-15*/
+    bottom: 0;
+    font-style: italic;
+    left: 0;
+    padding-left: 20px;
+    position: absolute;
+    width: 60%;
+    height: 60px;
+}
+
+.banner-ribbon p {
+    font-size: 30pt;
+}
+
+.info {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+}
+
+.affiliates {
+    margin-top: 30px;
+}
+
+.col-about {
+    width: 22%;
+    display: inline-block;
+}
+
+.space {
+    clear: both;
+    padding: 50px;
+}

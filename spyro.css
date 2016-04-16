@@ -1,0 +1,212 @@
+
+
+/********** Top Nav Bar **********/
+.navbar-fixed-top {
+    margin-bottom: 0;
+}
+.navbar-logo {
+    margin-top: -5px;
+}
+.nav-icons {
+    
+}
+
+.icon_links {
+    padding: 10px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border-right: 1px solid gray;
+}
+
+#download_icon, #save_icon, #refresh_icon {
+    height: 30px;
+}
+
+
+/* Jen's CSS Modification */ 
+
+/********** Sections **********/
+#topSection {
+    margin-top:50px;
+}
+
+
+#bottomSection {
+    /*margin-top:50vh;*/
+    /*height:45vh;*/
+    /*width:100vw;*/
+    /*display:block;*/
+    /*border-top: 10px solid black;*/
+    float:left;
+    position:absolute;
+    top:50vh;
+    overflow: scroll;
+}
+
+
+/********** SideBar **********/
+.sidebar {
+    display: inline-block;
+    float: left;
+    width: 75px;
+    background-color: rgba(94, 182, 171, 0.756862745098039);
+    border-right: 1px; 
+    height: 44vh;
+}
+
+.sidebar-icons{
+    width:50px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.sidebarBottom {
+    background-color: rgba(169, 198, 98, 1);
+    display: block;
+    margin-top:5px;
+}
+
+/********** Background Shading for SideBar Selections **********/
+#selected-top {
+    background-color: #4b9188;
+}
+
+
+#selected-bottom {
+    background-color: #879e4e;
+}
+
+
+
+/********** Content **********/
+.section-header > h1{
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom:5px;
+    font-size:15pt;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.content{
+    float: left;
+    display: inline-block;
+    /*background-color: blue;*/
+    /*width: calc(100vw - 78px);*/
+    width: 94%;
+    margin: 0;
+    height: 44vh;
+    padding-left:10px;
+    padding-top:10px;
+    overflow: scroll;
+}
+
+#bottomSection > .content {
+    background-color: none;
+}
+
+/********** Secondary Sections **********/
+.FileDirectoryContent {
+    display: none;
+}
+
+/********** Divider Bar **********/
+/*Divider Bar*/
+.hr {
+    text-align: center;
+    height:7px;
+    /*position:abolute;*/
+    z-index:100;
+    cursor: row-resize;
+}
+
+.hr > hr{
+    display: block;
+    border-width: 12px;
+    border-color: rgba(11, 72, 107, 1);
+    width: 100vw;
+    margin: 0;
+    
+}
+
+.hr > img{
+    position: relative;
+    height: 12px;
+    top: -17px;
+}
+
+.aboutHeader {
+	text-align: center;
+	margin:	5px;
+}
+
+.aboutBody {
+	text-align: center;	
+}
+
+p {
+	display: inline;
+}
+
+.multiple-family-cards {
+
+}
+
+.multiple-family-buttons {
+    background-color: #eee;
+    width: 80%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.active {
+    background-color: gray;
+}
+
+.multiple-family-cards {
+    background-color: teal; 
+    width: 15%; 
+    height: 200px; 
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.family-tree-button-wrap {
+    background-color: teal;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.family-tree-button {
+    color: #eee;
+}
+
+.select-family-labels {
+    color: black;
+}
+
+.select-family-checkboxes {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.select-member-labels {
+    vertical-align: sub;
+}
+
+.section-body {
+    width: 100%; 
+    height: 100%; 
+    text-align: center;
+}
