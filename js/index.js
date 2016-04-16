@@ -32,5 +32,29 @@ $(document).ready(function(){
                 
     });
 
+    $(".multiple-family-buttons").on("click", function() {
+        if(!$(this).hasClass("active")) {
+            $(this).addClass("active");
+        }
+        else {
+            $(this).removeClass("active");
+        }
 
+        var parts = $(this).attr("id").split("_");
+        var family = parts[1];
+        var member = parts[2];
+
+        displayData(family, member).success(function(d) {
+            $("#data-vis-body").append(d[0]);
+        });
+    });
 });
+
+function displayData(family, member) {
+    var endpoint = "dummy/family_" + family + "/" + member + ".json";
+
+    return $.ajax({
+        url: endpoint,
+        method: "GET"
+    });
+}
