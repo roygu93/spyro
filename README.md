@@ -1,4 +1,4 @@
-![Spyro] (https://github.com/magyk/spyro/img/SpyroOfficialLogo.png "")
+![Spyro] (./img/SpyroOfficialLogo.png "")
 INFO 491 Capstone 2016
 
 ##Problem Statement
