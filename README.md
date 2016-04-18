@@ -1,4 +1,6 @@
-![Spyro] (./img/SpyroOfficialLogo.png "")
+![Spyro] (./img/SpyroOfficialLogo.png=200x100 "")
+
+
 INFO 491 Capstone 2016
 
 ##Problem Statement
