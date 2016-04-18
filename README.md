@@ -1,4 +1,4 @@
-![Spyro] (./img/SpyroOfficialLogo.png =x100 "")
+![Spyro] (./img/SpyroOfficialLogo.png "") {:height="100px"}
 
 
 INFO 491 Capstone 2016
