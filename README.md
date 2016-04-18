@@ -1,4 +1,4 @@
-<img sr = "./img/SpyroOfficialLogo.png" style="height:100px"/>
+<img src="./img/SpyroOfficialLogo.png" height="100px"/>
 
 INFO 491 Capstone 2016
 
