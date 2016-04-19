@@ -24,4 +24,7 @@ How do we create a genetic data visualization platform for genetic researchers t
   * Bar Graph Visualization (TODO)
   * Side-by-side comparison of visualizations (in-progress)
 
-##Backend Notes
+##Backend API Notes
+The infrastructure of our application is a 38GB memory server hosted on Microsoft Azure. The server is owned by our sponsor, SpiralGenetics. SpiralGenetics has patented a custom data structure that allows them to compress a large amount of genetic data and load them into memory. In addition, they have implemented a low level API that is able to interrogate the in memory dataset, and a Python application that allows them to visualize genetic variance in the CLI.
+
+Spyro is a front end application that consumes the genetic variance data available through the low level API. However, SpiralGenetics does not have a REST API for developers to query and effectively leverage their data. Our goal is to help implement a REST API that allows them to expose their dataset through a web endpoint and returns the dataset in JSON structure that will be consumable to developers. We plan on using the data to construct a genetic variance bar chart that will make it more effective for researchers to identify coordinates of mutation.
