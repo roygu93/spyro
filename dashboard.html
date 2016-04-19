@@ -98,22 +98,21 @@
       <div class="navbar-default sidebar sidebarTop" role="navigation">
           <ul class="nav nav-stacked ">
             <li>
-                <a href="dashboard.html" id="selected-top"> <img src="./img/FamilyView.png" class="sidebar-icons"/></a>
+                <a href="#" id="family-view-icon"> <img src="./img/FamilyView.png" class="sidebar-icons"/></a>
             </li>
             <li>
-                <a href="dashboard.html"> <img src="./img/FileDirectory.png" class="sidebar-icons"/></a>
+                <a href="#" id="file-view-icon"> <img src="./img/FileDirectory.png" class="sidebar-icons"/></a>
             </li>
           </ul>
       </div>
     
 
       <div class="content">
-        <div class="FamilyViewContent">
+        <div class="FamilyViewContent" id="family-view-wrap">
           <div class="section-header">
             <h1>Family View</h1>
           </div>
-        </div>
-         <div class="section-body" style="width: 100%; height: 100%; text-align: center;">
+          <div class="section-body" style="width: 100%; height: 100%; text-align: center;">
             <div class="multiple-family-cards">
                 <h3>Family X</h3>
                 <div class="multiple-family-buttons" id="family_x_mother">
@@ -163,10 +162,39 @@
             </div>
           </div>
 
-        <div class="FileDirectoryContent">
+        </div>
+         
+        <div class="FileDirectoryContent" id="file-view-wrap">
           <div class="section-header">
-          <h1>File Directory</h1>
+            <h1>File Directory</h1>
           </div>
+
+          <table id="pcrTable" class="table table-striped">
+            <thead id="pcrTableHead">
+              <tr id="indexTableHeader">
+                <th class="tableHeading" id="tablePcrIdHeading" style="width: 35;">File Name</th>
+                <th class="tableHeading" id="tablePlatformHeading" style="width: 35%;">Family</th>
+                <th class="tableHeading" id="tableProjectHeading" style="width: 15%;">Has Disease?</th>
+                <th class="tableHeading" id="tableProjectHeading" style="width: 15%;">View Visualization</th>
+              </tr>
+            </thead>
+
+            <tbody id="indexTableBody">
+              <tr>
+                <td>Mother</td>
+                <td>Family X</td>
+                <td>No</td>
+                <td><input type="checkbox" ></td>
+              </tr>
+
+              <tr>
+                <td>Child</td>
+                <td>Family X</td>
+                <td>Yes</td>
+                <td><input type="checkbox"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         
       </div>
@@ -198,7 +226,7 @@
     
 
       <div class="content">
-        <div class="FamilyViewContent">
+        <div class="DataVizContent">
           <div class="section-header">
             <h1>Data Visualization</h1>
             <div id="data-vis-body">

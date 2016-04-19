@@ -48,6 +48,16 @@ $(document).ready(function(){
             $("#data-vis-body").append(d[0]);
         });
     });
+
+    $("#file-view-icon").on("click", function() {
+        $("#file-view-wrap").show();
+        $("#family-view-wrap").hide();
+    });
+     
+    $("#family-view-icon").on("click", function() {
+        $("#file-view-wrap").hide();
+        $("#family-view-wrap").show();
+    });
 });
 
 function displayData(family, member) {
