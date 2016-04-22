@@ -1,10 +1,12 @@
 $(document).ready(function(){
     var mouseDownOccurred = false;
 
-    $('#divider').on('mousedown', function(e){
+    $('.hr').on('mousedown', function(e){
         e.preventDefault();
         var $dragable = $('#bottomSection'),
             startHeight = $dragable.height(),
+            $topSection = $('.sidebarTop'),
+            originalTopSectionHeight = $topSection.height(),
             pY = e.pageY;
 
             mouseDownOccurred = true;
@@ -15,6 +17,7 @@ $(document).ready(function(){
                 var my = (me.pageY - pY);
                 var newHeight = startHeight - my;
                 var bottomsTop = pY + my;
+                var newTopSectionHeight = originalTopSectionHeight + my;
 
                 $dragable.css({
                     height: newHeight,
@@ -25,8 +28,16 @@ $(document).ready(function(){
                     height: newHeight
                 });
 
-                $("#bottomSection.content").css({
+                $('#bottomSection.content').css({
                     height: newHeight
+                });
+
+                $("#topSection.content").css({
+                    height:newTopSectionHeight
+                });
+
+                $(".sidebarTop").css({
+                    height:newTopSectionHeight
                 });
 
                 mouseDownOccurred = false;
