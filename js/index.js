@@ -1,33 +1,36 @@
 $(document).ready(function(){
-    $('.hr').on('mousedown', function(e){
+    var mouseDownOccurred = false;
+
+    $('#divider').on('mousedown', function(e){
+        e.preventDefault();
         var $dragable = $('#bottomSection'),
             startHeight = $dragable.height(),
             pY = e.pageY;
 
-        //NOT SURE IF I NEED THIS
-        // $(document).on('mouseup', function(e){
-        //     $(document).off('mouseup').off('mousemove');
-        // });
+            mouseDownOccurred = true;
 
         $(document).on('mouseup', function(me){
-            var my = (me.pageY - pY);
+            if (mouseDownOccurred) {
+                me.preventDefault();
+                var my = (me.pageY - pY);
+                var newHeight = startHeight - my;
+                var bottomsTop = pY + my;
 
-            var newHeight = startHeight - my;
-            var bottomsTop = pY + my;
+                $dragable.css({
+                    height: newHeight,
+                    top: bottomsTop
+                });
 
-            $dragable.css({
-                height: newHeight,
-                top: bottomsTop
-            });
+                $(".sidebarBottom").css({
+                    height: newHeight
+                });
 
-            $(".sidebarBottom").css({
-                height: newHeight
-            });
+                $("#bottomSection.content").css({
+                    height: newHeight
+                });
 
-            $("#bottomSection.content").css({
-                height: newHeight
-            });
-
+                mouseDownOccurred = false;
+            }
         });
                 
     });
