@@ -94,9 +94,9 @@
 .content{
     float: left;
     display: inline-block;
-    /*background-color: blue;*/
-    /*width: calc(100vw - 78px);*/
-    width: 94%;
+    width: 94%; /*fall-back if need be*/
+    width: calc(100vw - 78px);
+    
     margin: 0;
     height: 44vh;
     padding-left:10px;
