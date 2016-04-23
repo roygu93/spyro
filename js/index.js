@@ -73,7 +73,7 @@ $(document).ready(function(){
             var my = (me.pageY - pY);
             var newHeight = startHeight - my;
             var bottomsTop = pY + my;
-            var newTopSectionHeight = originalTopSectionHeight + my;
+            var newTopSectionHeight = originalTopSectionHeight + my + 10;
             
             $dragable.css({
                 height: newHeight,
