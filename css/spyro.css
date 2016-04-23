@@ -69,15 +69,15 @@
 }
 
 /********** Background Shading for SideBar Selections **********/
-#selected-top {
-    background-color: #4b9188;
+#family-view-icon:hover, #file-view-icon:hover, 
+#family-view-icon:active, #file-view-icon:active {
+    background-color:#4b9188;
 }
 
-
-#selected-bottom {
-    background-color: #879e4e;
+#bar-graph-viz:hover, #bio-graph-viz:hover, 
+#bar-graph-viz:visited, #bio-graph-viz:visited {
+    background-color:#879e4e;
 }
-
 
 
 /********** Content **********/
@@ -102,6 +102,10 @@
     padding-left:10px;
     padding-top:10px;
     overflow: scroll;
+}
+
+#bottomSection {
+    background-color: none;
 }
 
 #bottomSection > .content {
@@ -177,7 +181,7 @@ p {
 }
 
 .active {
-    background-color: gray;
+    background-color: grey;
 }
 
 .multiple-family-cards {

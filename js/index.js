@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var mouseDownOccurred = false;
 
+    /********** Divider Bar actions **********/
     $('.hr').on('mousedown', function(e){
         e.preventDefault();
         var $dragable = $('#bottomSection'),
@@ -44,6 +45,7 @@ $(document).ready(function(){
         });         
     });
 
+    /********** Multiple Family Tree Button Selection **********/
     $(".multiple-family-buttons").on("click", function() {
         if(!$(this).hasClass("active")) {
             $(this).addClass("active");
@@ -61,14 +63,24 @@ $(document).ready(function(){
         });
     });
 
+
+    /********** Top Section Sidebar **********/
     $("#file-view-icon").on("click", function() {
-        $("#file-view-wrap").show();
-        $("#family-view-wrap").hide();
+        if ($("#file-view-wrap").is(':visible') == false) {
+            $("#file-view-wrap").show();
+            $("#family-view-wrap").hide();
+        } else {
+            $("#file-view-wrap").hide();
+        }
     });
      
     $("#family-view-icon").on("click", function() {
-        $("#file-view-wrap").hide();
-        $("#family-view-wrap").show();
+        if ($("#family-view-wrap").is(':visible') == false) {
+            $("#family-view-wrap").show();
+            $("#file-view-wrap").hide();
+        } else {
+            $("#family-view-wrap").hide();
+        }
     });
 });
 
