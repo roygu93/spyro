@@ -49,9 +49,9 @@
     display: inline-block;
     float: left;
     width: 75px;
-    background-color: rgba(94, 182, 171, 0.756862745098039);
+    background-color: #98CBC3;
     border-right: 1px; 
-    height: 44vh;
+    height: 46vh;
 }
 
 .sidebar-icons{
@@ -63,21 +63,19 @@
 }
 
 .sidebarBottom {
-    background-color: rgba(169, 198, 98, 1);
+    background-color: #A9C662;
     display: block;
     margin-top:5px;
 }
 
 /********** Background Shading for SideBar Selections **********/
-#selected-top {
-    background-color: #4b9188;
+#family-view-icon:hover, #file-view-icon:hover {
+    background-color:#4b9188 !important;
 }
 
-
-#selected-bottom {
-    background-color: #879e4e;
+#bar-graph-viz:hover, #bio-graph-viz:hover {
+    background-color:#879e4e !important;
 }
-
 
 
 /********** Content **********/
@@ -94,14 +92,18 @@
 .content{
     float: left;
     display: inline-block;
-    /*background-color: blue;*/
-    /*width: calc(100vw - 78px);*/
-    width: 94%;
+    width: 94%; /*fall-back if need be*/
+    width: calc(100vw - 78px);
+    
     margin: 0;
-    height: 44vh;
+    height: 46vh;
     padding-left:10px;
     padding-top:10px;
     overflow: scroll;
+}
+
+#bottomSection {
+    background-color: none;
 }
 
 #bottomSection > .content {
@@ -109,13 +111,22 @@
 }
 
 /********** Secondary Sections **********/
+.FamilyViewContent {
+    display: none;
+}
+
 .FileDirectoryContent {
     display: none;
 }
 
-.FamilyViewContent {
+.BarGraphViz {
     display: none;
 }
+
+.BioGraphViz {
+    display: none;
+}
+
 
 /********** Divider Bar **********/
 /*Divider Bar*/
@@ -177,7 +188,7 @@ p {
 }
 
 .active {
-    background-color: gray;
+    background-color: grey;
 }
 
 .multiple-family-cards {

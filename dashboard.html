@@ -35,8 +35,7 @@
   </head>
 
   <body>
-
-    <!-- Fixed navbar -->
+    <!-- HEADER -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -88,12 +87,8 @@
       </div>
     </nav>
 
-    <!--
-    TODO:
-     - Need to fix sidebar "class=active" and change background color
-     - [FIXED] resizing the window doesn't resize the content div
-     - Roy's chrome doesn't render the tool correctly
-   -->
+
+   <!-- TOP SECTION -->
     <div id="topSection">
       <div class="navbar-default sidebar sidebarTop" role="navigation">
           <ul class="nav nav-stacked ">
@@ -161,7 +156,6 @@
               </li>
             </div>
           </div>
-
         </div>
          
         <div class="FileDirectoryContent" id="file-view-wrap">
@@ -200,36 +194,45 @@
       </div>
     </div>
 
-
-    <!-- 
-    TODO: 
-     - if you reduce the height of the window sad things happen :( and z-index doesn't fix it 
-    -->
-    
-
     <!-- BOTTOM PART -->
     <div id="bottomSection">
+      
+      <!-- DIVIDER -->
       <div class="hr">
         <hr id="divider">
         <img src='./img/DividerGrips.png' alt=''>
       </div>
+
+      <!-- SIDEBAR BOTTOM -->
       <div class="navbar-default sidebar sidebarBottom" role="navigation">
           <ul class="nav nav-stacked ">
             <li>
-                <a href="dashboard.html" id="selected-bottom"> <img src="./img/BarGraph.png" class="sidebar-icons"/></a>
+                <a href="#" id="bar-graph-viz"> <img src="./img/BarGraph.png" class="sidebar-icons"/></a>
             </li>
             <li>
-                <a href="dashboard.html"> <img src="./img/BioGraph.png" class="sidebar-icons"/></a>
+                <a href="#" id="bio-graph-viz"> <img src="./img/BioGraph.png" class="sidebar-icons"/></a>
             </li>
           </ul>
       </div>
     
 
       <div class="content" style="padding-top:5px; margin-top:5px">
-        <div class="DataVizContent" style="padding-top:5px">
+        <!-- BAR GRAPH VIZ -->
+        <div class="BarGraphViz" style="padding-top:5px">
           <div class="section-header">
-            <h1>Data Visualization</h1>
+            <h1>Bar Graph Visualization</h1>
             <div id="data-vis-body">
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- BIO GRAPH VIZ -->
+        <div class="BioGraphViz" style="padding-top:5px">
+          <div class="section-header">
+            <h1>Bio Graph Visualization</h1>
+            <div id="data-vis-body_2">
 
             </div>
           </div>
@@ -237,9 +240,6 @@
         
       </div>
     </div>
-
-
-
 
     <footer class="footer">
       <div class="container">
