@@ -100,20 +100,24 @@ $(document).ready(function(){
 
     /********** Multiple Family Tree Button Selection **********/
     $(".multiple-family-buttons").on("click", function() {
-        if(!$(this).hasClass("active")) {
-            $(this).addClass("active");
-        }
-        else {
-            $(this).removeClass("active");
-        }
-
         var parts = $(this).attr("id").split("_");
         var family = parts[1];
         var member = parts[2];
-
-        displayData(family, member).success(function(d) {
-            $("#data-vis-body").append(d[0]);
-        });
+        
+        if(!$(this).hasClass("active")) {
+            $(this).addClass("active");
+            var newDiv = document.createElement("div");
+            newDiv.id = family + member;
+            
+            displayData(family, member).success(function(d) {
+                newDiv.innerHTML = d[0];
+                $("#data-vis-body").append(newDiv);
+            });
+        }
+        else {
+            $(this).removeClass("active");
+            $("#" + family + member).remove();
+        }
     });
 });
 
