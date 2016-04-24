@@ -97,24 +97,55 @@ $(document).ready(function(){
             });
         });         
     });
+    
 
-    /********** Multiple Family Tree Button Selection **********/
-    $(".multiple-family-buttons").on("click", function() {
-        if(!$(this).hasClass("active")) {
-            $(this).addClass("active");
+    /********** Fetching JSON List to Populate Top View **********/
+    //TODO: NOT SURE WHY .success won't work but .fail and .always does...
+    var families, family;
+    var familyDivCardID, individualName, individualRole;
+    retrieveJSONList().always(function(data) { 
+        console.log("Retrieved JSON List");
+        // console.log(data)
+        families = data.families;
+        // console.log(families)
+        for (num in families) {
+            family = families[num];
+            // console.log(family);
+            
+            for (familyName in family) {
+                // console.log(familyName)
+                familyDivCardID = "#" + familyName;
+                $('.FamilyViewContent').find('.section-body').append("<div class='multiple-family-cards' id='" + familyName + "'></div>");
+                $(familyDivCardID).append("<h3>"+familyName + "</h3>");
+
+                for (individuals in family[familyName]) {
+                    individualName = family[familyName][individuals].firstName + " " + family[familyName][individuals].lastName;
+                    individualRole = family[familyName][individuals].role;
+                    $(familyDivCardID).append("<div class='multiple-family-buttons' id='" + familyName + "-"+ individualRole + "'> " + individualName+ " </div>");
+                }
+            }
         }
-        else {
-            $(this).removeClass("active");
-        }
 
-        var parts = $(this).attr("id").split("_");
-        var family = parts[1];
-        var member = parts[2];
+        /********** Multiple Family Tree Button OnClick Event Handler **********/
+        $(".multiple-family-buttons").on("click", function() {
+            if(!$(this).hasClass("active")) {
+                $(this).addClass("active");
+            }
+            else {
+                $(this).removeClass("active");
+            }
 
-        displayData(family, member).success(function(d) {
-            $("#data-vis-body").append(d[0]);
+            var parts = $(this).attr("id").split("-");
+            var family = parts[1];
+            var member = parts[2];
+
+            displayData(family, member).success(function(d) {
+                $("#data-vis-body").append(d[0]);
+            });
         });
     });
+
+    
 });
 
 function displayData(family, member) {
@@ -123,5 +154,13 @@ function displayData(family, member) {
     return $.ajax({
         url: endpoint,
         method: "GET"
+    });
+}
+
+function retrieveJSONList() {
+    var listOfDataPath = 'dummyRepo/ListOfData.json';
+    return $.ajax ({
+        url:listOfDataPath,
+        method:'GET'
     });
 }

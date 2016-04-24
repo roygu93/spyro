@@ -1,4 +1,4 @@
-{"families" : [
+{ "families" : [
 	{"family-x" : [
 		{"role": "father", "firstName":"John", "lastName": "Doe"},
 		{"role": "mother", "firstName":"Jane", "lastName": "Doe"},
@@ -15,5 +15,5 @@
 		{"role": "father", "firstName":"David", "lastName": "Jones"},
 		{"role": "mother", "firstName":"Elise", "lastName": "Jones"},
 		{"role": "child", "firstName":"Fay", "lastName": "Jones"}
-	]}
+	]}	
 ]}
