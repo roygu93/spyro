@@ -98,7 +98,6 @@ $(document).ready(function(){
         });         
     });
     
-
     /********** Fetching JSON List to Populate Top View **********/
     //TODO: NOT SURE WHY .success won't work but .fail and .always does...
     var families, family;
@@ -128,20 +127,24 @@ $(document).ready(function(){
 
         /********** Multiple Family Tree Button OnClick Event Handler **********/
         $(".multiple-family-buttons").on("click", function() {
-            if(!$(this).hasClass("active")) {
-                $(this).addClass("active");
-            }
-            else {
-                $(this).removeClass("active");
-            }
-
             var parts = $(this).attr("id").split("-");
             var family = parts[1];
             var member = parts[2];
-
-            displayData(family, member).success(function(d) {
-                $("#data-vis-body").append(d[0]);
-            });
+        
+            if(!$(this).hasClass("active")) {
+                $(this).addClass("active");
+                var newDiv = document.createElement("div");
+                newDiv.id = family + member;
+            
+                displayData(family, member).success(function(d) {
+                    newDiv.innerHTML = d[0];
+                    $("#data-vis-body").append(newDiv);
+                });
+            }
+            else {
+                $(this).removeClass("active");
+                $("#" + family + member).remove();
+            }            
         });
     });
 
