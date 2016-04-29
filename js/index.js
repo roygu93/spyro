@@ -157,6 +157,8 @@ function retrieveJSONList() {
     });
 }
 
+//Synchronizes buttons between Family View and File Directory so that when a family member is clicked, the 
+//same member in the other view is also clicked
 function toggleActiveButtons() {
     var parts = $(this).attr("id").split("-");
     var commonId = $(this).attr("id").split("_")[1];
@@ -195,17 +197,20 @@ function toggleActiveButtons() {
 
 function addToSelectFamilyDropDown(familyName) {
     // TODO : MIGHT NEED TO CHANGE THIS HTML STRING IF I WANT THE LABEL CLICKABLE
-    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' class='select-family-checkboxes'/>" + familyName + "</label></li>";
+    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' class='select-family-checkboxes select-"+ familyName +"'/>" + familyName + "</label></li>";
     $('.family-tree-button').find('.dropdown-menu').append(htmlString);
 }
 
 
 function displayFamilyCard(htmlElement){
-    var familyName = "#" + htmlElement.innerText;
+    var familyName =  htmlElement.innerText;
+    
     if(htmlElement.children[0].checked) {
-        $(familyName).css("display", "inline-block");    
+        $('.select-' + familyName).attr("checked", true);
+        $('#' + familyName).css("display", "inline-block");    
     } else{
-        $(familyName).css("display", "none");
+        $('.select-' + familyName).attr("checked", false);
+        $('#' + familyName).css("display", "none");
     }
     
 }

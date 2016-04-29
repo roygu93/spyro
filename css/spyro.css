@@ -149,6 +149,18 @@
     background-color: white;
 }
 
+.family-view-initial-msg {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.initial-msg {
+    line-height: 35px;   
+}
+
 /********** Secondary Sections **********/
 .FamilyViewContent {
     display: none;
