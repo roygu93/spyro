@@ -187,6 +187,8 @@ function toggleActiveButtons() {
     // TODO: need to hide and display default no viz message when no individuals are selected
     if($("#bottomSection").find(".BarGraphViz").css("display") == "none"){
         $("#bottomSection").find(".BarGraphViz").show()
+        $("#bar-graph-viz").css('background-color', '#879e4e'); //darken 
+        $("#bio-graph-viz").css('background-color', '#A9C662'); //reset 
     }
 
 }
