@@ -223,7 +223,10 @@ p {
     margin-bottom: 10px;
     cursor: pointer;
     font-weight: bold;
-    padding-top: -5px;
+    /*Text Alignment*/
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
 }
 
 .fileview-buttons {
