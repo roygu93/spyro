@@ -107,21 +107,21 @@
         <div class="FamilyViewContent">
           <div class="section-header">
             <h1>Family View</h1>
+
+            <!-- FAMILY SELECTION DROPDOWN -->
+            <div class="family-tree-button">
+                <li class="dropdown">
+                  <a href="#" class="family-tree-button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select a Family</a>
+                  <ul class="dropdown-menu">
+                    <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family X</label></li>
+                    <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family Y</label></li>
+                    <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family Z</label></li>
+                  </ul>
+                </li>
+            </div>
           </div>
           <div class="section-body" style="width: 100%; height: 100%; text-align: center;">
             <!-- Will Populate -->
-          </div>
-
-          <!-- FAMILY SELECTION -->
-          <div class="family-tree-button">
-              <li class="dropdown">
-                <a href="#" class="family-tree-button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select a Family</a>
-                <ul class="dropdown-menu">
-                  <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family X</label></li>
-                  <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family Y</label></li>
-                  <li><label class="select-family-labels"><input type="checkbox" class="select-family-checkboxes"/>Family Z</label></li>
-                </ul>
-              </li>
           </div>
         </div>         
 
@@ -192,10 +192,12 @@
         <div class="BarGraphViz" style="padding-top:5px">
           <div class="section-header">
             <h1>Bar Graph Visualization</h1>
-            <div id="data-vis-body">
-
-            </div>
           </div>
+
+          <div id="data-vis-body">
+            <!-- Will Populate When Selection in Top Section -->
+          </div>
+          
         </div>
 
 

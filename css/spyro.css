@@ -79,7 +79,7 @@
 
 
 /********** Content **********/
-.section-header > h1{
+.section-header{
     margin: 0;
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
@@ -88,6 +88,45 @@
     font-weight: 200;
     font-style: italic;
 }
+
+.section-header > h1{
+    margin: 0;
+    padding-bottom: 5px;
+    margin-bottom:5px;
+    font-size:15pt;
+    font-weight: 200;
+    font-style: italic;
+    display:inline;
+}
+
+/********** Select Family Tree Dropdown **********/
+.family-tree-button-wrap {
+    background-color: teal;
+    /*display: inline-block;*/
+    display:inline;
+    float:right;
+    padding: 10px;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.family-tree-button {
+    color: #eee;
+    display:inline;
+    float:right;
+    margin-right:5px;
+}
+
+.select-family-labels {
+    color: black;
+}
+
+.select-family-checkboxes {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+
 
 .content{
     float: left;
@@ -213,26 +252,6 @@ p {
     margin-right: 15px;
 }
 
-.family-tree-button-wrap {
-    background-color: teal;
-    display: inline-block;
-    padding: 10px;
-    cursor: pointer;
-    vertical-align: top;
-}
-
-.family-tree-button {
-    color: #eee;
-}
-
-.select-family-labels {
-    color: black;
-}
-
-.select-family-checkboxes {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-}
 
 .select-member-labels {
     vertical-align: sub;
