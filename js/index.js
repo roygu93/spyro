@@ -182,6 +182,13 @@ function toggleActiveButtons() {
 
         $("#" + family + member).remove();
     } 
+
+    // If the Bar Graph Visualization div is not currently displaying then display it
+    // TODO: need to hide and display default no viz message when no individuals are selected
+    if($("#bottomSection").find(".BarGraphViz").css("display") == "none"){
+        $("#bottomSection").find(".BarGraphViz").show()
+    }
+
 }
 
 function addToSelectFamilyDropDown(familyName) {
