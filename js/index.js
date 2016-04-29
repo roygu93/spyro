@@ -116,6 +116,7 @@ $(document).ready(function(){
                 familyDivCardID = "#" + familyName;
                 $('.FamilyViewContent').find('.section-body').append("<div class='multiple-family-cards' id='" + familyName + "'></div>");
                 $(familyDivCardID).append("<h3>" + familyName + "</h3>");
+                addToSelectFamilyDropDown(familyName);
 
                 for (individuals in family[familyName]) {
                     individualName = family[familyName][individuals].firstName + " " + family[familyName][individuals].lastName;
@@ -136,7 +137,6 @@ $(document).ready(function(){
         /********** File View Button OnClick Event Handler **********/
         $(".fileview-buttons").on("click", toggleActiveButtons);
     });
-
     
 });
 
@@ -183,3 +183,21 @@ function toggleActiveButtons() {
         $("#" + family + member).remove();
     } 
 }
+
+function addToSelectFamilyDropDown(familyName) {
+    // TODO : MIGHT NEED TO CHANGE THIS HTML STRING IF I WANT THE LABEL CLICKABLE
+    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' class='select-family-checkboxes'/>" + familyName + "</label></li>";
+    $('.family-tree-button').find('.dropdown-menu').append(htmlString);
+}
+
+
+function displayFamilyCard(htmlElement){
+    var familyName = "#" + htmlElement.innerText;
+    if(htmlElement.children[0].checked) {
+        $(familyName).css("visibility", "visible");    
+    } else{
+        $(familyName).css("visibility", "hidden");
+    }
+    
+}
+
