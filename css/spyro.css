@@ -82,7 +82,7 @@
 .section-header{
     margin: 0;
     border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    padding-bottom: 12px;
     margin-bottom:5px;
     font-size:15pt;
     font-weight: 200;
@@ -100,21 +100,20 @@
 }
 
 /********** Select Family Tree Dropdown **********/
-.family-tree-button-wrap {
-    background-color: teal;
-    /*display: inline-block;*/
+.family-tree-button {
     display:inline;
     float:right;
-    padding: 10px;
-    cursor: pointer;
+    margin-right:7px;
+    background-color:white;
     vertical-align: top;
+    font-style:normal;
 }
 
-.family-tree-button {
-    color: #eee;
-    display:inline;
-    float:right;
-    margin-right:5px;
+.family-tree-button:hover, .family-tree-button:focus{
+    background-color:white;
+    outline:none;
+    border-color: #8c8c8c;
+    
 }
 
 .select-family-labels {
@@ -224,7 +223,7 @@ p {
     margin-bottom: 10px;
     cursor: pointer;
     font-weight: bold;
-    padding-top: 5px;
+    padding-top: -5px;
 }
 
 .fileview-buttons {
