@@ -115,37 +115,26 @@ $(document).ready(function(){
                 // console.log(familyName)
                 familyDivCardID = "#" + familyName;
                 $('.FamilyViewContent').find('.section-body').append("<div class='multiple-family-cards' id='" + familyName + "'></div>");
-                $(familyDivCardID).append("<h3>"+familyName + "</h3>");
+                $(familyDivCardID).append("<h3>" + familyName + "</h3>");
 
                 for (individuals in family[familyName]) {
                     individualName = family[familyName][individuals].firstName + " " + family[familyName][individuals].lastName;
                     individualRole = family[familyName][individuals].role;
-                    $(familyDivCardID).append("<div class='multiple-family-buttons' id='" + familyName + "-"+ individualRole + "'> " + individualName+ " </div>");
+                    $(familyDivCardID).append("<div class='multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualName+ " </div>");
+                    
+                    $('.FileDirectoryContent').find('#dashboardTableBody').append("<tr id='fileview-" + familyName + "-" + individualRole + "'></tr>");
+                    $("#fileview-" + familyName + "-" + individualRole).append("<td>" + individualName + "</td> <td>" + familyName + "</td> <td> " + individualRole + 
+                                "</td><td><div id='fileview_" + familyName + "-" + individualRole + "' class='fileview-buttons'></div>");
+                    
                 }
             }
         }
 
         /********** Multiple Family Tree Button OnClick Event Handler **********/
-        $(".multiple-family-buttons").on("click", function() {
-            var parts = $(this).attr("id").split("-");
-            var family = parts[1];
-            var member = parts[2];
+        $(".multiple-family-buttons").on("click", toggleActiveButtons);
         
-            if(!$(this).hasClass("active")) {
-                $(this).addClass("active");
-                var newDiv = document.createElement("div");
-                newDiv.id = family + member;
-            
-                displayData(family, member).success(function(d) {
-                    newDiv.innerHTML = d[0];
-                    $("#data-vis-body").append(newDiv);
-                });
-            }
-            else {
-                $(this).removeClass("active");
-                $("#" + family + member).remove();
-            }            
-        });
+        /********** File View Button OnClick Event Handler **********/
+        $(".fileview-buttons").on("click", toggleActiveButtons);
     });
 
     
@@ -166,4 +155,31 @@ function retrieveJSONList() {
         url:listOfDataPath,
         method:'GET'
     });
+}
+
+function toggleActiveButtons() {
+    var parts = $(this).attr("id").split("-");
+    var commonId = $(this).attr("id").split("_")[1];
+    var family = parts[1];
+    var member = parts[2];
+
+
+    if(!$("#mfamilyview_" + commonId).hasClass("active") && !$("#fileview_" + commonId).hasClass("active")) {
+        $('#mfamilyview_' + commonId).addClass("active");
+        $("#fileview_" + commonId).addClass("active");
+
+        var newDiv = document.createElement("div");
+        newDiv.id = family + member;
+
+        displayData(family, member).success(function(d) {
+            newDiv.innerHTML = d[0];
+            $("#data-vis-body").append(newDiv);
+        });
+    }
+    else {
+        $("#mfamilyview_" + commonId).removeClass("active");
+        $("#fileview_" + commonId).removeClass("active");
+
+        $("#" + family + member).remove();
+    } 
 }
