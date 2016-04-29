@@ -194,9 +194,9 @@ function addToSelectFamilyDropDown(familyName) {
 function displayFamilyCard(htmlElement){
     var familyName = "#" + htmlElement.innerText;
     if(htmlElement.children[0].checked) {
-        $(familyName).css("visibility", "visible");    
+        $(familyName).css("display", "inline-block");    
     } else{
-        $(familyName).css("visibility", "hidden");
+        $(familyName).css("display", "none");
     }
     
 }
