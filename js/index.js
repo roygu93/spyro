@@ -206,11 +206,19 @@ function displayFamilyCard(htmlElement){
     var familyName =  htmlElement.innerText;
     
     if(htmlElement.children[0].checked) {
-        $('.select-' + familyName).attr("checked", true);
+        $('.select-' + familyName).prop("checked", true);
         $('#' + familyName).css("display", "inline-block");    
     } else{
-        $('.select-' + familyName).attr("checked", false);
+        $('.select-' + familyName).prop("checked", false);
         $('#' + familyName).css("display", "none");
+    }
+    
+    if($(".select-family-checkboxes:checked").length != 0) {
+        $(".family-view-initial-msg").hide();
+        $(".FamilyViewContent").show();
+    } else {
+        $(".family-view-initial-msg").show();
+        $(".FamilyViewContent").hide();
     }
     
 }
