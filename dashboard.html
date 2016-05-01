@@ -14,11 +14,12 @@
     <!-- Bootstrap core CSS -->
     <link href="vendors/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendors/bootstrap-3.3.6-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+      
    <!--  <link href="navbar-static-top.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
     <link href="vendors/bootstrap-3.3.6-dist/css/sticky-footer-navbar.css" rel="stylesheet">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="vendors/bootstrap-3.3.6-dist/js/ie-emulation-modes-warning.js"></script>
     <!--[if lt IE 9]>
@@ -27,14 +28,19 @@
     <![endif]-->
 
     <link rel="stylesheet" href="css/spyro.css"/>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-
+      
+      
+  
 
     <script type="text/javascript" src="js/index.js"></script>
+      
+
+      
   </head>
 
   <body>
+      
+      
     <!-- HEADER -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container" style="width:98vw">
@@ -87,7 +93,7 @@
       </div>
     </nav>
 
-
+      
    <!-- TOP SECTION -->
     <div id="topSection">
       <div class="navbar-default sidebar sidebarTop" role="navigation">
@@ -147,10 +153,10 @@
           <table id="dashboardTable" class="table table-striped">
             <thead id="dashboardTableHead">
               <tr id="dashboardTableHeader">
-                <th class="tableHeading" id="tablePcrIdHeading" style="width: 35;">File Name</th>
-                <th class="tableHeading" id="tablePlatformHeading" style="width: 35%;">Family</th>
-                <th class="tableHeading" id="tableProjectHeading" style="width: 15%;">Role</th>
-                <th class="tableHeading" id="tableProjectHeading" style="width: 15%;">View Visualization</th>
+                <th class="tableHeading" id="file-view-header-file-name" style="width: 35;">File Name</th>
+                <th class="tableHeading" id="file-view-header-family-name" style="width: 35%;">Family</th>
+                <th class="tableHeading" id="file-view-header-infected" style="width: 15%;">Role</th>
+                <th class="tableHeading" id="file-view-header-visualized" style="width: 15%;">View Visualization</th>
               </tr>
             </thead>
 
@@ -241,5 +247,7 @@
     <script src="vendors/bootstrap-3.3.6-dist//js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="vendors/bootstrap-3.3.6-dist//js/ie10-viewport-bug-workaround.js"></script>
+      <!-- Table Sorter library-->
+      <script type="text/javascript" src="tablesorter/jquery.tablesorter.js"></script> 
   </body>
 </html>
