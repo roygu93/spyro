@@ -98,6 +98,7 @@ $(document).ready(function(){
         });         
     });
     
+    
     /********** Fetching JSON List to Populate Top View **********/
     //TODO: NOT SURE WHY .success won't work but .fail and .always does...
     var families, family;
@@ -123,21 +124,23 @@ $(document).ready(function(){
                     individualRole = family[familyName][individuals].role;
                     $(familyDivCardID).append("<div class='multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualName+ " </div>");
                     
-                    $('.FileDirectoryContent').find('#dashboardTableBody').append("<tr id='fileview-" + familyName + "-" + individualRole + "'></tr>");
-                    $("#fileview-" + familyName + "-" + individualRole).append("<td>" + individualName + "</td> <td>" + familyName + "</td> <td> " + individualRole + 
-                                "</td><td><div id='fileview_" + familyName + "-" + individualRole + "' class='fileview-buttons'></div>");
+                    $('.FileDirectoryContent').find('#dashboardTableBody').append("<tr id='fileview_" + familyName + "-" + individualRole + "' class='fileview-table-rows'></tr>");
+                    $("#fileview_" + familyName + "-" + individualRole).append("<td>" + individualName + "</td> <td>" + familyName + "</td> <td> " + individualRole + 
+                                "</td><td><div class='fileview-checkmark'></div>");
                     
                 }
             }
         }
-
+        
         /********** Multiple Family Tree Button OnClick Event Handler **********/
         $(".multiple-family-buttons").on("click", toggleActiveButtons);
         
         /********** File View Button OnClick Event Handler **********/
-        $(".fileview-buttons").on("click", toggleActiveButtons);
+        $(".fileview-table-rows").on("click", toggleActiveButtons);
+        
+        $("#dashboardTable").tablesorter();
     });
-    
+
 });
 
 function displayData(family, member) {
@@ -166,9 +169,10 @@ function toggleActiveButtons() {
     var member = parts[2];
 
 
-    if(!$("#mfamilyview_" + commonId).hasClass("active") && !$("#fileview_" + commonId).hasClass("active")) {
-        $('#mfamilyview_' + commonId).addClass("active");
-        $("#fileview_" + commonId).addClass("active");
+    if(!$("#mfamilyview_" + commonId).hasClass("clicked") && !$("#fileview_" + commonId).hasClass("clicked")) {
+        $('#mfamilyview_' + commonId).addClass("clicked");
+        $("#fileview_" + commonId).addClass("clicked");
+        $("#fileview_" + commonId).find(".fileview-checkmark").show();
 
         var newDiv = document.createElement("div");
         newDiv.id = family + member;
@@ -179,8 +183,9 @@ function toggleActiveButtons() {
         });
     }
     else {
-        $("#mfamilyview_" + commonId).removeClass("active");
-        $("#fileview_" + commonId).removeClass("active");
+        $("#mfamilyview_" + commonId).removeClass("clicked");
+        $("#fileview_" + commonId).removeClass("clicked");
+        $("#fileview_" + commonId).find(".fileview-checkmark").hide();
 
         $("#" + family + member).remove();
     } 
