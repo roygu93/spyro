@@ -1,7 +1,20 @@
 $(document).ready(function(){
     var mouseDownOccurred = false;
+    $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
 
     /********** Top Section Sidebar **********/
+    $("#family-view-icon").on("click", function() {
+        if ($(".FamilyViewContent").is(':visible') == false) {
+            $(".FamilyViewContent").show();
+            $(".FileDirectoryContent").hide();
+            $("#family-view-icon").css('background-color', '#4b9188'); //darken
+            $("#file-view-icon").css('background-color', '#98CBC3'); //reset
+        } else {
+            $(".FamilyViewContent").hide();
+            $("#family-view-icon").css('background-color', '#98CBC3'); //reset
+        }
+    });
+
     $("#file-view-icon").on("click", function() {
         if ($(".FileDirectoryContent").is(':visible') == false) {
             $(".FileDirectoryContent").show();
@@ -12,18 +25,6 @@ $(document).ready(function(){
             $(".FileDirectoryContent").hide();
             $("#file-view-icon").css('background-color', '#98CBC3'); //reset
 
-        }
-    });
-     
-    $("#family-view-icon").on("click", function() {
-        if ($(".FamilyViewContent").is(':visible') == false) {
-            $(".FamilyViewContent").show();
-            $(".FileDirectoryContent").hide();
-            $("#family-view-icon").css('background-color', '#4b9188'); //darken
-            $("#file-view-icon").css('background-color', '#98CBC3'); //reset
-        } else {
-            $(".FamilyViewContent").hide();
-            $("#family-view-icon").css('background-color', '#98CBC3'); //reset
         }
     });
 
@@ -145,7 +146,6 @@ $(document).ready(function(){
 
 function displayData(family, member) {
     var endpoint = "dummy/family_" + family + "/" + member + ".json";
-
     return $.ajax({
         url: endpoint,
         method: "GET"
@@ -201,29 +201,25 @@ function toggleActiveButtons() {
 }
 
 function addToSelectFamilyDropDown(familyName) {
-    // TODO : MIGHT NEED TO CHANGE THIS HTML STRING IF I WANT THE LABEL CLICKABLE
-    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' class='select-family-checkboxes select-"+ familyName +"'/>" + familyName + "</label></li>";
-    $('.family-tree-button').find('.dropdown-menu').append(htmlString);
+    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' class='select-family-checkboxes'/>" + familyName + "</label></li>";
+    $('#selectFamily').find('.familyDropdown').append(htmlString);
+    // TODO: Fix overflow height issue
 }
 
 
 function displayFamilyCard(htmlElement){
-    var familyName =  htmlElement.innerText;
+    var familyName =  "#" + htmlElement.innerText;
     
     if(htmlElement.children[0].checked) {
-        $('.select-' + familyName).prop("checked", true);
-        $('#' + familyName).css("display", "inline-block");    
+        $(familyName).css("display", "inline-block");
     } else{
-        $('.select-' + familyName).prop("checked", false);
-        $('#' + familyName).css("display", "none");
+         $(familyName).css("display", "none");
     }
     
     if($(".select-family-checkboxes:checked").length != 0) {
         $(".family-view-initial-msg").hide();
-        $(".FamilyViewContent").show();
     } else {
         $(".family-view-initial-msg").show();
-        $(".FamilyViewContent").hide();
     }
     
 }
