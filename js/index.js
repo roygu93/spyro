@@ -217,9 +217,9 @@ function displayFamilyCard(htmlElement){
     }
     
     if($(".select-family-checkboxes:checked").length != 0) {
-        $(".family-view-initial-msg").hide(); //TODO: MODIFY
+        $(".family-view-initial-msg").hide();
     } else {
-        $(".family-view-initial-msg").show(); //TODO: MODIFY
+        $(".family-view-initial-msg").show();
     }
     
 }
