@@ -103,7 +103,7 @@ $(document).ready(function(){
     /********** Fetching JSON List to Populate Top View **********/
     //TODO: NOT SURE WHY .success won't work but .fail and .always does...
     var families, family;
-    var familyDivCardID, individualName, individualRole;
+    var familyDivCardID, individualName, individualRole, infected;
     retrieveJSONList().always(function(data) { 
         console.log("Retrieved JSON List");
         // console.log(data)
@@ -121,13 +121,14 @@ $(document).ready(function(){
                 addToSelectFamilyDropDown(familyName);
 
                 for (individuals in family[familyName]) {
-                    individualName = family[familyName][individuals].firstName + " " + family[familyName][individuals].lastName;
+                    //individualName = family[familyName][individuals].firstName + " " + family[familyName][individuals].lastName;
                     individualRole = family[familyName][individuals].role;
-                    $(familyDivCardID).append("<div class='multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualName+ " </div>");
+                    infected = family[familyName][individuals].infected;
+                    
+                    $(familyDivCardID).append("<div class='multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualRole + " </div>");
                     
                     $('.FileDirectoryContent').find('#dashboardTableBody').append("<tr id='fileview_" + familyName + "-" + individualRole + "' class='fileview-table-rows'></tr>");
-                    $("#fileview_" + familyName + "-" + individualRole).append("<td>" + individualName + "</td> <td>" + familyName + "</td> <td> " + individualRole + 
-                                "</td><td><div class='fileview-checkmark'></div>");
+                    $("#fileview_" + familyName + "-" + individualRole).append("<td><div class='fileview-checkmark'></div><td>" + individualRole + "</td> <td>" + familyName + "</td> <td> " + infected + "</td>");
                     
                 }
             }
