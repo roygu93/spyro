@@ -23,8 +23,6 @@
 }
 
 
-/* Jen's CSS Modification */ 
-
 /********** Sections **********/
 #topSection {
     margin-top:50px;
@@ -82,7 +80,8 @@
 .section-header{
     margin: 0;
     border-bottom: 1px solid #eee;
-    padding-bottom: 12px;
+    padding-bottom: 5px;
+    margin-top:10px;
     margin-bottom:5px;
     font-size:15pt;
     font-weight: 200;
@@ -100,22 +99,6 @@
 }
 
 /********** Select Family Tree Dropdown **********/
-.family-tree-button {
-    display:inline;
-    float:right;
-    margin-right:7px;
-    background-color:white;
-    vertical-align: top;
-    font-style:normal;
-}
-
-.family-tree-button:hover, .family-tree-button:focus{
-    background-color:white;
-    outline:none;
-    border-color: #8c8c8c;
-    
-}
-
 .select-family-labels {
     color: black;
 }
@@ -124,8 +107,6 @@
     margin-left: 10px !important;
     margin-right: 10px !important;
 }
-
-
 
 .content{
     float: left;
@@ -136,7 +117,7 @@
     margin: 0;
     height: 46vh;
     padding-left:10px;
-    padding-top:10px;
+    /*margin-top:10px;*/
     overflow: scroll;
     position: absolute;
 }
@@ -149,79 +130,42 @@
     background-color: white;
 }
 
-.family-view-initial-msg {
-    width: 50%;
-    height: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-}
 
-.initial-msg {
-    line-height: 35px;   
-}
-
-/********** Secondary Sections **********/
+/********** Family View Section **********/
 .FamilyViewContent {
-    display: none;
+    height:100%;
 }
 
-.FileDirectoryContent {
-    display: none;
+.FamilyViewContent > .section-header,
+.FamilyViewContent > .section-body {
+    width: 85%;
+    display:inline-block;
 }
 
-.BarGraphViz {
-    display: none;
-}
-
-.BioGraphViz {
-    display: none;
-}
-
-
-/********** Divider Bar **********/
-/*Divider Bar*/
-.hr {
+/* Select Family Sidebar */
+#selectFamily {
+    width:14.9%;
+    height:100%;
+    background-color: rgba(238,238,238, 0.5);
+    float:right;
+    border-left: 5px solid #eeeeee;
     text-align: center;
-    height:7px;
-    /*position:abolute;*/
-    z-index:100;
-    cursor: row-resize;
 }
 
-.hr > hr{
-    display: block;
-    border-width: 12px;
-    border-color: rgba(11, 72, 107, 1);
-    width: 100vw;
-    margin: 0;
-    
+.familyDropdown {
+    list-style-type: none;
+    padding:0;
+    overflow:scroll;
+
 }
 
-.hr > img{
-    position: relative;
-    height: 12px;
-    top: -17px;
-}
+.section-body {
+    width: 100%; 
+    height: 100%; 
+    text-align: center;
+ }
 
-
-/**** Roy's CSS Additions ****/
-/* About Page */
-.aboutHeader {
-	text-align: center;
-	margin:	5px;
-}
-
-.aboutBody {
-	text-align: center;	
-}
-
-p {
-	display: inline;
-}
-
-
-/* Top View - Multiple Family View */
+/* Multiple Family Cards */
 .multiple-family-buttons {
     background-color: #eee;
     width: 80%;
@@ -271,17 +215,79 @@ p {
     margin-right: 15px;
 }
 
-
 .select-member-labels {
     vertical-align: sub;
 }
 
-/**** Top View - File Directory ****/
-.section-body {
-    width: 100%; 
-    height: 100%; 
+/* Initial Family View Prompt */
+.family-view-initial-msg {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.initial-msg {
+    line-height: 35px;   
+    font-weight: 200;
+    /*font-style:italic;*/
+}
+
+
+
+/********** File Directory **********/
+.FileDirectoryContent {
+    display: none;
+}
+
+.BarGraphViz {
+    display: none;
+}
+
+.BioGraphViz {
+    display: none;
+}
+
+
+/********** Divider Bar **********/
+.hr {
     text-align: center;
- }
+    height:7px;
+    /*position:abolute;*/
+    z-index:100;
+    cursor: row-resize;
+}
+
+.hr > hr{
+    display: block;
+    border-width: 12px;
+    border-color: rgba(11, 72, 107, 1);
+    width: 100vw;
+    margin: 0;
+    
+}
+
+.hr > img{
+    position: relative;
+    height: 12px;
+    top: -17px;
+}
+
+
+/********** About Page **********/
+.aboutHeader {
+	text-align: center;
+	margin:	5px;
+}
+
+.aboutBody {
+	text-align: center;	
+}
+
+p {
+	display: inline;
+}
 
 .spyro-header {
     font-size: 20px;

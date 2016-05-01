@@ -109,37 +109,31 @@
     
 
       <div class="content">
-        
-        <!-- FAMILY VIEW INITIAL MESSAGE -->  
-        <div class="family-view-initial-msg">
-            <p class="initial-msg">There are no families currently selected</p>
-            <!-- FAMILY SELECTION DROPDOWN -->
-            <div class="family-tree-button dropdown">
-              <button class="btn btn-default dropdown-toggle family-tree-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Select a Family <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <!-- will populate when we've retrieved the list of files -->
-              </ul>
-            </div>
-        </div>
           
         <!-- FAMILY VIEW -->
         <div class="FamilyViewContent">
             
           <div class="section-header">
             <h1>Family View</h1>
+          </div>
 
-            <!-- FAMILY SELECTION DROPDOWN -->
-            <div class="family-tree-button dropdown">
-              <button class="btn btn-default dropdown-toggle family-tree-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Select a Family <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <!-- will populate when we've retrieved the list of files -->
-              </ul>
+          <!-- SELECT FAMILY RIGHT SIDE BAR -->
+          <div id="selectFamily">
+            <div class="section-header">
+              <h1>Select Family</h1>
             </div>
+            <ul class="familyDropdown">
+                <!-- will populate when we've retrieved the list of files -->
+            </ul>
           </div>
 
           <!-- MULTIPLE FAMILY DIVS WILL POPULATE HERE -->
-          <div class="section-body" style="width: 100%; height: 100%; text-align: center;">
-            <!-- Will Populate -->
+          <div class="section-body">
+            <!-- FAMILY VIEW INITIAL MESSAGE -->  
+            <div class="family-view-initial-msg">
+              <h3 class="initial-msg">There are no families currently selected. <br/> Please select a family on the right &#8594; </h3>
+            </div>
+            <!-- Will Populate with available individuals to view -->
           </div>
         </div>         
 
@@ -161,21 +155,7 @@
             </thead>
 
             <tbody id="dashboardTableBody">
-<!--
-              <tr>
-                <td>Mother</td>
-                <td>Family X</td>
-                <td>No</td>
-                <td><input type="checkbox" ></td>
-              </tr>
-
-              <tr>
-                <td>Child</td>
-                <td>Family X</td>
-                <td>Yes</td>
-                <td><input type="checkbox"></td>
-              </tr>
--->
+              <!-- WILL POPULATE FROM JSON FILE -->
             </tbody>
           </table>
         </div>
