@@ -38,7 +38,7 @@
     float:left;
     position:absolute;
     top:50vh;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 
@@ -242,15 +242,16 @@
 }
 
 .fileview-checkmark {
-    background-image: url("../img/checkmark.png");
+    /*background-image: url("../img/checkmark.png");*/
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 30px; 
-    width: 80%;
-    height: 20px;
+    background-color: white;
+    background-size: 25px; 
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
     margin: 0;
     cursor: pointer;
-    display: none;
 }
 
 .tableHeading {
@@ -300,3 +301,16 @@ p {
     font-size: 20px;
 }
 
+/********** Biograph Data ***********/
+.biograph-data {
+    background-color: lightblue;
+    width: 400px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.biograph-headers {
+    background-color: lightgreen;
+    text-align: center;
+    padding: 10px;
+}

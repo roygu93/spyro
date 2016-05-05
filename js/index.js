@@ -121,7 +121,6 @@ $(document).ready(function(){
                 addToSelectFamilyDropDown(familyName);
 
                 for (individuals in family[familyName]) {
-                    //individualName = family[familyName][individuals].firstName + " " + family[familyName][individuals].lastName;
                     individualRole = family[familyName][individuals].role;
                     infected = family[familyName][individuals].infected;
                     
@@ -173,20 +172,25 @@ function toggleActiveButtons() {
     if(!$("#mfamilyview_" + commonId).hasClass("clicked") && !$("#fileview_" + commonId).hasClass("clicked")) {
         $('#mfamilyview_' + commonId).addClass("clicked");
         $("#fileview_" + commonId).addClass("clicked");
-        $("#fileview_" + commonId).find(".fileview-checkmark").show();
+        $("#fileview_" + commonId).find(".fileview-checkmark").css("background-image", "url('img/checkmark.png')");
 
         var newDiv = document.createElement("div");
         newDiv.id = family + member;
+        newDiv.className = "biograph-data";
 
         displayData(family, member).success(function(d) {
             newDiv.innerHTML = d[0];
-            $("#data-vis-body").append(newDiv);
+            $("#data-vis-body").append("<div id='" + family + member + "' class='biograph-data'> <div class='biograph-headers'>" + member + " - Famiy-" + family + "</div>" + d[0] + " </div>");
+            
+            //adjust width of 'data-vis-body' to hold all data horizontally
+            var setWidth = $(".biograph-data").length * 420;
+            $("#data-vis-body").width(setWidth + "px");
         });
     }
     else {
         $("#mfamilyview_" + commonId).removeClass("clicked");
         $("#fileview_" + commonId).removeClass("clicked");
-        $("#fileview_" + commonId).find(".fileview-checkmark").hide();
+        $("#fileview_" + commonId).find(".fileview-checkmark").css("background-image", "none");
 
         $("#" + family + member).remove();
     } 
