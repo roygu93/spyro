@@ -1,19 +1,19 @@
 { "families" : [
 	{"family-x" : [
-		{"role": "father", "firstName":"John", "lastName": "Doe"},
-		{"role": "mother", "firstName":"Jane", "lastName": "Doe"},
-		{"role": "child", "firstName":"Anne", "lastName": "Doe"}
+		{"infected":"No", "role": "Father", "lastName": ""},
+		{"infected":"No", "role": "Mother", "lastName": ""},
+		{"infected":"No", "role": "Child", "lastName": ""}
 	]},
 
 	{"family-y" : [
-		{"role": "father", "firstName":"Xavier", "lastName": "Smith"},
-		{"role": "mother", "firstName":"Yolanda", "lastName": "Smith"},
-		{"role": "child", "firstName":"Zen", "lastName": "Smith"}
+		{"infected":"No", "role": "Father", "lastName": ""},
+		{"infected":"Yes", "role": "Mother", "lastName": ""},
+		{"infected":"No", "role": "Child", "lastName": ""}
 	]},
 
 	{"family-z" : [
-		{"role": "father", "firstName":"David", "lastName": "Jones"},
-		{"role": "mother", "firstName":"Elise", "lastName": "Jones"},
-		{"role": "child", "firstName":"Fay", "lastName": "Jones"}
+		{"infected":"No", "role": "Father", "lastName": ""},
+		{"infected":"No", "role": "Mother", "lastName": ""},
+		{"infected":"Yes", "role": "Child", "lastName": ""}
 	]}	
 ]}

@@ -38,7 +38,7 @@
     float:left;
     position:absolute;
     top:50vh;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 
@@ -181,29 +181,12 @@
     align-items: center; /* align vertical */
 }
 
-.fileview-checkmark {
-    background-image: url("../img/checkmark.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 30px;
-    width: 80%;
-    height: 20px;
-    margin: 0;
-    cursor: pointer;
-    display: none;
-}
 
 .multiple-family-buttons.clicked {
     background-color: grey;
 }
 
-.fileview-table-rows.clicked {
-    background-color: lightgreen !important;
-}
 
-.fileview-table-rows {
-    cursor: pointer;
-}
 
 .multiple-family-cards {
     background-color: teal; 
@@ -249,6 +232,31 @@
     display: none;
 }
 
+.fileview-table-rows.clicked {
+    background-color: lightgreen !important;
+     
+}
+
+.fileview-table-rows {
+    cursor: pointer;
+}
+
+.fileview-checkmark {
+    /*background-image: url("../img/checkmark.png");*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    background-size: 25px; 
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.tableHeading {
+    cursor: pointer;
+}
 
 /********** Divider Bar **********/
 .hr {
@@ -293,3 +301,16 @@ p {
     font-size: 20px;
 }
 
+/********** Biograph Data ***********/
+.biograph-data {
+    background-color: lightblue;
+    width: 400px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.biograph-headers {
+    background-color: lightgreen;
+    text-align: center;
+    padding: 10px;
+}
