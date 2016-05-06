@@ -42,7 +42,7 @@
       
       
     <!-- HEADER -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" style="position:relative;">
       <div class="container" style="width:98vw">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -100,7 +100,7 @@
 
       
    <!-- TOP SECTION -->
-    <div id="topSection">
+    <div id="topSection" class="collapse in">
       <div class="navbar-default sidebar sidebarTop" role="navigation">
           <ul class="nav nav-stacked ">
             <li>
@@ -173,12 +173,18 @@
 
     <!-- BOTTOM PART -->
     <div id="bottomSection">
-      
+
       <!-- DIVIDER -->
-      <div class="hr">
-        <hr id="divider">
-        <img src='./img/DividerGrips.png' alt=''>
-      </div>
+      <nav class="navbar-light bg-faded">
+        <!-- <button >  -->
+          <div class="hr navbar-toggler" type="button" data-toggle="collapse" data-target="#topSection">
+            <hr id="divider">
+            <img src='./img/DividerGrips.png' alt=''>
+          </div>
+          <!-- &#9776;  -->
+        <!-- </button> -->
+      </nav>
+
 
       <!-- SIDEBAR BOTTOM -->
       <div class="navbar-default sidebar sidebarBottom" role="navigation">
@@ -279,8 +285,7 @@
     </footer>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="vendors/bootstrap-3.3.6-dist//js/vendor/jquery.min.js"><\/script>')</script>

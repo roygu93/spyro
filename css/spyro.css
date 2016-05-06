@@ -39,7 +39,6 @@
 
 /********** Sections **********/
 #topSection {
-    margin-top:50px;
 }
 
 
@@ -50,8 +49,8 @@
     /*display:block;*/
     /*border-top: 10px solid black;*/
     float:left;
-    position:absolute;
-    top:50vh;
+    /*position:absolute;*/
+    /*top:50vh;*/
     /*overflow: scroll;*/
 }
 
