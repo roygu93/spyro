@@ -59,23 +59,28 @@
           <ul class="nav navbar-nav navbar-right">
 
             <li class="nav-icons">
-              <a href="#about" class="icon_links">
-                <img src="img/refresh.png" id="refresh_icon" alt="refresh_icon"/>
+              <a href="#update" class="icon_links">
+                <img src="img/refresh.png" id="update_icon" alt="update_icon"/>
+                <label for="update_icon" class="icon-labels">Update</label>
+                
               </a>
+              
             </li>
 
             <li class="nav-icons">
-              <a href="#about" class="icon_links">
-                <img src="img/download.png" id="download_icon" alt="download_icon"/>
-              </a>
-            </li>
-
-            <li class="nav-icons">
-              <a href="#about" class="icon_links">
+              <a href="#save" class="icon_links">
                 <img src="img/save.png" id="save_icon" alt="save_icon"/>
+                <label for="save_icon" class="icon-labels">Save</label>
               </a>
             </li>
-
+            
+            <li class="nav-icons">
+              <a href="#download" class="icon_links">
+                <img src="img/download.png" id="download_icon" alt="download_icon"/>
+                <label for="download_icon" class="icon-labels">Download</label>
+              </a>
+            </li> 
+            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saved Sessions <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -109,6 +114,8 @@
     
 
       <div class="content">
+        
+        
           
         <!-- FAMILY VIEW -->
         <div class="FamilyViewContent">
@@ -166,7 +173,7 @@
 
     <!-- BOTTOM PART -->
     <div id="bottomSection">
-
+      
       <!-- DIVIDER -->
       <div class="hr">
         <hr id="divider">
@@ -186,15 +193,43 @@
       </div>
     
 
-      <div class="content" style="padding-top:5px; margin-top:5px">
+      <div class="content" id="data-vis-content">
+        <div class="data-vis-initial-msg">
+          <h3 class="initial-msg">Please Select an individual or file above to view it's visualization</h3>  
+        </div>
+        
         <!-- BAR GRAPH VIZ -->
         <div class="BarGraphViz" style="padding-top:5px">
-          <div class="section-header">
+          <div class="section-header bottom-header">
             <h1>Bar Graph Visualization</h1>
+            
+            <div class="data-vis-coordinates">
+              <div class="data-vis-forms">
+                <label for="data-vis-index-chrom">Index Chromosome: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-chrom form-control" maxlength="2" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-start">Start Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-start form-control" maxlength="10" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-end">End Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-end form-control" maxlength="10" />
+              </div>
+              
+              <!--<div class="data-vis-forms">
+                <a href="#download" class="icon_links bottom-icon">
+                  <img src="img/download.png" id="download_icon" alt="download_icon"/>
+                </a>
+              </div>-->
+            </div>
+            
           </div>
 
           <div id="data-vis-body">
-            <!-- Will Populate When Selection in Top Section -->
+            
           </div>
           
         </div>
@@ -202,12 +237,36 @@
 
         <!-- BIO GRAPH VIZ -->
         <div class="BioGraphViz" style="padding-top:5px">
-          <div class="section-header">
+          <div class="section-header bottom-header">
             <h1>Bio Graph Visualization</h1>
-            <div id="data-vis-body_2">
-
-            </div>
+            
+            <div class="data-vis-coordinates">
+              <div class="data-vis-forms">
+                <label for="data-vis-index-chrom">Index Chromosome: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-chrom form-control" maxlength="2" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-start">Start Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-start form-control" maxlength="10" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-end">End Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-end form-control" maxlength="10" />
+              </div>
+              
+              <!--<div class="data-vis-forms">
+                <a href="#about" class="icon_links bottom-icon">
+                  <img src="img/download.png" id="download_icon" alt="download_icon"/>
+                </a>
+              </div>-->
+            </div>  
           </div>
+          
+          <div id="data-vis-body_2">
+                <!-- Will Populate When Selection in Top Section -->
+            </div>
         </div>
         
       </div>
