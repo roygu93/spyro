@@ -192,8 +192,8 @@ function toggleActiveButtons() {
             $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'> <div class='biograph-headers'>" + member + " - Family-" + family + "</div>" + d[0] + " </div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
-            var setWidth = $(".biograph-data").length * 420;
-            $("#data-vis-body_2").width(setWidth + "px");
+            var setWidth = $(".biograph-data").length * 35;
+            $("#data-vis-body_2").width(setWidth + "vw");
         });
     }
     else {
