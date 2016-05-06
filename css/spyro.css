@@ -8,18 +8,28 @@
     margin-top: -15px;
 }
 .nav-icons {
-    
+    text-align: center;
+    width: 80px;
+}
+
+.icon-labels {
+    display: block;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    cursor: pointer;
 }
 
 .icon_links {
-    padding: 10px !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding: 5px 10px 0px 10px !important;
+    /*padding-left: 15px !important;
+    padding-right: 15px !important;*/
     border-right: 1px solid gray;
 }
 
-#download_icon, #save_icon, #refresh_icon {
-    height: 30px;
+#download_icon, #save_icon, #update_icon {
+    height: 25px;
 }
 
 
@@ -302,6 +312,11 @@ p {
 }
 
 /********** Bottom Content ***********/
+.bottom-header {
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+
 #data-vis-content {
     padding-top:5px; 
     margin-top:5px; 
@@ -323,6 +338,7 @@ p {
 
 .data-vis-inputs {
     display: inline-block;
+    height: 30px;
 }
 
 .data-vis-index-chrom {
@@ -331,6 +347,10 @@ p {
 
 .data-vis-index-start, .data-vis-index-end {
     width: 115px;
+}
+
+.bottom-icon {
+    border: none;
 }
 
 /********** Biograph Data ***********/
