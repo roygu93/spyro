@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var mouseDownOccurred = false;
+    var multipleFamilyCardsBackgroundColor = ["#95D7CF","#BCD98D", "#FFFF89"]
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
 
     /********** Top Section Sidebar **********/
@@ -107,6 +108,8 @@ $(document).ready(function(){
     //TODO: NOT SURE WHY .success won't work but .fail and .always does...
     var families, family;
     var familyDivCardID, individualName, individualRole, infected;
+    var mfBackgroundColor;
+    var count = 0;
     retrieveJSONList().always(function(data) { 
         console.log("Retrieved JSON List");
         // console.log(data)
@@ -119,9 +122,12 @@ $(document).ready(function(){
             for (familyName in family) {
                 // console.log(familyName)
                 familyDivCardID = "#" + familyName;
-                $('.FamilyViewContent').find('.section-body').append("<div class='multiple-family-cards' id='" + familyName + "'></div>");
+                mfBackgroundColor = multipleFamilyCardsBackgroundColor[count % multipleFamilyCardsBackgroundColor.length]
+                $('.FamilyViewContent').find('.section-body').append("<div class='multiple-family-cards' id='" + familyName + "' style='background-color:"+ mfBackgroundColor +"'></div>");
                 $(familyDivCardID).append("<h3>" + familyName + "</h3>");
                 addToSelectFamilyDropDown(familyName);
+
+                count++
 
                 for (individuals in family[familyName]) {
                     individualRole = family[familyName][individuals].role;
