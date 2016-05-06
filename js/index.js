@@ -30,6 +30,8 @@ $(document).ready(function(){
 
     /********** Bottom Section Sidebar **********/
     $("#bio-graph-viz").on("click", function() {
+        $(".data-vis-initial-msg").hide();
+        
         if ($(".BioGraphViz").is(':visible') == false) {
             $(".BioGraphViz").show();
             $(".BarGraphViz").hide();
@@ -38,11 +40,12 @@ $(document).ready(function(){
         } else {
             $(".BioGraphViz").hide();
             $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
-
         }
     });
      
     $("#bar-graph-viz").on("click", function() {
+        $(".data-vis-initial-msg").hide();
+        
         if ($(".BarGraphViz").is(':visible') == false) {
             $(".BarGraphViz").show();
             $(".BioGraphViz").hide();
@@ -180,11 +183,11 @@ function toggleActiveButtons() {
 
         displayData(family, member).success(function(d) {
             newDiv.innerHTML = d[0];
-            $("#data-vis-body").append("<div id='" + family + member + "' class='biograph-data'> <div class='biograph-headers'>" + member + " - Famiy-" + family + "</div>" + d[0] + " </div>");
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'> <div class='biograph-headers'>" + member + " - Family-" + family + "</div>" + d[0] + " </div>");
             
-            //adjust width of 'data-vis-body' to hold all data horizontally
+            //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 420;
-            $("#data-vis-body").width(setWidth + "px");
+            $("#data-vis-body_2").width(setWidth + "px");
         });
     }
     else {
@@ -194,14 +197,26 @@ function toggleActiveButtons() {
 
         $("#" + family + member).remove();
     } 
-
-    // If the Bar Graph Visualization div is not currently displaying then display it
-    // TODO: need to hide and display default no viz message when no individuals are selected
-    if($("#bottomSection").find(".BarGraphViz").css("display") == "none"){
-        $("#bottomSection").find(".BarGraphViz").show()
-        $("#bar-graph-viz").css('background-color', '#879e4e'); //darken 
-        $("#bio-graph-viz").css('background-color', '#A9C662'); //reset 
+    
+    // If the Bio Graph Visualization div is not currently displaying then display it
+    if($("#bottomSection").find(".BioGraphViz").css("display") == "none"){
+        $(".data-vis-initial-msg").hide();
+        $("#bottomSection").find(".BioGraphViz").show();
+        $("#bottomSection").find(".BarGraphViz").hide();
+        $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
+        
+        $(".data-vis-index-chrom").val(5);
+        $(".data-vis-index-start").val(12811015);
+        $(".data-vis-index-end").val(12820538);
     }
+    
+    //if no data is being displayed (no individuals are clicked on), display initial message
+    if($(".clicked").length == 0) {
+        $(".data-vis-initial-msg").show();
+        $("#bottomSection").find(".BioGraphViz").hide();
+        $("#bottomSection").find(".BarGraphViz").hide();
+    } 
 
 }
 
@@ -218,7 +233,7 @@ function displayFamilyCard(htmlElement){
     if(htmlElement.children[0].checked) {
         $(familyName).css("display", "inline-block");
     } else{
-         $(familyName).css("display", "none");
+        $(familyName).css("display", "none");
     }
     
     if($(".select-family-checkboxes:checked").length != 0) {

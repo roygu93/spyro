@@ -301,6 +301,38 @@ p {
     font-size: 20px;
 }
 
+/********** Bottom Content ***********/
+#data-vis-content {
+    padding-top:5px; 
+    margin-top:5px; 
+}
+
+.data-vis-initial-msg {
+    text-align: center;
+}
+
+.data-vis-coordinates {
+    /*display: inline-block;*/
+    float: right;
+}
+
+.data-vis-forms {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.data-vis-inputs {
+    display: inline-block;
+}
+
+.data-vis-index-chrom {
+    width: 50px;
+}
+
+.data-vis-index-start, .data-vis-index-end {
+    width: 115px;
+}
+
 /********** Biograph Data ***********/
 .biograph-data {
     background-color: lightblue;

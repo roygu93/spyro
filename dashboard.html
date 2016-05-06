@@ -109,6 +109,8 @@
     
 
       <div class="content">
+        
+        
           
         <!-- FAMILY VIEW -->
         <div class="FamilyViewContent">
@@ -166,7 +168,7 @@
 
     <!-- BOTTOM PART -->
     <div id="bottomSection">
-
+      
       <!-- DIVIDER -->
       <div class="hr">
         <hr id="divider">
@@ -186,15 +188,37 @@
       </div>
     
 
-      <div class="content" style="padding-top:5px; margin-top:5px">
+      <div class="content" id="data-vis-content">
+        <div class="data-vis-initial-msg">
+          <h3 class="initial-msg">Please Select an individual or file above to view it's visualization</h3>  
+        </div>
+        
         <!-- BAR GRAPH VIZ -->
         <div class="BarGraphViz" style="padding-top:5px">
           <div class="section-header">
             <h1>Bar Graph Visualization</h1>
+            
+            <div class="data-vis-coordinates">
+              <div class="data-vis-forms">
+                <label for="data-vis-index-chrom">Index Chromosome: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-chrom form-control" maxlength="2" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-start">Start Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-start form-control" maxlength="10" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-end">End Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-end form-control" maxlength="10" />
+              </div>
+            </div>
+            
           </div>
 
           <div id="data-vis-body">
-            <!-- Will Populate When Selection in Top Section -->
+            
           </div>
           
         </div>
@@ -204,10 +228,28 @@
         <div class="BioGraphViz" style="padding-top:5px">
           <div class="section-header">
             <h1>Bio Graph Visualization</h1>
-            <div id="data-vis-body_2">
-
-            </div>
+            
+            <div class="data-vis-coordinates">
+              <div class="data-vis-forms">
+                <label for="data-vis-index-chrom">Index Chromosome: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-chrom form-control" maxlength="2" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-start">Start Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-start form-control" maxlength="10" />
+              </div>
+              
+              <div class="data-vis-forms">
+                <label for="data-vis-index-end">End Position: </label>
+                <input type="input" class="data-vis-inputs data-vis-index-end form-control" maxlength="10" />
+              </div>
+            </div>  
           </div>
+          
+          <div id="data-vis-body_2">
+                <!-- Will Populate When Selection in Top Section -->
+            </div>
         </div>
         
       </div>
