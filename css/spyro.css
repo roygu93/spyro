@@ -344,6 +344,12 @@ p {
     margin-right: 10px;
 }
 
+.data-vis-forms > label {
+    font-size:12pt;
+    font-weight:600;
+    font-style:normal;
+}
+
 .data-vis-inputs {
     display: inline-block;
     height: 30px;
@@ -363,14 +369,18 @@ p {
 
 /********** Biograph Data ***********/
 .biograph-data {
-    background-color: lightblue;
-    width: 400px;
+    background-color: #EBEBEB;
+    width: 30vw;
     display: inline-block;
     margin: 10px;
 }
 
+.biograph-data > div {
+    padding-left: 15px;
+}
+
 .biograph-headers {
-    background-color: lightgreen;
+    background-color: #B2CF87;
     text-align: center;
     padding: 10px;
 }
