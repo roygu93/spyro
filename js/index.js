@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["#95D7CF","#BCD98D", "#FFFF89"]
+    var bottomSectionHeightBeforeCollapse= 0;
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
 
     /********** Top Section Sidebar **********/
@@ -106,6 +107,36 @@ $(document).ready(function(){
             }
             
         });         
+    });
+
+    $(".collapseButton").on('click', function (me) {
+        if($("#topSection").hasClass("collapse in")){
+            //meaning the top section is about to be displayed - replace with 100% height
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height"))
+
+            //saving the old value
+            bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height") 
+
+            $('#bottomSection').find('.content').css({
+                height: fillWindow
+            });
+
+            $('.sidebarBottom').css({
+                height: fillWindow
+            });
+
+
+        } else {
+            //meaining the top section is collapsed - replace with original height
+
+            $('#bottomSection').find('.content').css({
+                height: bottomSectionHeightBeforeCollapse
+            });
+
+            $('.sidebarBottom').css({
+                height: bottomSectionHeightBeforeCollapse
+            });
+        }
     });
     
     
