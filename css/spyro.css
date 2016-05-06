@@ -181,7 +181,7 @@
 
 /* Multiple Family Cards */
 .multiple-family-buttons {
-    background-color: white;
+    background-color: #EBEBEB;
     width: 80%;
     height: 30px;
     margin-left: auto;
@@ -201,7 +201,7 @@
 }
 
 .multiple-family-cards {
-    background-color: #95D7CF; 
+    /*background-color: #95D7CF; */
     border-radius: 2em;
     width: 15%; 
     height: 200px; 
