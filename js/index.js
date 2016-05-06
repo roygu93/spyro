@@ -72,10 +72,12 @@ $(document).ready(function(){
 
         $(document).on('mouseup', function(me){
             $(document).off('mouseup').off('mousemove');
+            // alert("works")
         });
 
         $(document).on('mousemove', function(me){
             if($("#topSection").hasClass("collapse in")){
+
                 var my = (me.pageY - pY);
                 var newHeight = startHeight - my;
                 var bottomsTop = pY + my;
