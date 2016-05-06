@@ -75,31 +75,34 @@ $(document).ready(function(){
         });
 
         $(document).on('mousemove', function(me){
-            var my = (me.pageY - pY);
-            var newHeight = startHeight - my;
-            var bottomsTop = pY + my;
-            var newTopSectionHeight = originalTopSectionHeight + my + 10;
+            if($("#topSection").hasClass("collapse in")){
+                var my = (me.pageY - pY);
+                var newHeight = startHeight - my;
+                var bottomsTop = pY + my;
+                var newTopSectionHeight = originalTopSectionHeight + my + 10;
+                
+                $dragable.css({
+                    height: newHeight,
+                    top: bottomsTop
+                });
+
+                $('.sidebarBottom').css({
+                    height: newHeight
+                });
+
+                $('#bottomSection').find('.content').css({
+                    height: newHeight
+                });
+
+                $('#topSection').find('.content').css({
+                    height:newTopSectionHeight
+                });
+
+                $(".sidebarTop").css({
+                    height:newTopSectionHeight
+                });    
+            }
             
-            $dragable.css({
-                height: newHeight,
-                top: bottomsTop
-            });
-
-            $('.sidebarBottom').css({
-                height: newHeight
-            });
-
-            $('#bottomSection').find('.content').css({
-                height: newHeight
-            });
-
-            $('#topSection').find('.content').css({
-                height:newTopSectionHeight
-            });
-
-            $(".sidebarTop").css({
-                height:newTopSectionHeight
-            });
         });         
     });
     
