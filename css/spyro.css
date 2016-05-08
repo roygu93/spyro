@@ -1,8 +1,13 @@
 
+body{
+    margin-bottom:0px;
+    overflow:hidden;
+}
 
 /********** Top Nav Bar **********/
 .navbar-fixed-top {
     margin-bottom: 0;
+    position: relative;
 }
 .navbar-logo {
     margin-top: -15px;
@@ -131,7 +136,6 @@
     height: 46vh;
     padding-left:10px;
     /*margin-top:10px;*/
-    overflow: scroll;
     position: absolute;
 }
 
@@ -141,6 +145,7 @@
 
 #bottomSection > .content {
     background-color: white;
+    overflow: scroll;
 }
 
 
@@ -168,7 +173,7 @@
 .familyDropdown {
     list-style-type: none;
     padding:0;
-    overflow:scroll;
+    /*overflow:scroll;*/
 
 }
 
@@ -332,7 +337,7 @@ p {
 
 #data-vis-content {
     padding-top:5px; 
-    margin-top:5px; 
+    /*margin-top:5px; */
 }
 
 .data-vis-initial-msg {

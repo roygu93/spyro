@@ -82,7 +82,7 @@ $(document).ready(function(){
                 var my = (me.pageY - pY);
                 var newHeight = startHeight - my;
                 var bottomsTop = pY + my;
-                var newTopSectionHeight = originalTopSectionHeight + my + 10;
+                var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
                 $dragable.css({
                     height: newHeight,
@@ -112,10 +112,14 @@ $(document).ready(function(){
     $(".collapseButton").on('click', function (me) {
         if($("#topSection").hasClass("collapse in")){
             //meaning the top section is about to be displayed - replace with 100% height
-            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height"))
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height")) - 50
 
             //saving the old value
-            bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height") 
+            bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height")
+
+            // $('#bottomSection').css({
+            //     'margin-top': "50px"
+            // });
 
             $('#bottomSection').find('.content').css({
                 height: fillWindow
@@ -128,6 +132,9 @@ $(document).ready(function(){
 
         } else {
             //meaining the top section is collapsed - replace with original height
+            // $('#bottomSection').css({
+            //     'margin-top': "0px"
+            // });
 
             $('#bottomSection').find('.content').css({
                 height: bottomSectionHeightBeforeCollapse
