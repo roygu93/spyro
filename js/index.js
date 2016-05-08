@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["#95D7CF","#BCD98D", "#FFFF89"]
+    var bottomSectionHeightBeforeCollapse= 0;
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
 
     /********** Top Section Sidebar **********/
@@ -58,7 +59,6 @@ $(document).ready(function(){
         }
     });
 
-
     /********** Divider Bar actions **********/
     $('.hr').on('mousedown', function(e){
         e.preventDefault();
@@ -75,32 +75,76 @@ $(document).ready(function(){
         });
 
         $(document).on('mousemove', function(me){
-            var my = (me.pageY - pY);
-            var newHeight = startHeight - my;
-            var bottomsTop = pY + my;
-            var newTopSectionHeight = originalTopSectionHeight + my + 10;
+            if($("#topSection").hasClass("collapse in")){
+
+                var my = (me.pageY - pY);
+                var newHeight = startHeight - my;
+                var bottomsTop = pY + my;
+                var newTopSectionHeight = originalTopSectionHeight + my; // + 10
+                
+                if (bottomsTop < window.innerHeight - 45) {
+                    $dragable.css({
+                        height: newHeight,
+                        top: bottomsTop
+                    });
+
+                    $('.sidebarBottom').css({
+                        height: newHeight
+                    });
+
+                    $('#bottomSection').find('.content').css({
+                        height: newHeight
+                    });
+
+                    $('#topSection').find('.content').css({
+                        height:newTopSectionHeight
+                    });
+
+                    $(".sidebarTop").css({
+                        height:newTopSectionHeight
+                    });        
+                }
+                
+            }
             
-            $dragable.css({
-                height: newHeight,
-                top: bottomsTop
+        });         
+    });
+
+    $(".collapseButton").on('click', function (me) {
+        if($("#topSection").hasClass("collapse in")){
+            //meaning the top section is about to be displayed - replace with 100% height
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height")) - 50
+
+            //saving the old value
+            bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height")
+
+            // $('#bottomSection').css({
+            //     'margin-top': "50px"
+            // });
+
+            $('#bottomSection').find('.content').css({
+                height: fillWindow
             });
 
             $('.sidebarBottom').css({
-                height: newHeight
+                height: fillWindow
             });
+
+
+        } else {
+            //meaining the top section is collapsed - replace with original height
+            // $('#bottomSection').css({
+            //     'margin-top': "0px"
+            // });
 
             $('#bottomSection').find('.content').css({
-                height: newHeight
+                height: bottomSectionHeightBeforeCollapse
             });
 
-            $('#topSection').find('.content').css({
-                height:newTopSectionHeight
+            $('.sidebarBottom').css({
+                height: bottomSectionHeightBeforeCollapse
             });
-
-            $(".sidebarTop").css({
-                height:newTopSectionHeight
-            });
-        });         
+        }
     });
     
     

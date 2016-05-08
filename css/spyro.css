@@ -1,8 +1,13 @@
 
+body{
+    margin-bottom:0px;
+    overflow:hidden;
+}
 
 /********** Top Nav Bar **********/
 .navbar-fixed-top {
     margin-bottom: 0;
+    position: relative;
 }
 .navbar-logo {
     margin-top: -15px;
@@ -35,11 +40,11 @@
 /********** Footer Bar **********/
 .footer {
     position:fixed;
+    z-index:1000;
 }
 
 /********** Sections **********/
 #topSection {
-    margin-top:50px;
 }
 
 
@@ -50,8 +55,8 @@
     /*display:block;*/
     /*border-top: 10px solid black;*/
     float:left;
-    position:absolute;
-    top:50vh;
+    /*position:absolute;*/
+    /*top:50vh;*/
     /*overflow: scroll;*/
 }
 
@@ -64,6 +69,8 @@
     background-color: #98CBC3;
     border-right: 1px; 
     height: 46vh;
+    z-index:1; /*to help with layering*/
+    position:relative;
 }
 
 .sidebar-icons{
@@ -77,7 +84,7 @@
 .sidebarBottom {
     background-color: #A9C662;
     display: block;
-    margin-top:5px;
+    /*margin-top:5px;*/
 }
 
 /********** Background Shading for SideBar Selections **********/
@@ -132,7 +139,6 @@
     height: 46vh;
     padding-left:10px;
     /*margin-top:10px;*/
-    overflow: scroll;
     position: absolute;
 }
 
@@ -142,6 +148,7 @@
 
 #bottomSection > .content {
     background-color: white;
+    overflow: scroll;
 }
 
 
@@ -169,7 +176,7 @@
 .familyDropdown {
     list-style-type: none;
     padding:0;
-    overflow:scroll;
+    /*overflow:scroll;*/
 
 }
 
@@ -279,15 +286,17 @@
 /********** Divider Bar **********/
 .hr {
     text-align: center;
-    height:7px;
-    /*position:abolute;*/
-    z-index:100;
+    height:25px;
     cursor: row-resize;
+
+    /* Fixing layering issue */
+    position:relative;
+    z-index:100;
 }
 
 .hr > hr{
     display: block;
-    border-width: 12px;
+    border-width: 25px;
     border-color: rgba(11, 72, 107, 1);
     width: 100vw;
     margin: 0;
@@ -297,7 +306,13 @@
 .hr > img{
     position: relative;
     height: 12px;
-    top: -17px;
+    top: -26px;
+}
+
+.collapseButton {
+    top:-25px;
+    position:relative;
+    margin-left:30px;
 }
 
 
@@ -327,7 +342,7 @@ p {
 
 #data-vis-content {
     padding-top:5px; 
-    margin-top:5px; 
+    /*margin-top:5px; */
 }
 
 .data-vis-initial-msg {
