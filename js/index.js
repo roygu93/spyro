@@ -59,7 +59,6 @@ $(document).ready(function(){
         }
     });
 
-
     /********** Divider Bar actions **********/
     $('.hr').on('mousedown', function(e){
         e.preventDefault();
@@ -73,7 +72,6 @@ $(document).ready(function(){
 
         $(document).on('mouseup', function(me){
             $(document).off('mouseup').off('mousemove');
-            // alert("works")
         });
 
         $(document).on('mousemove', function(me){
@@ -84,26 +82,29 @@ $(document).ready(function(){
                 var bottomsTop = pY + my;
                 var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
-                $dragable.css({
-                    height: newHeight,
-                    top: bottomsTop
-                });
+                if (bottomsTop < window.innerHeight - 45) {
+                    $dragable.css({
+                        height: newHeight,
+                        top: bottomsTop
+                    });
 
-                $('.sidebarBottom').css({
-                    height: newHeight
-                });
+                    $('.sidebarBottom').css({
+                        height: newHeight
+                    });
 
-                $('#bottomSection').find('.content').css({
-                    height: newHeight
-                });
+                    $('#bottomSection').find('.content').css({
+                        height: newHeight
+                    });
 
-                $('#topSection').find('.content').css({
-                    height:newTopSectionHeight
-                });
+                    $('#topSection').find('.content').css({
+                        height:newTopSectionHeight
+                    });
 
-                $(".sidebarTop").css({
-                    height:newTopSectionHeight
-                });    
+                    $(".sidebarTop").css({
+                        height:newTopSectionHeight
+                    });        
+                }
+                
             }
             
         });         
