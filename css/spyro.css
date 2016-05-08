@@ -40,6 +40,7 @@ body{
 /********** Footer Bar **********/
 .footer {
     position:fixed;
+    z-index:1000;
 }
 
 /********** Sections **********/
@@ -68,6 +69,8 @@ body{
     background-color: #98CBC3;
     border-right: 1px; 
     height: 46vh;
+    z-index:1; /*to help with layering*/
+    position:relative;
 }
 
 .sidebar-icons{
@@ -284,9 +287,11 @@ body{
 .hr {
     text-align: center;
     height:25px;
-    /*position:abolute;*/
-    z-index:100;
     cursor: row-resize;
+
+    /* Fixing layering issue */
+    position:relative;
+    z-index:100;
 }
 
 .hr > hr{
