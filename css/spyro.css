@@ -148,7 +148,7 @@ body{
 
 #bottomSection > .content {
     background-color: white;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 
@@ -393,6 +393,11 @@ p {
     padding-bottom: 10px;
 }
 
+/*#data-vis-body_2 {
+    overflow: scoll;
+    height: 100%;
+}
+*/
 #data-vis-content {
     padding-top:5px; 
     /*margin-top:5px; */
@@ -445,10 +450,14 @@ p {
 
 .biograph-data > div {
     padding-left: 15px;
+    height : 100%;
+    overflow: scroll;
 }
 
 .biograph-headers {
     background-color: #B2CF87;
     text-align: center;
     padding: 10px;
+    height: 20px;
+    overflow: none;
 }

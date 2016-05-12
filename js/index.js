@@ -227,13 +227,13 @@ function toggleActiveButtons() {
         $("#fileview_" + commonId).addClass("clicked");
         $("#fileview_" + commonId).find(".fileview-checkmark").css("background-image", "url('img/checkmark.png')");
 
-        var newDiv = document.createElement("div");
-        newDiv.id = family + member;
-        newDiv.className = "biograph-data";
+        
 
         displayData(family, member).success(function(d) {
-            newDiv.innerHTML = d[0];
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'> <div class='biograph-headers'>" + member + " - Family-" + family + "</div>" + d[0] + " </div>");
+            var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
+            
+            // TODO: WOULD LIKE TO ADD CLASS NAME TO THE CONTENT DIV :(
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'>" + biographHeader + d[0] + " </div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
