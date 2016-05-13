@@ -103,7 +103,7 @@ body{
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
     margin-top:10px;
-    margin-bottom:15px;
+    /*margin-bottom:15px;*/
     font-size:15pt;
     font-weight: 200;
     font-style: italic;
@@ -300,6 +300,12 @@ body{
 /********** File Directory **********/
 .FileDirectoryContent {
     display: none;
+    height:100%;
+}
+
+#fileDirectoryTable {
+    height:calc(100% - 40px);
+    overflow: scroll
 }
 
 .BarGraphViz {
