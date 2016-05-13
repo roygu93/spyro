@@ -404,6 +404,7 @@ p {
 }
 
 #outer_data-vis-body_2 {
+    height:100%;
     overflow-x: scroll;
 }
 
