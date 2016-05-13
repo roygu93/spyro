@@ -78,7 +78,7 @@ $(document).ready(function(){
             if($("#topSection").hasClass("collapse in")){
 
                 var my = (me.pageY - pY);
-                var newHeight = startHeight - my;
+                var newHeight = startHeight - my - 30;
                 var bottomsTop = pY + my;
                 var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
@@ -238,16 +238,9 @@ function toggleActiveButtons() {
             var setWidth = $(".biograph-data").length * 35;
             $("#data-vis-body_2").width(setWidth + "vw");
 
-            // have to set some CSS specification to the biograph data div
-            var biographDataDiv = $(".biograph-data")
-            alert(biographDataDiv[0]) //grab children
-            // var divID = "#" + family + member
-
-            // alert(divID)
-            // var dataDiv = document.getElementById(divID+"")
-            //$(divID).children[1] //this gets the biograph data div
-            // alert(dataDiv)
-            // dataDiv.className += 'biograph_Content';
+            // have to set some CSS specification to the biograph data div for the overflow-y:scroll
+            var biographDataDiv = $("#" + family + member)
+            biographDataDiv[0].getElementsByTagName("div")[1].setAttribute("class", "biograph_Content")
         });
     }
     else {

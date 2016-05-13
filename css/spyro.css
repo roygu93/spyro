@@ -308,6 +308,7 @@ body{
 
 .BioGraphViz {
     display: none;
+    height: calc(100% - 35px);
 }
 
 .fileview-table-rows.clicked {
@@ -389,15 +390,16 @@ p {
 
 /********** Bottom Content ***********/
 .bottom-header {
-    margin-top: 0;
+    margin: 0;
     padding-bottom: 10px;
 }
 
-/*#data-vis-body_2 {
-    overflow: scoll;
-    height: 100%;
+#data-vis-body_2 {
+    /*overflow: scoll;*/
+    height: calc(100% - 10px);
+    /*height:100%;*/
 }
-*/
+
 #data-vis-content {
     padding-top:5px; 
     /*margin-top:5px; */
@@ -446,20 +448,21 @@ p {
     width: 30vw;
     display: inline-block;
     margin: 10px;
+    height:97%;
 }
 
 .biograph-data > div {
     padding-left: 15px;
-    height : 100%;
 }
 
 .biograph-headers {
     background-color: #B2CF87;
     text-align: center;
     padding: 10px;
-    height: 20px;
+    height: 35px;
 }
 
 .biograph_Content {
     overflow: scroll;
+    height:calc(100% - 35px);
 }
