@@ -163,6 +163,35 @@ body{
     display:inline-block;
 }
 
+.family-button-key, .family-button-colors {
+    display: inline-block;
+}
+
+.family-button-key {
+    float: right;  
+    margin-right: 20px; 
+    font-style: normal;
+}
+
+.family-button-colors {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: text-top;
+}
+
+.father-color {
+    background-color: #f28f8f;
+}
+
+.mother-color {
+    background-color: #b6eeff;
+}
+
+.child-color {
+    background-color: #7fea7f;
+}
+
 /* Select Family Sidebar */
 #selectFamily {
     width:14.9%;
@@ -205,6 +234,30 @@ body{
 
 .multiple-family-buttons.clicked {
     background-color: #BCBCBC;
+}
+
+.Mother-button {
+    background-color: #b6eeff;
+}
+
+.Mother-button.clicked {
+    background-color: #85a8b2;
+}
+
+.Father-button {
+    background-color: #f28f8f;
+}
+
+.Father-button.clicked {
+    background-color: #a05e5e;
+}
+
+.Child-button {
+    background-color: #7fea7f;
+}
+
+.Child-button.clicked {
+    background-color: #569a56;
 }
 
 .multiple-family-cards {
