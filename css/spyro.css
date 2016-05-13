@@ -469,8 +469,20 @@ p {
     padding-left: 15px;
 }
 
-.biograph-headers {
+.family-x-biograph-data > .biograph-headers {
+    background-color: #95D7CF;
+}
+
+.family-y-biograph-data > .biograph-headers {
     background-color: #B2CF87;
+}
+
+.family-z-biograph-data > .biograph-headers {
+    background-color: #ffff89;
+}
+
+.biograph-headers {
+/*    background-color: #B2CF87;*/
     text-align: center;
     padding: 10px;
     height: 35px;
