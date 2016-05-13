@@ -180,16 +180,20 @@ body{
     vertical-align: text-top;
 }
 
+.father-color, .mother-color, .child-color {
+    background-color: #EBEBEB;
+}
+
 .father-color {
-    background-color: #f28f8f;
+    border: 3px solid darkred;
 }
 
 .mother-color {
-    background-color: #b6eeff;
+    border: 3px solid darkblue;
 }
 
 .child-color {
-    background-color: #7fea7f;
+    border: 3px solid darkgreen;
 }
 
 /* Select Family Sidebar */
@@ -237,31 +241,34 @@ body{
 }
 
 .Mother-button {
-    background-color: #b6eeff;
+/*    background-color: #b6eeff;*/
+    border: 3px solid darkblue;
 }
 
 .Mother-button.clicked {
-    background-color: #85a8b2;
+/*    background-color: #85a8b2;*/
 }
 
 .Father-button {
-    background-color: #f28f8f;
+/*    background-color: #f28f8f;*/
+    border: 3px solid darkred;
 }
 
 .Father-button.clicked {
-    background-color: #a05e5e;
+/*    background-color: #a05e5e;*/
 }
 
 .Child-button {
-    background-color: #7fea7f;
+/*    background-color: #7fea7f;*/
+    border: 3px solid darkgreen;
 }
 
 .Child-button.clicked {
-    background-color: #569a56;
+/*    background-color: #569a56;*/
 }
 
 .multiple-family-cards {
-    /*background-color: #95D7CF; */
+    background-color: #95D7CF; 
     border-radius: 2em;
     width: 15%; 
     height: 200px; 
