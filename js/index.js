@@ -231,13 +231,23 @@ function toggleActiveButtons() {
 
         displayData(family, member).success(function(d) {
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
-            
-            // TODO: WOULD LIKE TO ADD CLASS NAME TO THE CONTENT DIV :(
+
             $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'>" + biographHeader + d[0] + " </div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
             $("#data-vis-body_2").width(setWidth + "vw");
+
+            // have to set some CSS specification to the biograph data div
+            var biographDataDiv = $(".biograph-data")
+            alert(biographDataDiv[0]) //grab children
+            // var divID = "#" + family + member
+
+            // alert(divID)
+            // var dataDiv = document.getElementById(divID+"")
+            //$(divID).children[1] //this gets the biograph data div
+            // alert(dataDiv)
+            // dataDiv.className += 'biograph_Content';
         });
     }
     else {

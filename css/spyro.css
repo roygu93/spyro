@@ -451,7 +451,6 @@ p {
 .biograph-data > div {
     padding-left: 15px;
     height : 100%;
-    overflow: scroll;
 }
 
 .biograph-headers {
@@ -459,5 +458,8 @@ p {
     text-align: center;
     padding: 10px;
     height: 20px;
-    overflow: none;
+}
+
+.biograph_Content {
+    overflow: scroll;
 }
