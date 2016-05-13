@@ -78,7 +78,7 @@ $(document).ready(function(){
             if($("#topSection").hasClass("collapse in")){
 
                 var my = (me.pageY - pY);
-                var newHeight = startHeight - my;
+                var newHeight = startHeight - my - 30;
                 var bottomsTop = pY + my;
                 var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
@@ -227,17 +227,20 @@ function toggleActiveButtons() {
         $("#fileview_" + commonId).addClass("clicked");
         $("#fileview_" + commonId).find(".fileview-checkmark").css("background-image", "url('img/checkmark.png')");
 
-        var newDiv = document.createElement("div");
-        newDiv.id = family + member;
-        newDiv.className = "biograph-data";
+        
 
         displayData(family, member).success(function(d) {
-            newDiv.innerHTML = d[0];
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'> <div class='biograph-headers'>" + member + " - Family-" + family + "</div>" + d[0] + " </div>");
+            var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
+
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'>" + biographHeader + d[0] + " </div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
             $("#data-vis-body_2").width(setWidth + "vw");
+
+            // have to set some CSS specification to the biograph data div for the overflow-y:scroll
+            var biographDataDiv = $("#" + family + member)
+            biographDataDiv[0].getElementsByTagName("div")[1].setAttribute("class", "biograph_Content")
         });
     }
     else {
