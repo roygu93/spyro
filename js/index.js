@@ -105,7 +105,7 @@ $(document).ready(function(){
                     });
 
                     $(".biograph-data").css({
-                        height: "calc(100% - 35px)"
+                        height: "calc(97% - 75px)"
                     });        
                 }
                 
