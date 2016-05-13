@@ -204,7 +204,8 @@ $(document).ready(function(){
 function displayData(family, member) {
     var endpoint = "dummy/family_" + family + "/" + member + ".json";
     return $.ajax({
-        url: endpoint,
+        url: "http://gbwtquery.westus.cloudapp.azure.com/Iwana/variant",
+        dataType: 'json',
         method: "GET"
     });
 }
@@ -236,15 +237,11 @@ function toggleActiveButtons() {
         displayData(family, member).success(function(d) {
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
 
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'>" + biographHeader + d[0] + " </div>");
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d.variant + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
             $("#data-vis-body_2").width(setWidth + "vw");
-
-            // have to set some CSS specification to the biograph data div for the overflow-y:scroll
-            var biographDataDiv = $("#" + family + member)
-            biographDataDiv[0].getElementsByTagName("div")[1].setAttribute("class", "biograph_Content")
         });
     }
     else {
