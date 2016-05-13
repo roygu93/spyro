@@ -315,6 +315,7 @@ body{
 .BioGraphViz {
     display: none;
     height: calc(100% - 35px);
+    width:100%;
 }
 
 .fileview-table-rows.clicked {
@@ -402,9 +403,13 @@ p {
     padding-bottom: 10px;
 }
 
+#outer_data-vis-body_2 {
+    overflow-x: scroll;
+}
+
 #data-vis-body_2 {
-    /*overflow: scoll;*/
     height: calc(100% - 10px);
+    width:auto;
     /*height:100%;*/
 }
 
