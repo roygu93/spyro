@@ -459,7 +459,7 @@ p {
 /********** Biograph Data ***********/
 .biograph-data {
     background-color: #EBEBEB;
-    width: 30vw;
+    width: 375px;
     display: inline-block;
     margin: 10px;
     height:calc(97% - 50px);
@@ -477,6 +477,6 @@ p {
 }
 
 .biograph_Content {
-    overflow: scroll;
+    overflow-y: scroll;
     height:calc(100% - 35px);
 }
