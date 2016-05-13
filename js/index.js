@@ -237,7 +237,7 @@ function toggleActiveButtons() {
         displayData(family, member).success(function(d) {
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
 
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d.variant + "</pre></div>");
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d.variant + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
