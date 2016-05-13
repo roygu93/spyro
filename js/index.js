@@ -177,7 +177,7 @@ $(document).ready(function(){
                     individualRole = family[familyName][individuals].role;
                     infected = family[familyName][individuals].infected;
                     
-                    $(familyDivCardID).append("<div class='multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualRole + " </div>");
+                    $(familyDivCardID).append("<div class='" + individualRole + "-button multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualRole + " </div>");
                     
                     $('.FileDirectoryContent').find('#dashboardTableBody').append("<tr id='fileview_" + familyName + "-" + individualRole + "' class='fileview-table-rows'></tr>");
                     $("#fileview_" + familyName + "-" + individualRole).append("<td><div class='fileview-checkmark'></div><td>" + individualRole + "</td> <td>" + familyName + "</td> <td> " + infected + "</td>");
