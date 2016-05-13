@@ -78,7 +78,7 @@ $(document).ready(function(){
             if($("#topSection").hasClass("collapse in")){
 
                 var my = (me.pageY - pY);
-                var newHeight = startHeight - my - 30;
+                var newHeight = startHeight - my;
                 var bottomsTop = pY + my;
                 var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
@@ -102,6 +102,10 @@ $(document).ready(function(){
 
                     $(".sidebarTop").css({
                         height:newTopSectionHeight
+                    });
+
+                    $(".biograph-data").css({
+                        height: "calc(100% - 35px)"
                     });        
                 }
                 
