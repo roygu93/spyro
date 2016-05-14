@@ -118,7 +118,7 @@ $(document).ready(function(){
     $(".collapseButton").on('click', function (me) {
         if($("#topSection").hasClass("collapse in")){
             //meaning the top section is about to be displayed - replace with 100% height
-            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height")) - 50
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height"))
 
             //saving the old value
             bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height")
