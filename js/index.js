@@ -3,6 +3,7 @@ $(document).ready(function(){
     var multipleFamilyCardsBackgroundColor = ["#95D7CF","#BCD98D", "#FFFF89"]
     var bottomSectionHeightBeforeCollapse= 0;
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
+    document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
 
     /********** Top Section Sidebar **********/
     $("#family-view-icon").on("click", function() {
@@ -134,6 +135,9 @@ $(document).ready(function(){
                 height: fillWindow
             });
 
+            $("#collapseButtonText").html("Expand Top Section");
+            document.getElementById("collapseButtonText").setAttribute('data-value', '↓');
+
 
         } else {
             //meaining the top section is collapsed - replace with original height
@@ -148,6 +152,9 @@ $(document).ready(function(){
             $('.sidebarBottom').css({
                 height: bottomSectionHeightBeforeCollapse
             });
+
+            $("#collapseButtonText").html("Collapse Top Section");
+            document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
         }
     });
     
