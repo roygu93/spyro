@@ -137,6 +137,10 @@ $(document).ready(function(){
 
             $("#collapseButtonText").html("Expand Top Section");
             document.getElementById("collapseButtonText").setAttribute('data-value', '↓');
+            
+            $('.hr').css({
+                cursor: "auto"
+            });
 
 
         } else {
@@ -155,6 +159,9 @@ $(document).ready(function(){
 
             $("#collapseButtonText").html("Collapse Top Section");
             document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
+            $('.hr').css({
+                cursor: "row-resize"
+            });
         }
     });
     
