@@ -279,6 +279,8 @@ function toggleActiveButtons() {
         $(".data-vis-initial-msg").show();
         $("#bottomSection").find(".BioGraphViz").hide();
         $("#bottomSection").find(".BarGraphViz").hide();
+        $("#bio-graph-viz").css('background-color', '#A9C662'); //darken 
+        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
     } 
 
 }

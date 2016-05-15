@@ -490,6 +490,11 @@ p {
     font-style:normal;
 }
 
+#coordinateSubmitButton {
+    font-size: 17px;
+    font-style:normal;
+}
+
 .data-vis-inputs {
     display: inline-block;
     height: 30px;
