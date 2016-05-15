@@ -88,6 +88,32 @@ body{
     /*margin-top:5px;*/
 }
 
+#downloadButton {
+    background-color:rgba(255,255,255,0.20);
+    text-align:center;
+    position:fixed;
+    bottom:30px;
+    padding:5px;
+    /*padding-top:5px;*/
+    width:75px;
+}
+
+#downloadButton > a >label{
+    color:white;
+}
+
+#downloadButton > a> img{
+    width:35px;
+}
+
+#downloadButton > a:hover, a:visited, a:focus{
+    text-decoration: none;
+}
+
+#downloadButton:hover{
+    background-color:#879e4e;
+}
+
 /********** Background Shading for SideBar Selections **********/
 #family-view-icon:hover, #file-view-icon:hover {
     background-color:#4b9188 !important;
@@ -496,6 +522,7 @@ p {
 .data-vis-inputs {
     display: inline-block;
     height: 30px;
+    font-style:normal;
 }
 
 .data-vis-index-chrom {
