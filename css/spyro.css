@@ -103,7 +103,7 @@ body{
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
     margin-top:10px;
-    /*margin-bottom:15px;*/
+    margin-bottom:5px;
     font-size:15pt;
     font-weight: 200;
     font-style: italic;
@@ -382,7 +382,7 @@ body{
 .collapseButton {
     display: inline-block;
     /*border-radius: 4px;*/
-    background-color: rgba(255,255,255,0.5); /*#f4511e*/
+    background-color: rgba(255,255,255,0.25); /*#f4511e*/
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -390,7 +390,7 @@ body{
     /*padding-left: 20px;*/
     /*padding-right: 20px;*/
     /*padding: 20px;*/
-    width: 175px;
+    width: 50px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 0px;
@@ -407,7 +407,7 @@ body{
 }
 
 
-.collapseButton span {
+/*.collapseButton span {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -430,7 +430,7 @@ body{
 .collapseButton:hover span:after {
   opacity: 1;
   right: 0;
-}
+}*/
 
 /********** About Page **********/
 .aboutHeader {

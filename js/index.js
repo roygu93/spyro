@@ -137,8 +137,8 @@ $(document).ready(function(){
                 height: fillWindow
             });
 
-            $("#collapseButtonText").html("Expand Top Section");
-            document.getElementById("collapseButtonText").setAttribute('data-value', '↓');
+            $("#collapseButtonText").html("&#8681;");
+            // document.getElementById("collapseButtonText").setAttribute('data-value', '↓');
             
             $('.hr').css({
                 cursor: "auto"
@@ -159,8 +159,8 @@ $(document).ready(function(){
                 height: bottomSectionHeightBeforeCollapse
             });
 
-            $("#collapseButtonText").html("Collapse Top Section");
-            document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
+            $("#collapseButtonText").html("&#8679;");
+            // document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
             $('.hr').css({
                 cursor: "row-resize"
             });
