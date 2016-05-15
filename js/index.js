@@ -1,3 +1,5 @@
+var synchronizedScrolling = true; //TODO: need to connect this to a button
+
 $(document).ready(function(){
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["#95D7CF","#BCD98D", "#FFFF89"]
@@ -212,7 +214,6 @@ $(document).ready(function(){
         
         $("#dashboardTable").tablesorter();
     });
-
 });
 
 function displayData(family, member) {
@@ -256,6 +257,12 @@ function toggleActiveButtons() {
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
             $("#data-vis-body_2").width(setWidth + "vw");
+
+            var biographContentDivs = $(".biograph_Content")
+            // NOT THE BEST WAY TO DO THIS...but it works ¯\_(ツ)_/¯
+            for (var i = 0; i < biographContentDivs.length; i++) {
+                biographContentDivs[i].addEventListener('scroll', biographDataScroll, false);
+            }
         });
     }
     else {
@@ -311,4 +318,12 @@ function displayFamilyCard(htmlElement){
     }
     
 }
+
+// Handles synchronized scrolling across all biograph_Content divs
+function biographDataScroll() {
+    if(synchronizedScrolling){
+        $(".biograph_Content").scrollTop($(this).scrollTop());    
+    }   
+}
+
 
