@@ -69,7 +69,7 @@ body{
     width: 75px;
     background-color: #98CBC3;
     border-right: 1px; 
-    height: 46vh;
+    height: 47vh;
     z-index:1; /*to help with layering*/
     position:relative;
 }
@@ -383,7 +383,7 @@ body{
 /********** Divider Bar **********/
 .hr {
     text-align: center;
-    height:20px;
+    height:15px;
     cursor: row-resize;
 
     /* Fixing layering issue */
@@ -393,7 +393,7 @@ body{
 
 .hr > hr{
     display: block;
-    border-width: 20px;
+    border-width: 15px;
     border-color: rgba(11, 72, 107, 1);
     width: 100vw;
     margin: 0;
@@ -408,15 +408,10 @@ body{
 
 .collapseButton {
     display: inline-block;
-    /*border-radius: 4px;*/
-    background-color: rgba(255,255,255,0.25); /*#f4511e*/
+    background-color: rgba(238, 238, 238,0); /*#f4511e*/
     border: none;
     color: #FFFFFF;
     text-align: center;
-    /*font-size: 28px;*/
-    /*padding-left: 20px;*/
-    /*padding-right: 20px;*/
-    /*padding: 20px;*/
     width: 50px;
     transition: all 0.5s;
     cursor: pointer;
@@ -426,38 +421,14 @@ body{
     height:100%;
     padding:0px;
     position:relative;
-    /*margin-left:30px;*/
-    /*margin-right:30px;*/
-    vertical-align: middle;
-
-    /*float:right;*/
 }
 
-
-/*.collapseButton span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.collapseButton > img {
+    height:12px;
+    vertical-align: top;
+    margin-top:7px;
 }
 
-.collapseButton span:after {
-  content: attr(data-value); 
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.collapseButton:hover span {
-  padding-right: 23px;
-}
-
-.collapseButton:hover span:after {
-  opacity: 1;
-  right: 0;
-}*/
 
 /********** About Page **********/
 .aboutHeader {
@@ -571,7 +542,7 @@ p {
 
 .biograph_Content {
     overflow-y: scroll;
-    height:calc(100% - 35px);
+    height:calc(100% - 10px);
 }
 
 pre {
