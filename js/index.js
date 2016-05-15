@@ -198,7 +198,7 @@ $(document).ready(function(){
                     $(familyDivCardID).append("<div class='" + individualRole + "-button multiple-family-buttons' id='mfamilyview_" + familyName + "-" + individualRole + "'> " + individualRole + " </div>");
                     
                     $('.FileDirectoryContent').find('#dashboardTableBody').append("<tr id='fileview_" + familyName + "-" + individualRole + "' class='fileview-table-rows'></tr>");
-                    $("#fileview_" + familyName + "-" + individualRole).append("<td><div class='fileview-checkmark'></div><td>" + individualRole + "</td> <td>" + familyName + "</td> <td> " + infected + "</td>");
+                    $("#fileview_" + familyName + "-" + individualRole).append("<td><div class='fileview-checkmark'></div><td>" + individualRole + "</td> <td>" + familyName + "</td><td>" + individualRole + "</td> <td> " + infected + "</td>");
                     
                 }
             }
