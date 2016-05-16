@@ -2,10 +2,9 @@ var synchronizedScrolling = true; //TODO: need to connect this to a button
 
 $(document).ready(function(){
     var mouseDownOccurred = false;
-    var multipleFamilyCardsBackgroundColor = ["#95D7CF","#BCD98D", "#FFFF89"]
+    var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
     var bottomSectionHeightBeforeCollapse= 0;
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
-    document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
 
     /********** Top Section Sidebar **********/
     $("#family-view-icon").on("click", function() {
@@ -120,15 +119,11 @@ $(document).ready(function(){
     $(".collapseButton").on('click', function (me) {
         if($("#topSection").hasClass("collapse in")){
             //meaning the top section is about to be displayed - replace with 100% height
-            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - parseInt($('.footer').css("height"))
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) 
 
             //saving the old value
             bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height")
 
-            // $('#bottomSection').css({
-            //     'margin-top': "50px"
-            // });
-
             $('#bottomSection').find('.content').css({
                 height: fillWindow
             });
@@ -137,19 +132,12 @@ $(document).ready(function(){
                 height: fillWindow
             });
 
-            $("#collapseButtonText").html("&#8681;");
-            // document.getElementById("collapseButtonText").setAttribute('data-value', '↓');
-            
+            document.getElementById("collapse_expandButtonImage").src = "./img/downarrow.png";
             $('.hr').css({
                 cursor: "auto"
             });
 
-
         } else {
-            //meaining the top section is collapsed - replace with original height
-            // $('#bottomSection').css({
-            //     'margin-top': "0px"
-            // });
 
             $('#bottomSection').find('.content').css({
                 height: bottomSectionHeightBeforeCollapse
@@ -158,12 +146,12 @@ $(document).ready(function(){
             $('.sidebarBottom').css({
                 height: bottomSectionHeightBeforeCollapse
             });
-
-            $("#collapseButtonText").html("&#8679;");
-            // document.getElementById("collapseButtonText").setAttribute('data-value', '↑');
+            
+            document.getElementById("collapse_expandButtonImage").src = "./img/uparrow.png";
             $('.hr').css({
                 cursor: "row-resize"
             });
+
         }
     });
     
@@ -291,6 +279,8 @@ function toggleActiveButtons() {
         $(".data-vis-initial-msg").show();
         $("#bottomSection").find(".BioGraphViz").hide();
         $("#bottomSection").find(".BarGraphViz").hide();
+        $("#bio-graph-viz").css('background-color', '#A9C662'); //darken 
+        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
     } 
 
 }

@@ -2,6 +2,7 @@
 body{
     margin-bottom:0px;
     overflow:hidden;
+    font-family:Lato, "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 /********** Top Nav Bar **********/
@@ -9,9 +10,33 @@ body{
     margin-bottom: 0;
     position: relative;
 }
+
+.navbar-default {
+    /*border-color:#999;*/
+    border-width:2px;
+    border-top:0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color:#555;
+}
+
 .navbar-logo {
     margin-top: -15px;
 }
+
+.navbar > .container {
+    margin:0px;
+    padding-right: 10px;
+    width:100%;
+}
+
+#navbar > ul > li > a{
+    border-left:2px solid #C7C7C7;
+    border-right: 0px solid #C7C7C7;
+    height:50px;
+}
+
 .nav-icons {
     text-align: center;
     width: 80px;
@@ -34,8 +59,14 @@ body{
 }
 
 #download_icon, #save_icon, #update_icon {
-    height: 25px;
+    height: 20px;
 }
+
+.dropdown{
+    font-size:17px;
+}
+
+
 
 /********** Footer Bar **********/
 .footer {
@@ -68,7 +99,7 @@ body{
     width: 75px;
     background-color: #98CBC3;
     border-right: 1px; 
-    height: 46vh;
+    height: 47vh;
     z-index:1; /*to help with layering*/
     position:relative;
 }
@@ -85,6 +116,32 @@ body{
     background-color: #A9C662;
     display: block;
     /*margin-top:5px;*/
+}
+
+#downloadButton {
+    background-color:rgba(255,255,255,0.20);
+    text-align:center;
+    position:fixed;
+    bottom:30px;
+    padding:5px;
+    /*padding-top:5px;*/
+    width:75px;
+}
+
+#downloadButton > a >label{
+    color:white;
+}
+
+#downloadButton > a> img{
+    width:35px;
+}
+
+#downloadButton > a:hover, a:visited, a:focus{
+    text-decoration: none;
+}
+
+#downloadButton:hover{
+    background-color:#879e4e;
 }
 
 /********** Background Shading for SideBar Selections **********/
@@ -163,6 +220,10 @@ body{
     display:inline-block;
 }
 
+.FamilyViewContent > .section-header {
+    margin-bottom:20px;
+}
+
 .family-button-key, .family-button-colors {
     display: inline-block;
 }
@@ -177,23 +238,24 @@ body{
     width: 20px;
     height: 20px;
     margin-left: 10px;
-    vertical-align: text-top;
+    vertical-align: middle;
+    margin-bottom: 4px
 }
 
 .father-color, .mother-color, .child-color {
-    background-color: #EBEBEB;
+    background-color: #F7F7F7; 
 }
 
 .father-color {
-    border: 3px solid darkred;
+    border: 2px solid #003d7f;
 }
 
 .mother-color {
-    border: 3px solid darkblue;
+    border: 2px solid #99231c;
 }
 
 .child-color {
-    border: 3px solid darkgreen;
+    border: 2px solid #b28e00;
 }
 
 /* Select Family Sidebar */
@@ -221,14 +283,15 @@ body{
 
 /* Multiple Family Cards */
 .multiple-family-buttons {
-    background-color: #EBEBEB;
+    background-color: #F7F7F7; /*#EBEBEB;*/
     width: 80%;
     height: 30px;
+    border-radius:5px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500;
     /*Text Alignment*/
     display: flex;
     justify-content: center; /* align horizontal */
@@ -240,32 +303,21 @@ body{
     background-color: #BCBCBC;
 }
 
-.Mother-button {
-/*    background-color: #b6eeff;*/
-    border: 3px solid darkblue;
-}
-
-.Mother-button.clicked {
-/*    background-color: #85a8b2;*/
-}
-
 .Father-button {
-/*    background-color: #f28f8f;*/
-    border: 3px solid darkred;
+    border: 2px solid #003d7f;
+    color: #003d7f;
 }
 
-.Father-button.clicked {
-/*    background-color: #a05e5e;*/
+.Mother-button {
+    border: 2px solid #99231c; 
+    color: #99231c;
 }
 
 .Child-button {
-/*    background-color: #7fea7f;*/
-    border: 3px solid darkgreen;
+    border: 2px solid #b28e00;
+    color: #b28e00;
 }
 
-.Child-button.clicked {
-/*    background-color: #569a56;*/
-}
 
 .multiple-family-cards {
     background-color: #95D7CF; 
@@ -280,7 +332,9 @@ body{
 
 .multiple-family-cards > h3 {
     font-weight: 300;
-    margin-top:10;
+    /*margin-top:10;*/
+    margin-bottom:13px;
+    color: white;
 }
 
 .select-member-labels {
@@ -356,7 +410,7 @@ body{
 /********** Divider Bar **********/
 .hr {
     text-align: center;
-    height:20px;
+    height:15px;
     cursor: row-resize;
 
     /* Fixing layering issue */
@@ -366,7 +420,7 @@ body{
 
 .hr > hr{
     display: block;
-    border-width: 20px;
+    border-width: 15px;
     border-color: rgba(11, 72, 107, 1);
     width: 100vw;
     margin: 0;
@@ -381,15 +435,10 @@ body{
 
 .collapseButton {
     display: inline-block;
-    /*border-radius: 4px;*/
-    background-color: rgba(255,255,255,0.25); /*#f4511e*/
+    background-color: rgba(238, 238, 238,0); /*#f4511e*/
     border: none;
     color: #FFFFFF;
     text-align: center;
-    /*font-size: 28px;*/
-    /*padding-left: 20px;*/
-    /*padding-right: 20px;*/
-    /*padding: 20px;*/
     width: 50px;
     transition: all 0.5s;
     cursor: pointer;
@@ -399,38 +448,14 @@ body{
     height:100%;
     padding:0px;
     position:relative;
-    /*margin-left:30px;*/
-    /*margin-right:30px;*/
-    vertical-align: middle;
-
-    /*float:right;*/
 }
 
-
-/*.collapseButton span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.collapseButton > img {
+    height:12px;
+    vertical-align: top;
+    margin-top:7px;
 }
 
-.collapseButton span:after {
-  content: attr(data-value); 
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.collapseButton:hover span {
-  padding-right: 23px;
-}
-
-.collapseButton:hover span:after {
-  opacity: 1;
-  right: 0;
-}*/
 
 /********** About Page **********/
 .aboutHeader {
@@ -464,6 +489,7 @@ p {
 #data-vis-body_2 {
     height: calc(100% - 10px);
     width:auto;
+    overflow-x: scroll;
     /*height:100%;*/
 }
 
@@ -492,9 +518,15 @@ p {
     font-style:normal;
 }
 
+#coordinateSubmitButton {
+    font-size: 17px;
+    font-style:normal;
+}
+
 .data-vis-inputs {
     display: inline-block;
     height: 30px;
+    font-style:normal;
 }
 
 .data-vis-index-chrom {
@@ -523,15 +555,15 @@ p {
 }
 
 .family-x-biograph-data > .biograph-headers {
-    background-color: #95D7CF;
+    background-color: rgba(185,136,151,.9);
 }
 
 .family-y-biograph-data > .biograph-headers {
-    background-color: #B2CF87;
+    background-color: rgba(126,168,107,.9);
 }
 
 .family-z-biograph-data > .biograph-headers {
-    background-color: #ffff89;
+    background-color: rgba(107,156,168,.90);
 }
 
 .biograph-headers {
@@ -539,9 +571,25 @@ p {
     text-align: center;
     padding: 10px;
     height: 35px;
+    color:white;
 }
 
 .biograph_Content {
     overflow-y: scroll;
-    height:calc(100% - 35px);
+    height:calc(100% - 10px);
+}
+
+pre {
+    border:none;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }

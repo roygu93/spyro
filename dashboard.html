@@ -36,7 +36,7 @@
       
     <!-- HEADER -->
     <nav class="navbar navbar-default navbar-fixed-top" >
-      <div class="container" style="width:98vw">
+      <div class="container" >
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -66,13 +66,6 @@
                 <label for="save_icon" class="icon-labels">Save</label>
               </a>
             </li>
-            
-            <li class="nav-icons">
-              <a href="#download" class="icon_links">
-                <img src="img/download.png" id="download_icon" alt="download_icon"/>
-                <label for="download_icon" class="icon-labels">Download</label>
-              </a>
-            </li> 
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saved Sessions <span class="caret"></span></a>
@@ -184,9 +177,9 @@
       <nav class="navbar-light bg-faded">
           <div class="hr">
             <hr id="divider">
-            <img src='./img/DividerGrips.png' alt=''>
-            <button class="collapseButton" type="button" data-toggle="collapse" data-target="#topSection" aria-expanded="false" aria-controls="topSection"> <span id="collapseButtonText">&#8679;</span></button>
-            <img src='./img/DividerGrips.png' alt=''> 
+            <!-- <img src='./img/DividerGrips.png' alt=''> -->
+            <button class="collapseButton" type="button" data-toggle="collapse" data-target="#topSection" aria-expanded="false" aria-controls="topSection"> <img src='./img/uparrow.png' alt='collapse button' id="collapse_expandButtonImage"></button>
+            <!-- <img src='./img/DividerGrips.png' alt=''>  -->
           </div>
       </nav>
 
@@ -200,7 +193,15 @@
             <li>
                 <a href="#" id="bio-graph-viz"> <img src="./img/BioGraph.png" class="sidebar-icons"/></a>
             </li>
+
+            
           </ul>
+          <div id="downloadButton">            
+            <a href="#download">
+              <img src="img/download.png" alt="download_icon"/>
+              <label for="download_icon" class="icon-labels">Download</label>
+            </a>
+          </div>
       </div>
     
 
@@ -229,18 +230,12 @@
                 <label for="data-vis-index-end">End Position: </label>
                 <input type="input" class="data-vis-inputs data-vis-index-end form-control" maxlength="10" />
               </div>
-              
-              <!--<div class="data-vis-forms">
-                <a href="#download" class="icon_links bottom-icon">
-                  <img src="img/download.png" id="download_icon" alt="download_icon"/>
-                </a>
-              </div>-->
             </div>
             
           </div>
 
           <div id="data-vis-body">
-            
+            <!-- TODO: PUT DUMMY IMAGE IN HERE -->
           </div>
           
         </div>
@@ -267,11 +262,9 @@
                 <input type="input" class="data-vis-inputs data-vis-index-end form-control" maxlength="10" />
               </div>
               
-              <!--<div class="data-vis-forms">
-                <a href="#about" class="icon_links bottom-icon">
-                  <img src="img/download.png" id="download_icon" alt="download_icon"/>
-                </a>
-              </div>-->
+              <div class="data-vis-forms">
+                <button id="coordinateSubmitButton">Update</button>
+              </div>
             </div>  
           </div>
           
