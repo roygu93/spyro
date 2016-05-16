@@ -204,7 +204,8 @@ body{
     width: 20px;
     height: 20px;
     margin-left: 10px;
-    vertical-align: text-top;
+    vertical-align: middle;
+    margin-bottom: 4px
 }
 
 .father-color, .mother-color, .child-color {
@@ -212,11 +213,11 @@ body{
 }
 
 .father-color {
-    border: 3px solid darkred;
+    border: 3px solid darkblue;
 }
 
 .mother-color {
-    border: 3px solid darkblue;
+    border: 3px solid darkred;
 }
 
 .child-color {
@@ -255,7 +256,7 @@ body{
     margin-right: auto;
     margin-bottom: 10px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500;
     /*Text Alignment*/
     display: flex;
     justify-content: center; /* align horizontal */
