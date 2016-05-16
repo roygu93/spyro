@@ -3,10 +3,6 @@ var synchronizedScrolling = true; //TODO: need to connect this to a button
 $(document).ready(function(){
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
-    // #6DAB99
-    // ["#a8b7c8", "#c7dfd8","#d29eae" ]
-    // ["#438383", "#BCD98D","#846d89" ]
-    // ["#95D7CF","#BCD98D", "#FFFF89"]
     var bottomSectionHeightBeforeCollapse= 0;
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
 
