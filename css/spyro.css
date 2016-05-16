@@ -10,6 +10,12 @@ body{
     margin-bottom: 0;
     position: relative;
 }
+
+.navbar-default .navbar-nav>li>a {
+    color:black;
+}
+
+
 .navbar-logo {
     margin-top: -15px;
 }
@@ -190,6 +196,10 @@ body{
     display:inline-block;
 }
 
+.FamilyViewContent > .section-header {
+    margin-bottom:20px;
+}
+
 .family-button-key, .family-button-colors {
     display: inline-block;
 }
@@ -209,19 +219,22 @@ body{
 }
 
 .father-color, .mother-color, .child-color {
-    background-color: #EBEBEB;
+    background-color: #F7F7F7; 
 }
 
 .father-color {
-    border: 3px solid darkblue;
+    border: 2px solid #003d7f;
+    /*#98DDDE;*/
 }
 
 .mother-color {
-    border: 3px solid darkred;
+    border: 2px solid #99231c;
+    /*#F7786B; */
 }
 
 .child-color {
-    border: 3px solid darkgreen;
+    border: 2px solid #b28e00;
+    /*#FAE03C; */
 }
 
 /* Select Family Sidebar */
@@ -249,9 +262,10 @@ body{
 
 /* Multiple Family Cards */
 .multiple-family-buttons {
-    background-color: #EBEBEB;
+    background-color: #F7F7F7; /*#EBEBEB;*/
     width: 80%;
     height: 30px;
+    border-radius:5px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
@@ -268,32 +282,30 @@ body{
     background-color: #BCBCBC;
 }
 
-.Mother-button {
-/*    background-color: #b6eeff;*/
-    border: 3px solid darkblue;
-}
-
-.Mother-button.clicked {
-/*    background-color: #85a8b2;*/
-}
-
 .Father-button {
-/*    background-color: #f28f8f;*/
-    border: 3px solid darkred;
+    border: 2px solid #003d7f; /*#208883;*/
+    color: #003d7f;
+    /*border: 3px solid #5A708C;*/
+    /*#007AFF;*/
 }
 
-.Father-button.clicked {
-/*    background-color: #a05e5e;*/
+.Mother-button {
+    border: 2px solid #99231c; /*4ab4bd*/
+    /*rgba(255,225,26,0.75)*/
+    color: #99231c;
+    /*border: 3px solid #004358;*/
+    /*#f7977a;*/
+    /*#FF3B30;*/
 }
 
 .Child-button {
-/*    background-color: #7fea7f;*/
-    border: 3px solid darkgreen;
+    border: 2px solid #b28e00; /*3a6a78*/
+    color: #b28e00;
+    /*rgba(255,225,26,0.75);*/
+    /*#fff79a;*/
+    /*#FFCC00;*/
 }
 
-.Child-button.clicked {
-/*    background-color: #569a56;*/
-}
 
 .multiple-family-cards {
     background-color: #95D7CF; 
@@ -308,7 +320,9 @@ body{
 
 .multiple-family-cards > h3 {
     font-weight: 300;
-    margin-top:10;
+    /*margin-top:10;*/
+    margin-bottom:13px;
+    color: white;
 }
 
 .select-member-labels {
@@ -528,15 +542,15 @@ p {
 }
 
 .family-x-biograph-data > .biograph-headers {
-    background-color: #95D7CF;
+    background-color: rgba(185,136,151,.9);
 }
 
 .family-y-biograph-data > .biograph-headers {
-    background-color: #B2CF87;
+    background-color: rgba(126,168,107,.9);
 }
 
 .family-z-biograph-data > .biograph-headers {
-    background-color: #ffff89;
+    background-color: rgba(107,156,168,.90);
 }
 
 .biograph-headers {
@@ -544,6 +558,7 @@ p {
     text-align: center;
     padding: 10px;
     height: 35px;
+    color:white;
 }
 
 .biograph_Content {
