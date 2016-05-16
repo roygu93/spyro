@@ -11,14 +11,32 @@ body{
     position: relative;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color:black;
+.navbar-default {
+    /*border-color:#999;*/
+    border-width:2px;
+    border-top:0px;
 }
 
+.navbar-default .navbar-nav>li>a {
+    color:#555;
+}
 
 .navbar-logo {
     margin-top: -15px;
 }
+
+.navbar > .container {
+    margin:0px;
+    padding-right: 10px;
+    width:100%;
+}
+
+#navbar > ul > li > a{
+    border-left:2px solid #C7C7C7;
+    border-right: 0px solid #C7C7C7;
+    height:50px;
+}
+
 .nav-icons {
     text-align: center;
     width: 80px;
@@ -41,8 +59,14 @@ body{
 }
 
 #download_icon, #save_icon, #update_icon {
-    height: 25px;
+    height: 20px;
 }
+
+.dropdown{
+    font-size:17px;
+}
+
+
 
 /********** Footer Bar **********/
 .footer {
@@ -465,6 +489,7 @@ p {
 #data-vis-body_2 {
     height: calc(100% - 10px);
     width:auto;
+    overflow-x: scroll;
     /*height:100%;*/
 }
 
