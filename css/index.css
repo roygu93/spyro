@@ -3,13 +3,17 @@
 }
 
 .banner {
-    background: url('../img/genome_sequence.jpg');
-    background-size: cover;
-    -webkit-background-size: cover;
+    background: url('../img/journal-genetics.png') right 20%;
+    -webkit-background-size: 80%;
+    background-size: 80%;
+    background-repeat: no-repeat;
     margin-top: -20px;
     position: relative;
     width: inherit;
-    height: 350px;
+}
+
+.row {
+    margin-bottom: 20px;
 }
 
 .banner-ribbon {
@@ -30,12 +34,25 @@
     font-size: 30pt;
 }
 
-.info {
-    display: block;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
+.bit {
+    height: 160px;
+}
+
+.bit .icon {
+    width: 25%;
+    display: inline-block;
+}
+
+.bit .icon img {
+    margin-top: -80%;
+    opacity: 0.7;
+    width: 80%;
+}
+
+.bit .info {
+    padding-left: 10px;
+    width: 75%;
+    display: inline-block;
 }
 
 .affiliates {

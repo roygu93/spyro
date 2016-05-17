@@ -4,7 +4,14 @@ $(document).ready(function(){
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
     var bottomSectionHeightBeforeCollapse= 0;
+    var height = $(window).width();
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
+    $(".banner").height(height *.14);
+
+    $(window).resize(function() {
+        height = $(window).width();
+        $(".banner").height(height * 0.14);
+    });
 
     /********** Top Section Sidebar **********/
     $("#family-view-icon").on("click", function() {

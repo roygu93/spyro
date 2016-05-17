@@ -22,6 +22,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="vendors/bootstrap-3.3.6-dist//js/vendor/jquery.min.js"><\/script>')</script>
     <link rel="stylesheet" href="css/spyro.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <script type="text/javascript" src="js/index.js"></script>
@@ -59,25 +61,59 @@
 </div>
 
 <div class="container">
-    <div class="col-md-4">
-        <img src="img/house.png" alt="House" class="info"/>
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dolor error fugiat quibusdam
-            quo sed tenetur vero? Autem dolores ea exercitationem libero maxime odit provident quasi repellendus velit veniam?
+    <h1>Our Features</h1>
+    <div class="row">
+        <div class="col-sm-4 bit">
+            <div class="icon">
+                <img src="img/house.png" alt="House"/>
+            </div><div class="info">
+                <h3>Multi-Family View</h3>
+                <p>
+                    Researchers can easily pick the families from which they wish to view individual members.
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-4 bit">
+            <div class="icon">
+                <img src="img/magnify.png" alt="Magnify" style="width: 60%;"/>
+            </div><div class="info">
+                <h3>Search by Index</h3>
+                <p>
+                    Points of interest can be investigated by entering specific start and end coordinates.
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-4 bit">
+            <div class="icon">
+                <img src="img/slide.png" alt="Slide"/>
+            </div><div class="info">
+                <h3>BioGraph Visualization</h3>
+                <p>
+                    Users can visualize and compare their data side-by-side by using Spiral Genetics’ uniquely powerful format for genomic data.
+                </p>
+            </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <img src="img/magnify.png" alt="Magnify" class="info"/>
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at, atque consequuntur distinctio
-            eaque et eum fugit hic impedit inventore ipsam ipsum labore libero magnam odio optio reprehenderit sint voluptatem!
+    <div class="row">
+        <div class="col-sm-4 bit">
+            <div class="icon">
+                <img src="img/save.png" alt="House"/>
+            </div><div class="info">
+                <h3>Save Session</h3>
+                <p>
+                    Keeps track of which individuals the user is comparing to help them easily pick up where they left off.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <img src="img/slide.png" alt="Slide" class="info"/>
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem consectetur dicta dolorum error
-            nesciunt quis rerum sapiente! Accusantium aliquid atque commodi doloribus iste nemo nisi omnis placeat tempora ut?
+        <div class="col-sm-4 bit">
+            <div class="icon">
+                <img src="img/download_old.png" alt="Magnify"/>
+            </div><div class="info">
+                <h3>Download</h3>
+                <p>
+                    Downloads a comparison of the selected individuals’ BioGraph visualizations.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -92,8 +128,6 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="vendors/bootstrap-3.3.6-dist//js/vendor/jquery.min.js"><\/script>')</script>
 <script src="vendors/bootstrap-3.3.6-dist//js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="vendors/bootstrap-3.3.6-dist//js/ie10-viewport-bug-workaround.js"></script>
