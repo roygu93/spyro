@@ -475,6 +475,10 @@ p {
     font-size: 20px;
 }
 
+.about-columns {
+    text-align: center;
+}
+
 /********** Bottom Content ***********/
 .bottom-header {
     margin: 0;
