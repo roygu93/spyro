@@ -31,6 +31,10 @@ body{
     width:100%;
 }
 
+.about-container, .index-container {
+    width: 98vw !important;
+}
+
 #navbar > ul > li > a{
     border-left:2px solid #C7C7C7;
     border-right: 0px solid #C7C7C7;
