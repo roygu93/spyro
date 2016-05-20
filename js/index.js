@@ -5,9 +5,12 @@ $(document).ready(function(){
     var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
     var bottomSectionHeightBeforeCollapse= 0;
     var height = $(window).width();
+    $("#family-view-icon").addClass("viewSelected");
     $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
     $(".banner").height(height *.14);
-
+    
+    appendExistingSessions();
+    
     $(window).resize(function() {
         height = $(window).width();
         $(".banner").height(height * 0.14);
@@ -18,25 +21,53 @@ $(document).ready(function(){
         if ($(".FamilyViewContent").is(':visible') == false) {
             $(".FamilyViewContent").show();
             $(".FileDirectoryContent").hide();
+            
+            $("#family-view-icon").addClass("viewSelected");
             $("#family-view-icon").css('background-color', '#4b9188'); //darken
+            
+            $("#file-view-icon").removeClass("viewSelected");
             $("#file-view-icon").css('background-color', '#98CBC3'); //reset
         } else {
             $(".FamilyViewContent").hide();
+            
+            $("#family-view-icon").removeClass("viewSelected");
             $("#family-view-icon").css('background-color', '#98CBC3'); //reset
         }
     });
 
     $("#file-view-icon").on("click", function() {
         if ($(".FileDirectoryContent").is(':visible') == false) {
+            
             $(".FileDirectoryContent").show();
             $(".FamilyViewContent").hide();
+            
+            $("#family-view-icon").removeClass("viewSelected");
             $("#family-view-icon").css('background-color', '#98CBC3'); //reset
+            
+            $("#file-view-icon").addClass("viewSelected");
             $("#file-view-icon").css('background-color', '#4b9188'); //darken
         } else {
             $(".FileDirectoryContent").hide();
+            
+            $("#file-view-icon").removeClass("viewSelected");
             $("#file-view-icon").css('background-color', '#98CBC3'); //reset
 
         }
+    });
+    
+    $("#save-session").on("click", function() {
+        
+        saveSession();
+        // if ($(".FileDirectoryContent").is(':visible') == false) {
+        //     $(".FileDirectoryContent").show();
+        //     $(".FamilyViewContent").hide();
+        //     $("#family-view-icon").css('background-color', '#98CBC3'); //reset
+        //     $("#file-view-icon").css('background-color', '#4b9188'); //darken
+        // } else {
+        //     $(".FileDirectoryContent").hide();
+        //     $("#file-view-icon").css('background-color', '#98CBC3'); //reset
+
+        // }
     });
 
     /********** Bottom Section Sidebar **********/
@@ -46,10 +77,16 @@ $(document).ready(function(){
         if ($(".BioGraphViz").is(':visible') == false) {
             $(".BioGraphViz").show();
             $(".BarGraphViz").hide();
+            
+            $("#bio-graph-viz").addClass("viewSelected");
             $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+            
+            $("#bar-graph-viz").removeClass("viewSelected");
             $("#bar-graph-viz").css('background-color', '#A9C662'); //reset
         } else {
             $(".BioGraphViz").hide();
+            
+            $("#bio-graph-viz").removeClass("viewSelected");
             $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
         }
     });
@@ -60,10 +97,16 @@ $(document).ready(function(){
         if ($(".BarGraphViz").is(':visible') == false) {
             $(".BarGraphViz").show();
             $(".BioGraphViz").hide();
+            
+            $("#bar-graph-viz").addClass("viewSelected");
             $("#bar-graph-viz").css('background-color', '#879e4e'); //darken
+            
+            $("#bio-graph-viz").removeClass("viewSelected");
             $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
         } else {
             $(".BarGraphViz").hide();
+            
+            $("#bar-graph-viz").removeClass("viewSelected");
             $("#bar-graph-viz").css('background-color', '#A9C662'); //reset
         }
     });
@@ -273,7 +316,11 @@ function toggleActiveButtons() {
         $(".data-vis-initial-msg").hide();
         $("#bottomSection").find(".BioGraphViz").show();
         $("#bottomSection").find(".BarGraphViz").hide();
+        
+        $("#bio-graph-viz").addClass("viewSelected");
         $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+        
+        $("#bar-graph-viz").removeClass("viewSelected");
         $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
         
         $(".data-vis-index-chrom").val(5);
@@ -286,14 +333,18 @@ function toggleActiveButtons() {
         $(".data-vis-initial-msg").show();
         $("#bottomSection").find(".BioGraphViz").hide();
         $("#bottomSection").find(".BarGraphViz").hide();
-        $("#bio-graph-viz").css('background-color', '#A9C662'); //darken 
+        
+        $("#bio-graph-viz").removeClass("viewSelected");
+        $("#bio-graph-viz").css('background-color', '#A9C662'); //reset 
+        
+        $("#bar-graph-viz").removeClass("viewSelected");
         $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
     } 
 
 }
 
 function addToSelectFamilyDropDown(familyName) {
-    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' class='select-family-checkboxes'/>" + familyName + "</label></li>";
+    var htmlString = "<li><label class='select-family-labels' onClick='displayFamilyCard(this)'><input type='checkbox' id='" + familyName + "-checkbox' class='select-family-checkboxes'/>" + familyName + "</label></li>";
     $('#selectFamily').find('.familyDropdown').append(htmlString);
     // TODO: Fix overflow height issue
 }
@@ -323,4 +374,65 @@ function biographDataScroll() {
     }   
 }
 
+//Append existing saved sessions to the dropdown menu
+function appendExistingSessions() {
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var name = ca[i].split("=")[0];
+        $("#saved-sessions-dropdown").append("<li><a href='#'>"+ name + "</a></li>")
+    }
+}
 
+//Create a new saved session
+function saveSession() {
+    var membersSelected = $("body").find('.clicked');
+    var membersOutput = saveSessionHelper(membersSelected);
+    
+    var familiesSelected = $(".familyDropdown").find('input:checked');
+    var familiesOutput = saveSessionHelper(familiesSelected);
+    
+    var viewsSelected = $(".nav-stacked").find('.viewSelected');
+    var viewsOutput = saveSessionHelper(viewsSelected);
+    
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    $("#saved-sessions-dropdown").append("<li><a href='#'>"+  d.toUTCString() + "</a></li>");
+    
+    var mainOutput = membersOutput + "_" + familiesOutput + "_" + viewsOutput;
+    
+    document.cookie = d.toUTCString() + "=" + mainOutput + "; " + expires;
+        
+    alert("Session Saved under the name: " + d.toUTCString());
+}
+
+//Retrieve a selected saved session
+function retrieveSession(name) {
+    //$(".section-body").html(membersOutput + "<br/>" + familiesOutput + "<br/>" +viewsOutput);
+    
+    // var name = cname + "=";
+    // var ca = document.cookie.split(';');
+    // for(var i = 0; i <ca.length; i++) {
+    //     var c = ca[i];
+    //     while (c.charAt(0)==' ') {
+    //         c = c.substring(1);
+    //     }
+    //     if (c.indexOf(name) == 0) {
+    //         return c.substring(name.length,c.length);
+    //     }
+    // }
+}
+
+function saveSessionHelper(selected) {
+    var output = "";
+    
+    for(var i = 0; i < selected.length; i++) {
+        if(i < selected.length - 1) {
+            output += selected[i].id + ",";
+        } else {
+            output += selected[i].id;
+        }
+    }
+    
+    return output;
+}
