@@ -556,6 +556,7 @@ p {
     display: inline-block;
     margin: 10px;
     height:calc(97% - 50px);
+    white-space: pre;
 }
 
 .biograph-data > div {

@@ -1,7 +1,8 @@
 var synchronizedScrolling = true; //TODO: need to connect this to a button
+var startCoordinate, endCoordinate;
+var countToUpdate = 0;
 
 $(document).ready(function(){
-    var startCoordinate, endCoordinate;
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
     var bottomSectionHeightBeforeCollapse= 0;
@@ -252,17 +253,64 @@ $(document).ready(function(){
         
         $("#dashboardTable").tablesorter();
     });
+
+    //updating the values based on new coordinates
+    $("#coordinateSubmitButton").on('click', function(x) {
+        var retrievedStart = $(".data-vis-index-start").eq(1).val();
+        var retrievedEnd = $(".data-vis-index-end").eq(1).val();
+        if(retrievedEnd < retrievedStart || retrievedEnd - retrievedStart >= 20000 ){
+            //reset the values in the input <-- thoughts??
+            $(".data-vis-index-start").val(startCoordinate);
+            $(".data-vis-index-end").val(endCoordinate);
+            alert("Invalid set of coordinates. Coordinate difference needs to be < 20,000. Please try again.")
+
+        } else if(retrievedStart != startCoordinate || retrievedEnd != endCoordinate) {
+            
+            //1. retrieve which family member's viz are showing
+            var dataDivsCurrentlyDisplay = $(".biograph-data")
+            countToUpdate = dataDivsCurrentlyDisplay.length
+
+            for(i = 0; i < dataDivsCurrentlyDisplay.length; i++){
+                //2. request displayData for each of the family members
+                //TODO: Optional - display loading gif until data is updated? 
+                var title = dataDivsCurrentlyDisplay[i].getElementsByClassName("biograph-headers")[0].innerHTML
+                var splitTitle = title.split("-")
+                var family = splitTitle[1].trim().toLowerCase() + "-" + splitTitle[2].trim()
+                var role = splitTitle[0].trim()
+
+                displayData(family, role)
+            }
+        }
+    });
     
 
 });
 
 function displayData(family, member) {
-    startCoordinate = $(".data-vis-index-start")[0].value;
-    endCoordinate = $(".data-vis-index-end")[0].value;
+    startCoordinate = $(".data-vis-index-start").eq(1).val();
+    endCoordinate = $(".data-vis-index-end").eq(1).val();
     var modifiedURL = "http://gbwtquery.westus.cloudapp.azure.com/Iwana/variant/json/g" + member + "/" + startCoordinate + "/" + endCoordinate;
+    // alert(modifiedURL)
     return $.ajax({
         url: modifiedURL,
-        method: "GET"
+        method: "GET",
+        success: function(d) {
+            if (countToUpdate > 0) {
+                var familyID = family.split("-")[1]
+                var id = "#"+ familyID + member   
+                console.log(id)
+                console.log($(id))
+                var contentDiv = $(id)[0].getElementsByClassName("biograph_Content")[0]
+                var dataString ="";
+                for(j = 0; j < d.length; j++) {
+                    dataString += d[j] + "<br/>"
+                }
+
+                contentDiv.innerHTML = dataString
+                countToUpdate--
+            }
+            
+        }
     });
 }
 
@@ -309,9 +357,14 @@ function toggleActiveButtons() {
         
 
         displayData(family, member).success(function(d) {
+            var dataString ="";
+            for(i = 0; i < d.length; i++) {
+                dataString += d[i] + "<br/>"
+            }
+
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
 
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d + "</pre></div>");
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + dataString + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
