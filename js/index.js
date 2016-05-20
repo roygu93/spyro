@@ -1,6 +1,7 @@
 var synchronizedScrolling = true; //TODO: need to connect this to a button
 
 $(document).ready(function(){
+    var startCoordinate, endCoordinate;
     var mouseDownOccurred = false;
     var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
     var bottomSectionHeightBeforeCollapse= 0;
@@ -205,7 +206,6 @@ $(document).ready(function(){
         }
     });
     
-    
     /********** Fetching JSON List to Populate Top View **********/
     //TODO: NOT SURE WHY .success won't work but .fail and .always does...
     var families, family;
@@ -252,13 +252,16 @@ $(document).ready(function(){
         
         $("#dashboardTable").tablesorter();
     });
+    
+
 });
 
 function displayData(family, member) {
-    var endpoint = "dummy/family_" + family + "/" + member + ".json";
+    startCoordinate = $(".data-vis-index-start")[0].value;
+    endCoordinate = $(".data-vis-index-end")[0].value;
+    var modifiedURL = "http://gbwtquery.westus.cloudapp.azure.com/Iwana/variant/json/g" + member + "/" + startCoordinate + "/" + endCoordinate;
     return $.ajax({
-        url: "http://gbwtquery.westus.cloudapp.azure.com/Iwana/variant",
-        dataType: 'json',
+        url: modifiedURL,
         method: "GET"
     });
 }
@@ -279,6 +282,24 @@ function toggleActiveButtons() {
     var family = parts[1];
     var member = parts[2];
 
+ // If the Bio Graph Visualization div is not currently displaying then display it
+    // If the Bio Graph Visualization div is not currently displaying then display it
+    if($("#bottomSection").find(".BioGraphViz").css("display") == "none"){
+        $(".data-vis-initial-msg").hide();
+        $("#bottomSection").find(".BioGraphViz").show();
+        $("#bottomSection").find(".BarGraphViz").hide();
+        
+        $("#bio-graph-viz").addClass("viewSelected");
+        $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+        
+        $("#bar-graph-viz").removeClass("viewSelected");
+        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
+        
+        $(".data-vis-index-chrom").val(5);
+        $(".data-vis-index-start").val(12811015);
+        $(".data-vis-index-end").val(12820538);
+    }
+    
 
     if(!$("#mfamilyview_" + commonId).hasClass("clicked") && !$("#fileview_" + commonId).hasClass("clicked")) {
         $('#mfamilyview_' + commonId).addClass("clicked");
@@ -290,7 +311,7 @@ function toggleActiveButtons() {
         displayData(family, member).success(function(d) {
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
 
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d.variant + "</pre></div>");
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
@@ -310,23 +331,6 @@ function toggleActiveButtons() {
 
         $("#" + family + member).remove();
     } 
-    
-    // If the Bio Graph Visualization div is not currently displaying then display it
-    if($("#bottomSection").find(".BioGraphViz").css("display") == "none"){
-        $(".data-vis-initial-msg").hide();
-        $("#bottomSection").find(".BioGraphViz").show();
-        $("#bottomSection").find(".BarGraphViz").hide();
-        
-        $("#bio-graph-viz").addClass("viewSelected");
-        $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
-        
-        $("#bar-graph-viz").removeClass("viewSelected");
-        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
-        
-        $(".data-vis-index-chrom").val(5);
-        $(".data-vis-index-start").val(12811015);
-        $(".data-vis-index-end").val(12820538);
-    }
     
     //if no data is being displayed (no individuals are clicked on), display initial message
     if($(".clicked").length == 0) {
