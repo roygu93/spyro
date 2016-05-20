@@ -1,4 +1,6 @@
 var synchronizedScrolling = true; //TODO: need to connect this to a button
+var startCoordinate, endCoordinate;
+var countToUpdate = 0;
 
 $(document).ready(function(){
     var mouseDownOccurred = false;
@@ -205,7 +207,6 @@ $(document).ready(function(){
         }
     });
     
-    
     /********** Fetching JSON List to Populate Top View **********/
     //TODO: NOT SURE WHY .success won't work but .fail and .always does...
     var families, family;
@@ -252,14 +253,64 @@ $(document).ready(function(){
         
         $("#dashboardTable").tablesorter();
     });
+
+    //updating the values based on new coordinates
+    $("#coordinateSubmitButton").on('click', function(x) {
+        var retrievedStart = $(".data-vis-index-start").eq(1).val();
+        var retrievedEnd = $(".data-vis-index-end").eq(1).val();
+        if(retrievedEnd < retrievedStart || retrievedEnd - retrievedStart >= 20000 ){
+            //reset the values in the input <-- thoughts??
+            $(".data-vis-index-start").val(startCoordinate);
+            $(".data-vis-index-end").val(endCoordinate);
+            alert("Invalid set of coordinates. Coordinate difference needs to be < 20,000. Please try again.")
+
+        } else if(retrievedStart != startCoordinate || retrievedEnd != endCoordinate) {
+            
+            //1. retrieve which family member's viz are showing
+            var dataDivsCurrentlyDisplay = $(".biograph-data")
+            countToUpdate = dataDivsCurrentlyDisplay.length
+
+            for(i = 0; i < dataDivsCurrentlyDisplay.length; i++){
+                //2. request displayData for each of the family members
+                //TODO: Optional - display loading gif until data is updated? 
+                var title = dataDivsCurrentlyDisplay[i].getElementsByClassName("biograph-headers")[0].innerHTML
+                var splitTitle = title.split("-")
+                var family = splitTitle[1].trim().toLowerCase() + "-" + splitTitle[2].trim()
+                var role = splitTitle[0].trim()
+
+                displayData(family, role)
+            }
+        }
+    });
+    
+
 });
 
 function displayData(family, member) {
-    var endpoint = "dummy/family_" + family + "/" + member + ".json";
+    startCoordinate = $(".data-vis-index-start").eq(1).val();
+    endCoordinate = $(".data-vis-index-end").eq(1).val();
+    var modifiedURL = "http://gbwtquery.westus.cloudapp.azure.com/Iwana/variant/json/g" + member + "/" + startCoordinate + "/" + endCoordinate;
+    // alert(modifiedURL)
     return $.ajax({
-        url: "http://gbwtquery.westus.cloudapp.azure.com/Iwana/variant",
-        dataType: 'json',
-        method: "GET"
+        url: modifiedURL,
+        method: "GET",
+        success: function(d) {
+            if (countToUpdate > 0) {
+                var familyID = family.split("-")[1]
+                var id = "#"+ familyID + member   
+                console.log(id)
+                console.log($(id))
+                var contentDiv = $(id)[0].getElementsByClassName("biograph_Content")[0]
+                var dataString ="";
+                for(j = 0; j < d.length; j++) {
+                    dataString += d[j] + "<br/>"
+                }
+
+                contentDiv.innerHTML = dataString
+                countToUpdate--
+            }
+            
+        }
     });
 }
 
@@ -279,6 +330,24 @@ function toggleActiveButtons() {
     var family = parts[1];
     var member = parts[2];
 
+ // If the Bio Graph Visualization div is not currently displaying then display it
+    // If the Bio Graph Visualization div is not currently displaying then display it
+    if($("#bottomSection").find(".BioGraphViz").css("display") == "none"){
+        $(".data-vis-initial-msg").hide();
+        $("#bottomSection").find(".BioGraphViz").show();
+        $("#bottomSection").find(".BarGraphViz").hide();
+        
+        $("#bio-graph-viz").addClass("viewSelected");
+        $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+        
+        $("#bar-graph-viz").removeClass("viewSelected");
+        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
+        
+        $(".data-vis-index-chrom").val(5);
+        $(".data-vis-index-start").val(12811015);
+        $(".data-vis-index-end").val(12820538);
+    }
+    
 
     if(!$("#mfamilyview_" + commonId).hasClass("clicked") && !$("#fileview_" + commonId).hasClass("clicked")) {
         $('#mfamilyview_' + commonId).addClass("clicked");
@@ -288,9 +357,14 @@ function toggleActiveButtons() {
         
 
         displayData(family, member).success(function(d) {
+            var dataString ="";
+            for(i = 0; i < d.length; i++) {
+                dataString += d[i] + "<br/>"
+            }
+
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
 
-            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + d.variant + "</pre></div>");
+            $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + dataString + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
             var setWidth = $(".biograph-data").length * 35;
@@ -310,23 +384,6 @@ function toggleActiveButtons() {
 
         $("#" + family + member).remove();
     } 
-    
-    // If the Bio Graph Visualization div is not currently displaying then display it
-    if($("#bottomSection").find(".BioGraphViz").css("display") == "none"){
-        $(".data-vis-initial-msg").hide();
-        $("#bottomSection").find(".BioGraphViz").show();
-        $("#bottomSection").find(".BarGraphViz").hide();
-        
-        $("#bio-graph-viz").addClass("viewSelected");
-        $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
-        
-        $("#bar-graph-viz").removeClass("viewSelected");
-        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
-        
-        $(".data-vis-index-chrom").val(5);
-        $(".data-vis-index-start").val(12811015);
-        $(".data-vis-index-end").val(12820538);
-    }
     
     //if no data is being displayed (no individuals are clicked on), display initial message
     if($(".clicked").length == 0) {
