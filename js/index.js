@@ -253,7 +253,7 @@ $(document).ready(function(){
     
     
 
-    //updating the values based on new coordinates
+    /********** Updating the Biograph Data Based on New Coordinates **********/
     $("#coordinateSubmitButton").on('click', function(x) {
         var retrievedStart = $(".data-vis-index-start").eq(1).val();
         var retrievedEnd = $(".data-vis-index-end").eq(1).val();
@@ -281,6 +281,22 @@ $(document).ready(function(){
             }
         }
     });
+
+
+    /********** Download Button Clicked **********/
+    $('#downloadButton').on('click', function(x){
+        alert("hi")
+        //TODO: change the heights to 100%
+        html2canvas($("#data-vis-content"), {
+            onrendered: function(canvas) {
+                theCanvas = canvas;
+                canvas.toBlob(function(blob){
+                    saveAs(blob, "data-viz.png");
+                })
+            }
+        })
+    });
+
 });
 
 function displayData(family, member) {
