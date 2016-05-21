@@ -300,7 +300,7 @@ function displayData(family, member) {
                 var contentDiv = $(id)[0].getElementsByClassName("biograph_Content")[0]
                 var dataString ="";
                 for(j = 0; j < d.length; j++) {
-                    dataString += d[j] + "<br/>"
+                    dataString += d[j].substr(7,d[j].length) + "<br/>"
                 }
 
                 contentDiv.innerHTML = dataString
@@ -356,7 +356,7 @@ function toggleActiveButtons() {
         displayData(family, member).success(function(d) {
             var dataString ="";
             for(i = 0; i < d.length; i++) {
-                dataString += d[i] + "<br/>"
+                dataString += d[i].substr(7,d[i].length) + "<br/>"
             }
 
             var biographHeader = "<div class='biograph-headers'>" + member + " - Family-" + family + "</div>"
