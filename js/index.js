@@ -451,7 +451,7 @@ function saveSession() {
     var d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-    $("#saved-sessions-dropdown").append("<li><a href='#''>"+  d.toUTCString() + "</a></li>");
+    $("#saved-sessions-dropdown").append("<li><a href='#'' onClick='retrieveSession(this.innerHTML.trim())'>"+  d.toUTCString() + "</a></li>");
     
     var mainOutput = membersOutput + "..." + familiesOutput + "..." + viewsOutput;
     
