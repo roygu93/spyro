@@ -148,12 +148,20 @@ body{
     background-color:#879e4e;
 }
 
+.top-view-selected {
+    background-color: #98CBC3; 
+}
+
+.bottom-view-selected {
+    background-color: #A9C662;
+}
+
 /********** Background Shading for SideBar Selections **********/
-#family-view-icon:hover, #file-view-icon:hover {
+#family-view-icon:hover, #file-view-icon:hover, .top-view-selected {
     background-color:#4b9188 !important;
 }
 
-#bar-graph-viz:hover, #bio-graph-viz:hover {
+#bar-graph-viz:hover, #bio-graph-viz:hover, .bottom-view-selected {
     background-color:#879e4e !important;
 }
 

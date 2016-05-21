@@ -7,8 +7,8 @@ $(document).ready(function(){
     var multipleFamilyCardsBackgroundColor = ["rgba(185,136,151,.90)", "rgba(126,168,107,.90)","rgba(107,156,168,.90)"] 
     var bottomSectionHeightBeforeCollapse= 0;
     var height = $(window).width();
-    $("#family-view-icon").addClass("viewSelected");
-    $("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
+    $("#family-view-icon").addClass("view-selected top-view-selected"); //darken - because already on the family view
+    //$("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
     $(".banner").height(height *.14);
     
     appendExistingSessions();
@@ -24,16 +24,16 @@ $(document).ready(function(){
             $(".FamilyViewContent").show();
             $(".FileDirectoryContent").hide();
             
-            $("#family-view-icon").addClass("viewSelected");
-            $("#family-view-icon").css('background-color', '#4b9188'); //darken
+            $("#family-view-icon").addClass("view-selected top-view-selected"); //darken
+            //$("#family-view-icon").css('background-color', '#4b9188'); //darken
             
-            $("#file-view-icon").removeClass("viewSelected");
-            $("#file-view-icon").css('background-color', '#98CBC3'); //reset
+            $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
+            //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
         } else {
             $(".FamilyViewContent").hide();
             
-            $("#family-view-icon").removeClass("viewSelected");
-            $("#family-view-icon").css('background-color', '#98CBC3'); //reset
+            $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
+            //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
         }
     });
 
@@ -43,28 +43,18 @@ $(document).ready(function(){
             $(".FileDirectoryContent").show();
             $(".FamilyViewContent").hide();
             
-            $("#family-view-icon").removeClass("viewSelected");
-            $("#family-view-icon").css('background-color', '#98CBC3'); //reset
+            $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
+            //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
             
-            $("#file-view-icon").addClass("viewSelected");
-            $("#file-view-icon").css('background-color', '#4b9188'); //darken
+            $("#file-view-icon").addClass("view-selected top-view-selected"); //darken
+            //$("#file-view-icon").css('background-color', '#4b9188'); //darken
         } else {
             $(".FileDirectoryContent").hide();
             
-            $("#file-view-icon").removeClass("viewSelected");
-            $("#file-view-icon").css('background-color', '#98CBC3'); //reset
+            $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
+            //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
 
         }
-    });
-    
-    //Save session 
-    $("#save-session").on("click", function() {
-        saveSession();
-    });
-    
-    //Retrieve saved session
-    $("#saved-sessions-dropdown").find("li").on("click", function() {
-       retrieveSession(event.target.innerHTML.trim()); 
     });
 
     /********** Bottom Section Sidebar **********/
@@ -75,16 +65,16 @@ $(document).ready(function(){
             $(".BioGraphViz").show();
             $(".BarGraphViz").hide();
             
-            $("#bio-graph-viz").addClass("viewSelected");
-            $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+            $("#bio-graph-viz").addClass("view-selected bottom-view-selected"); //darken
+            //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
             
-            $("#bar-graph-viz").removeClass("viewSelected");
-            $("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+            //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
         } else {
             $(".BioGraphViz").hide();
             
-            $("#bio-graph-viz").removeClass("viewSelected");
-            $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+            //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset
         }
     });
      
@@ -95,16 +85,16 @@ $(document).ready(function(){
             $(".BarGraphViz").show();
             $(".BioGraphViz").hide();
             
-            $("#bar-graph-viz").addClass("viewSelected");
-            $("#bar-graph-viz").css('background-color', '#879e4e'); //darken
+            $("#bar-graph-viz").addClass("view-selected bottom-view-selected"); //darken
+            //$("#bar-graph-viz").css('background-color', '#879e4e'); //darken
             
-            $("#bio-graph-viz").removeClass("viewSelected");
-            $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+           // $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
         } else {
             $(".BarGraphViz").hide();
             
-            $("#bar-graph-viz").removeClass("viewSelected");
-            $("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+            //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
         }
     });
 
@@ -240,6 +230,8 @@ $(document).ready(function(){
             }
         }
         
+        //$("#family-x-checkbox").prop("checked", true);
+        
         /********** Multiple Family Tree Button OnClick Event Handler **********/
         $(".multiple-family-buttons").on("click", toggleActiveButtons);
         
@@ -247,6 +239,16 @@ $(document).ready(function(){
         $(".fileview-table-rows").on("click", toggleActiveButtons);
         
         $("#dashboardTable").tablesorter();
+        
+        //Save session 
+        $("#save-session").on("click", function() {
+            saveSession();
+        });
+        
+        //Retrieve saved session
+        $("#saved-sessions-dropdown").find("li").on("click", function() {
+            retrieveSession(event.target.innerHTML.trim()); 
+        });
     });
     
     
@@ -279,8 +281,6 @@ $(document).ready(function(){
             }
         }
     });
-    
-    document.getElementById("family-x-checkbox").checked = true;
 });
 
 function displayData(family, member) {
@@ -334,11 +334,11 @@ function toggleActiveButtons() {
         $("#bottomSection").find(".BioGraphViz").show();
         $("#bottomSection").find(".BarGraphViz").hide();
         
-        $("#bio-graph-viz").addClass("viewSelected");
-        $("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+        $("#bio-graph-viz").addClass("view-selected bottom-view-selected");
+        //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
         
-        $("#bar-graph-viz").removeClass("viewSelected");
-        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
+        $("#bar-graph-viz").removeClass("view-selected bottom-view-selected");
+        //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
         
         $(".data-vis-index-chrom").val(5);
         $(".data-vis-index-start").val(12811015);
@@ -388,11 +388,11 @@ function toggleActiveButtons() {
         $("#bottomSection").find(".BioGraphViz").hide();
         $("#bottomSection").find(".BarGraphViz").hide();
         
-        $("#bio-graph-viz").removeClass("viewSelected");
-        $("#bio-graph-viz").css('background-color', '#A9C662'); //reset 
+        $("#bio-graph-viz").removeClass("view-selected bottom-view-selected");
+        //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset 
         
-        $("#bar-graph-viz").removeClass("viewSelected");
-        $("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
+        $("#bar-graph-viz").removeClass("view-selected bottom-view-selected");
+        //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
     } 
 
 }
@@ -445,13 +445,13 @@ function saveSession() {
     var familiesSelected = $(".familyDropdown").find('input:checked');
     var familiesOutput = saveSessionHelper(familiesSelected);
     
-    var viewsSelected = $(".nav-stacked").find('.viewSelected');
+    var viewsSelected = $(".nav-stacked").find('.view-selected');
     var viewsOutput = saveSessionHelper(viewsSelected);
     
     var d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-    $("#saved-sessions-dropdown").append("<li><a href='#'>"+  d.toUTCString() + "</a></li>");
+    $("#saved-sessions-dropdown").append("<li><a href='#''>"+  d.toUTCString() + "</a></li>");
     
     var mainOutput = membersOutput + "..." + familiesOutput + "..." + viewsOutput;
     
@@ -462,25 +462,88 @@ function saveSession() {
 
 //Retrieve a selected saved session
 function retrieveSession(cname) {
+    resetElements();  //reset all elements
+    
     var output = "";
-    var split = [];
+    var categories = [];
     var name = cname + "=";
     var ca = document.cookie.split(';');
+    
     for(var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') {
             c = c.substring(1);
         }
         if (c.indexOf(name) == 0) {
-            split = c.substring(name.length,c.length).split("...");
+            categories = c.substring(name.length,c.length).split("...");
         }
     }
     
-    for(var i = 0; i < split.length; i++) {
-        output += split[i] + "<br/>";
+    var viewsSelected = categories[2].split(",");
+    
+    //display selected views
+    if(viewsSelected.length > 0) {
+        //if a top view was selected
+        if(viewsSelected[0]) {
+            var topView = viewsSelected[0].replace("-view-icon", "");
+            
+            if(topView == "family") {
+                //display family view
+                $(".FamilyViewContent").css("display" , "block");
+                $("#family-view-icon").addClass("view-selected top-view-selected");
+            } else {
+                //dispaly file directory
+                $(".FileDirectoryContent").css("display" , "block");
+            }
+        }
+        
+        //if a bottom view was selected
+        if(viewsSelected[1]) {
+            var bottomView = viewsSelected[1].replace("-graph-viz", "");
+            
+            if(bottomView == "bio") {
+                //display biograph data
+                $(".BioGraphViz").css("display" , "block");
+                $("#bio-graph-viz").addClass("view-selected bottom-view-selected");
+            } else {
+                $(".BarGraphViz").css("display" , "block");
+            }
+        }
     }
     
-    $(".section-body").html(output);
+    var familyCards = categories[1].split(",");
+    
+    //display selected family cards
+    if(familyCards[0]) {
+        for(var i = 0; i < familyCards.length; i++) {
+            var checkbox = "#" + familyCards[i];
+            var familyName = "#" + familyCards[i].replace("-checkbox", "");
+            
+            $(familyName).css("display", "inline-block");
+            $(".family-view-initial-msg").hide();
+            
+            $(checkbox).prop("checked", true);
+        }
+    } else {
+        //top section initial message
+        $(".FamilyViewContent").css("display" , "block");
+        $(".family-view-initial-msg").css("display" , "block");
+    }
+    
+    var membersSelected = categories[0].split(",");
+    
+    //click selected members and display their data
+    if(membersSelected[0]) {
+        for(var i = 0; i < membersSelected.length; i++) {
+            var memberId = "#" + membersSelected[i];
+            
+            if(i < (membersSelected.length / 2)) {
+                $(memberId).trigger("click");
+                $(".data-vis-initial-msg").hide();
+            }
+            
+        }
+    }
 }
 
 //helper function for save session function
@@ -496,4 +559,37 @@ function saveSessionHelper(selected) {
     }
     
     return output;
+}
+
+//resets, hides, unchecks, unclicks all elements in the dashboard
+function resetElements() {
+    //family view elements
+    $(".FamilyViewContent").css("display" , "none");
+    $("#family-view-icon").removeClass("view-selected top-view-selected");
+    
+    $(".multiple-family-cards").css("display" , "none");
+    $(".select-family-checkboxes").prop("checked", false);
+    $(".multiple-family-buttons").removeClass("clicked");
+    
+    //file view elements
+    $(".FileDirectoryContent").css("display" , "none");
+    $("#file-view-icon").removeClass("view-selected top-view-selected");
+    
+    $(".fileview-table-rows").removeClass("clicked");
+    $(".fileview-checkmark").css("background-image" , "none");
+    
+    //top section initial message
+    $(".family-view-initial-msg").css("display" , "block");
+    
+    //bio graph data
+    $(".BioGraphViz").css("display" , "none");
+    $("#bio-graph-viz").removeClass("view-selected bottom-view-selected");
+    $("#data-vis-body_2").html("");
+    
+    //bar graph data
+    $(".BarGraphViz").css("display" , "none");
+    $("#bar-graph-viz").removeClass("view-selected bottom-view-selected");
+    
+    //bottom section initial message
+    $(".data-vis-initial-msg").css("display" , "block");
 }
