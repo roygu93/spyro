@@ -285,14 +285,38 @@ $(document).ready(function(){
 
     /********** Download Button Clicked **********/
     $('#downloadButton').on('click', function(x){
-        alert("hi")
-        //TODO: change the heights to 100%
-        html2canvas($("#data-vis-content"), {
+
+        var dataDivs = document.getElementsByClassName('biograph_Content');
+        for(i=0 ; i< dataDivs.length ; i++) {
+            dataDivs[i].style.height = "initial";
+        }
+
+        $("#data-vis-body_2").height((dataDivs[0].offsetHeight + 60) + "px");
+        document.getElementById('data-vis-body_2').parentNode.style.overflow = 'visible'; 
+        
+
+        html2canvas($("#data-vis-body_2"), {
             onrendered: function(canvas) {
-                theCanvas = canvas;
-                canvas.toBlob(function(blob){
-                    saveAs(blob, "data-viz.png");
-                })
+                var a = document.createElement('a');
+                // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+                a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+                a.download = 'somefilename.jpg';
+                a.click(); // downloads the image
+
+                /********** Reset the tool to how it originally was **********/
+                document.getElementById('data-vis-body_2').parentNode.removeAttribute("style");
+                document.getElementById('data-vis-body_2').removeAttribute("style");
+
+                // Reset the width of the div to what it was originally
+                var setWidth = $(".biograph-data").length * 35;
+                $("#data-vis-body_2").width(setWidth + "vw");
+
+                // Reset the heigh of the biograph data divs to what they were originally
+                var dataDivs = document.getElementsByClassName('biograph_Content');
+                for(i=0 ; i< dataDivs.length ; i++) {
+                    dataDivs[i].removeAttribute("style")
+                }
+                
             }
         })
     });
