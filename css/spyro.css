@@ -504,8 +504,9 @@ p {
 
 #data-vis-body_2 {
     height: calc(100% - 10px);
-    width:auto;
+    /*width:auto;*/
     overflow-x: scroll;
+    background-color:white;
     /*height:100%;*/
 }
 
@@ -594,6 +595,7 @@ p {
 .biograph_Content {
     overflow-y: scroll;
     height:calc(100% - 10px);
+    background-color:#EBEBEB;
 }
 
 pre {

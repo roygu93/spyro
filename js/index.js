@@ -253,7 +253,7 @@ $(document).ready(function(){
     
     
 
-    //updating the values based on new coordinates
+    /********** Updating the Biograph Data Based on New Coordinates **********/
     $("#coordinateSubmitButton").on('click', function(x) {
         var retrievedStart = $(".data-vis-index-start").eq(1).val();
         var retrievedEnd = $(".data-vis-index-end").eq(1).val();
@@ -281,6 +281,46 @@ $(document).ready(function(){
             }
         }
     });
+
+
+    /********** Download Button Clicked **********/
+    $('#downloadButton').on('click', function(x){
+
+        var dataDivs = document.getElementsByClassName('biograph_Content');
+        for(i=0 ; i< dataDivs.length ; i++) {
+            dataDivs[i].style.height = "initial";
+        }
+
+        $("#data-vis-body_2").height((dataDivs[0].offsetHeight + 60) + "px");
+        document.getElementById('data-vis-body_2').parentNode.style.overflow = 'visible'; 
+        
+
+        html2canvas($("#data-vis-body_2"), {
+            onrendered: function(canvas) {
+                var a = document.createElement('a');
+                // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+                a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+                a.download = 'Spyro_BioGraphComparison.jpg'; //TODO: probably should have a count? 
+                a.click(); // downloads the image
+
+                /********** Reset the tool to how it originally was **********/
+                document.getElementById('data-vis-body_2').parentNode.removeAttribute("style");
+                document.getElementById('data-vis-body_2').removeAttribute("style");
+
+                // Reset the width of the div to what it was originally
+                var setWidth = $(".biograph-data").length * 35;
+                $("#data-vis-body_2").width(setWidth + "vw");
+
+                // Reset the heigh of the biograph data divs to what they were originally
+                var dataDivs = document.getElementsByClassName('biograph_Content');
+                for(i=0 ; i< dataDivs.length ; i++) {
+                    dataDivs[i].removeAttribute("style")
+                }
+                
+            }
+        })
+    });
+
 });
 
 function displayData(family, member) {
