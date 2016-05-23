@@ -246,7 +246,7 @@ $(document).ready(function(){
         });
         
         //Retrieve saved session
-        $("#saved-sessions-dropdown").find("li").on("click", function() {
+        $("#saved-sessions-dropdown").find(".saved-session-retrieve").on("click", function() {
             retrieveSession(event.target.innerHTML.trim()); 
         });
     });
@@ -472,8 +472,10 @@ function biographDataScroll() {
 function appendExistingSessions() {
     var ca = document.cookie.split(';');
     for(var i = 0; i < ca.length; i++) {
-        var name = ca[i].split("=")[0];
-        $("#saved-sessions-dropdown").append("<li><a href='#'>"+ name + "</a></li>")
+        if(ca[i]) {
+            var name = ca[i].split("=")[0];
+            $("#saved-sessions-dropdown").append("<li class='saved-sessions-li'><a class='saved-session-retrieve'>" + name + "</a><a class='glyphicon glyphicon-remove saved-session-remove' onclick='deleteSession(this)'></a></li>");
+        }
     }
 }
 
@@ -491,13 +493,36 @@ function saveSession() {
     var d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-    $("#saved-sessions-dropdown").append("<li><a href='#'' onClick='retrieveSession(this.innerHTML.trim())'>"+  d.toUTCString() + "</a></li>");
+    $("#saved-sessions-dropdown").append("<li class='saved-sessions-li'><a class='saved-session-retrieve' onClick='retrieveSession(this.innerHTML.trim())'>" +  d.toUTCString() + "</a><a class='glyphicon glyphicon-remove saved-session-remove' onclick='deleteSession(this)'></a></li>");
     
     var mainOutput = membersOutput + "..." + familiesOutput + "..." + viewsOutput;
     
     document.cookie = d.toUTCString() + "=" + mainOutput + "; " + expires;
         
     alert("Session Saved under the name: " + d.toUTCString());
+}
+
+function deleteSession(htmlElement) {
+    var sessionName = htmlElement.parentNode.children[0].innerHTML.trim();
+    
+    if(confirm("Are you sure you want to delete Cookie: " + sessionName + "?")) {
+        var remove = htmlElement.parentNode;
+        var cookieValue = "";
+                
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(sessionName) == 0) {
+                cookieValue = c.substring(sessionName.length,c.length);
+            }
+        }
+        
+        document.cookie = sessionName + "=" + cookieValue + "; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        remove.remove();
+    }
 }
 
 //Retrieve a selected saved session
