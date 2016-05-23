@@ -70,7 +70,18 @@ body{
     font-size:17px;
 }
 
+.saved-sessions-li {
+    padding: 5px;
+}
 
+.saved-session-remove, .saved-session-retrieve {
+    cursor: pointer;
+}
+
+#saved-sessions-dropdown>li>a {
+    display: inline !important;
+    padding: 7px
+}
 
 /********** Footer Bar **********/
 .footer {
