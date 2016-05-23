@@ -20,9 +20,13 @@ How do we create a genetic data visualization platform for genetic researchers t
   * Multiple Family View `[DONE]`
   * File Directory `[DONE]`
 * Bottom View
-  * BioGraph Visualization `[1/2 DONE - need to get specifying the coordinate/location to work]`
-  * Bar Graph Visualization `[de-prioritizing based on time constraint]`
+  * BioGraph Visualization `[DONE]`
+  * Bar Graph Visualization `[de-prioritizing - TODO: put in dummy image]`
   * Side-by-side comparison of visualizations `[DONE]`
+* Additional Functionality
+  * Save Session (and be able to delete saved sessions) `[DONE - except for bug fix for major issue]`
+  * Download BioGraph Data viz side-by-side comparison `[DONE]`
+  * Popup for Refresh/Update `[TODO]`
 
 ##Backend API Notes
 The infrastructure of our application is a 38GB memory server hosted on Microsoft Azure. The server is owned by our sponsor, SpiralGenetics. SpiralGenetics has patented a custom data structure that allows them to compress a large amount of genetic data and load them into memory. In addition, they have implemented a low level API that is able to interrogate the in memory dataset, and a Python application that allows them to visualize genetic variance in the CLI.
