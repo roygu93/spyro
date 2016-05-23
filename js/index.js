@@ -472,8 +472,10 @@ function biographDataScroll() {
 function appendExistingSessions() {
     var ca = document.cookie.split(';');
     for(var i = 0; i < ca.length; i++) {
-        var name = ca[i].split("=")[0];
-        $("#saved-sessions-dropdown").append("<li class='saved-sessions-li'><a class='saved-session-retrieve'>" + name + "</a><a class='glyphicon glyphicon-remove saved-session-remove' onclick='deleteSession(this)'></a></li>")
+        if(ca[i]) {
+            var name = ca[i].split("=")[0];
+            $("#saved-sessions-dropdown").append("<li class='saved-sessions-li'><a class='saved-session-retrieve'>" + name + "</a><a class='glyphicon glyphicon-remove saved-session-remove' onclick='deleteSession(this)'></a></li>");
+        }
     }
 }
 
