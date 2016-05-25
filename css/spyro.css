@@ -480,28 +480,6 @@ body{
 }
 
 
-/********** About Page **********/
-.aboutHeader {
-	text-align: center;
-	margin:	5px;
-}
-
-.aboutBody {
-	text-align: center;	
-}
-
-p {
-	display: inline;
-}
-
-.spyro-header {
-    font-size: 20px;
-}
-
-.about-columns {
-    text-align: center;
-}
-
 /********** Bottom Content ***********/
 .bottom-header {
     margin: 0;
