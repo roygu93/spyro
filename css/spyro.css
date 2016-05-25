@@ -509,7 +509,7 @@ p {
 }
 
 #outer_data-vis-body_2 {
-    height:calc(100% - 40px);
+    height:calc(100% - 42px);
     overflow-x: scroll;
     overflow-y:hidden;
 }

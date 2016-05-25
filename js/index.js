@@ -308,8 +308,8 @@ $(document).ready(function(){
                 document.getElementById('data-vis-body_2').removeAttribute("style");
 
                 // Reset the width of the div to what it was originally
-                var setWidth = $(".biograph-data").length * 35;
-                $("#data-vis-body_2").width(setWidth + "vw");
+                var setWidth = $(".biograph-data").length * 400;
+                $("#data-vis-body_2").width(setWidth + "px");
 
                 // Reset the heigh of the biograph data divs to what they were originally
                 var dataDivs = document.getElementsByClassName('biograph_Content');
@@ -404,8 +404,8 @@ function toggleActiveButtons() {
             $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + dataString + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
-            var setWidth = $(".biograph-data").length * 35;
-            $("#data-vis-body_2").width(setWidth + "vw");
+            var setWidth = $(".biograph-data").length * 400;
+            $("#data-vis-body_2").width(setWidth + "px");
 
             var biographContentDivs = $(".biograph_Content")
             // NOT THE BEST WAY TO DO THIS...but it works ¯\_(ツ)_/¯
