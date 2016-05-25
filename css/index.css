@@ -134,12 +134,32 @@ h3 {
 
 .sponsors{
     width:100%;
-    height:225px;
+    height:320px;
     margin-top:35px;
 }
 
-.affiliates {
-    /*margin-top: 30px;*/
+.sponsors > .content {
+    position: relative;
+    text-align:center;
+}
+
+
+.card {
+    background-color: rgba(242,242,242, 0.5);
+    margin-left:15px;
+    margin-right:15px;
+    float:none;
+    display:inline-block;
+    vertical-align: top
+}
+
+.card-block {
+    /*margin-bottom:10px;*/
+}
+
+.card-title {
+    font-weight:500;
+    margin-bottom:5px;
 }
 
 
