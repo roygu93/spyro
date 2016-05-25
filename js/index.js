@@ -121,7 +121,7 @@ $(document).ready(function(){
                 var bottomsTop = pY + my;
                 var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
-                if (bottomsTop < window.innerHeight - 45) {
+                if (bottomsTop < window.innerHeight - 105) {
                     $dragable.css({
                         height: newHeight,
                         top: bottomsTop
@@ -132,7 +132,7 @@ $(document).ready(function(){
                     });
 
                     $('#bottomSection').find('.content').css({
-                        height: newHeight
+                        height: (newHeight - 22)
                     });
 
                     $('#topSection').find('.content').css({
@@ -143,9 +143,9 @@ $(document).ready(function(){
                         height:newTopSectionHeight
                     });
 
-                    $(".biograph-data").css({
-                        height: "calc(97% - 75px)"
-                    });        
+                    // $(".biograph-data").css({
+                        // height: "calc(97% - 25px)"
+                    // });        
                 }
                 
             }
@@ -156,10 +156,10 @@ $(document).ready(function(){
     $(".collapseButton").on('click', function (me) {
         if($("#topSection").hasClass("collapse in")){
             //meaning the top section is about to be displayed - replace with 100% height
-            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) 
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - 85
 
             //saving the old value
-            bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height")
+            bottomSectionHeightBeforeCollapse = parseInt($('#bottomSection').find('.content').css("height")) + 20
 
             $('#bottomSection').find('.content').css({
                 height: fillWindow

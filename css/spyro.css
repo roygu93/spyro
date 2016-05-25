@@ -96,7 +96,7 @@ body{
 
 #bottomSection {
     /*margin-top:50vh;*/
-    /*height:45vh;*/
+    height:45vh;
     /*width:100vw;*/
     /*display:block;*/
     /*border-top: 10px solid black;*/
@@ -398,7 +398,7 @@ body{
 
 .BioGraphViz {
     display: none;
-    height: calc(100% - 35px);
+    height: 100%;
     width:100%;
 }
 
@@ -509,20 +509,24 @@ p {
 }
 
 #outer_data-vis-body_2 {
-    height:100%;
+    height:calc(100% - 40px);
     overflow-x: scroll;
+    overflow-y:hidden;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 10px;
 }
 
 #data-vis-body_2 {
-    height: calc(100% - 10px);
-    /*width:auto;*/
-    overflow-x: scroll;
+    height:94%;
     background-color:white;
-    /*height:100%;*/
 }
 
 #data-vis-content {
     padding-top:5px; 
+    height: calc(45vh - 25px);
     /*margin-top:5px; */
 }
 
@@ -575,7 +579,7 @@ p {
     width: 375px;
     display: inline-block;
     margin: 10px;
-    height:calc(97% - 50px);
+    height:calc(100% - 20px);
     white-space: pre;
 }
 
