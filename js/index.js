@@ -29,11 +29,11 @@ $(document).ready(function(){
             
             $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
             //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
-        } else {
-            $(".FamilyViewContent").hide();
+        // } else {
+        //     $(".FamilyViewContent").hide();
             
-            $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
-            //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
+        //     $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
+        //     //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
         }
     });
 
@@ -48,53 +48,57 @@ $(document).ready(function(){
             
             $("#file-view-icon").addClass("view-selected top-view-selected"); //darken
             //$("#file-view-icon").css('background-color', '#4b9188'); //darken
-        } else {
-            $(".FileDirectoryContent").hide();
+        // } else {
+        //     $(".FileDirectoryContent").hide();
             
-            $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
-            //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
+        //     $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
+        //     //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
 
         }
     });
 
     /********** Bottom Section Sidebar **********/
     $("#bio-graph-viz").on("click", function() {
-        $(".data-vis-initial-msg").hide();
-        
-        if ($(".BioGraphViz").is(':visible') == false) {
-            $(".BioGraphViz").show();
-            $(".BarGraphViz").hide();
+        if(document.getElementsByClassName("biograph-data").length >0){
+            $(".data-vis-initial-msg").hide();
             
-            $("#bio-graph-viz").addClass("view-selected bottom-view-selected"); //darken
-            //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
-            
-            $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-            //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
-        } else {
-            $(".BioGraphViz").hide();
-            
-            $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-            //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            if ($(".BioGraphViz").is(':visible') == false) {
+                $(".BioGraphViz").show();
+                $(".BarGraphViz").hide();
+                
+                $("#bio-graph-viz").addClass("view-selected bottom-view-selected"); //darken
+                //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+                
+                $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+                //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            } else {
+                $(".BioGraphViz").hide();
+                
+                $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+                //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            }
         }
     });
      
     $("#bar-graph-viz").on("click", function() {
-        $(".data-vis-initial-msg").hide();
-        
-        if ($(".BarGraphViz").is(':visible') == false) {
-            $(".BarGraphViz").show();
-            $(".BioGraphViz").hide();
+        if(document.getElementsByClassName("biograph-data").length >0){
+            $(".data-vis-initial-msg").hide();
             
-            $("#bar-graph-viz").addClass("view-selected bottom-view-selected"); //darken
-            //$("#bar-graph-viz").css('background-color', '#879e4e'); //darken
-            
-            $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-           // $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
-        } else {
-            $(".BarGraphViz").hide();
-            
-            $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-            //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            if ($(".BarGraphViz").is(':visible') == false) {
+                $(".BarGraphViz").show();
+                $(".BioGraphViz").hide();
+                
+                $("#bar-graph-viz").addClass("view-selected bottom-view-selected"); //darken
+                //$("#bar-graph-viz").css('background-color', '#879e4e'); //darken
+                
+                $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+               // $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            } else {
+                $(".BarGraphViz").hide();
+                
+                $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+                //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            }
         }
     });
 
@@ -121,7 +125,7 @@ $(document).ready(function(){
                 var bottomsTop = pY + my;
                 var newTopSectionHeight = originalTopSectionHeight + my; // + 10
                 
-                if (bottomsTop < window.innerHeight - 45) {
+                if (bottomsTop < window.innerHeight - 105) {
                     $dragable.css({
                         height: newHeight,
                         top: bottomsTop
@@ -132,7 +136,7 @@ $(document).ready(function(){
                     });
 
                     $('#bottomSection').find('.content').css({
-                        height: newHeight
+                        height: (newHeight - 22)
                     });
 
                     $('#topSection').find('.content').css({
@@ -143,9 +147,9 @@ $(document).ready(function(){
                         height:newTopSectionHeight
                     });
 
-                    $(".biograph-data").css({
-                        height: "calc(97% - 75px)"
-                    });        
+                    // $(".biograph-data").css({
+                        // height: "calc(97% - 25px)"
+                    // });        
                 }
                 
             }
@@ -156,10 +160,10 @@ $(document).ready(function(){
     $(".collapseButton").on('click', function (me) {
         if($("#topSection").hasClass("collapse in")){
             //meaning the top section is about to be displayed - replace with 100% height
-            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) 
+            var fillWindow = window.innerHeight - parseInt($('#divider').css("border-top-width")) - 85
 
             //saving the old value
-            bottomSectionHeightBeforeCollapse = $('#bottomSection').find('.content').css("height")
+            bottomSectionHeightBeforeCollapse = parseInt($('#bottomSection').find('.content').css("height")) + 20
 
             $('#bottomSection').find('.content').css({
                 height: fillWindow
@@ -242,7 +246,10 @@ $(document).ready(function(){
         
         //Save session 
         $("#save-session").on("click", function() {
-            saveSession();
+            if(document.getElementsByClassName("biograph-data").length >0){
+                saveSession();    
+            }
+            
         });
         
         //Retrieve saved session
@@ -308,8 +315,8 @@ $(document).ready(function(){
                 document.getElementById('data-vis-body_2').removeAttribute("style");
 
                 // Reset the width of the div to what it was originally
-                var setWidth = $(".biograph-data").length * 35;
-                $("#data-vis-body_2").width(setWidth + "vw");
+                var setWidth = $(".biograph-data").length * 400;
+                $("#data-vis-body_2").width(setWidth + "px");
 
                 // Reset the heigh of the biograph data divs to what they were originally
                 var dataDivs = document.getElementsByClassName('biograph_Content');
@@ -404,8 +411,8 @@ function toggleActiveButtons() {
             $("#data-vis-body_2").append("<div id='" + family + member + "' class='biograph-data family-" + family + "-biograph-data'>" + biographHeader + "<pre class='biograph_Content'>" + dataString + "</pre></div>");
             
             //adjust width of 'data-vis-body_2' to hold all data horizontally
-            var setWidth = $(".biograph-data").length * 35;
-            $("#data-vis-body_2").width(setWidth + "vw");
+            var setWidth = $(".biograph-data").length * 400;
+            $("#data-vis-body_2").width(setWidth + "px");
 
             var biographContentDivs = $(".biograph_Content")
             // NOT THE BEST WAY TO DO THIS...but it works ¯\_(ツ)_/¯
@@ -499,7 +506,7 @@ function saveSession() {
     
     document.cookie = d.toUTCString() + "=" + mainOutput + "; " + expires;
         
-    alert("Session Saved under the name: " + d.toUTCString());
+    alert("Session Saved under the name: \n" + d.toUTCString());
 }
 
 function deleteSession(htmlElement) {
