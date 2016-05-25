@@ -29,11 +29,11 @@ $(document).ready(function(){
             
             $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
             //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
-        } else {
-            $(".FamilyViewContent").hide();
+        // } else {
+        //     $(".FamilyViewContent").hide();
             
-            $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
-            //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
+        //     $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
+        //     //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
         }
     });
 
@@ -48,53 +48,57 @@ $(document).ready(function(){
             
             $("#file-view-icon").addClass("view-selected top-view-selected"); //darken
             //$("#file-view-icon").css('background-color', '#4b9188'); //darken
-        } else {
-            $(".FileDirectoryContent").hide();
+        // } else {
+        //     $(".FileDirectoryContent").hide();
             
-            $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
-            //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
+        //     $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
+        //     //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
 
         }
     });
 
     /********** Bottom Section Sidebar **********/
     $("#bio-graph-viz").on("click", function() {
-        $(".data-vis-initial-msg").hide();
-        
-        if ($(".BioGraphViz").is(':visible') == false) {
-            $(".BioGraphViz").show();
-            $(".BarGraphViz").hide();
+        if(document.getElementsByClassName("biograph-data").length >0){
+            $(".data-vis-initial-msg").hide();
             
-            $("#bio-graph-viz").addClass("view-selected bottom-view-selected"); //darken
-            //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
-            
-            $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-            //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
-        } else {
-            $(".BioGraphViz").hide();
-            
-            $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-            //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            if ($(".BioGraphViz").is(':visible') == false) {
+                $(".BioGraphViz").show();
+                $(".BarGraphViz").hide();
+                
+                $("#bio-graph-viz").addClass("view-selected bottom-view-selected"); //darken
+                //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
+                
+                $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+                //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            } else {
+                $(".BioGraphViz").hide();
+                
+                $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+                //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            }
         }
     });
      
     $("#bar-graph-viz").on("click", function() {
-        $(".data-vis-initial-msg").hide();
-        
-        if ($(".BarGraphViz").is(':visible') == false) {
-            $(".BarGraphViz").show();
-            $(".BioGraphViz").hide();
+        if(document.getElementsByClassName("biograph-data").length >0){
+            $(".data-vis-initial-msg").hide();
             
-            $("#bar-graph-viz").addClass("view-selected bottom-view-selected"); //darken
-            //$("#bar-graph-viz").css('background-color', '#879e4e'); //darken
-            
-            $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-           // $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
-        } else {
-            $(".BarGraphViz").hide();
-            
-            $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-            //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            if ($(".BarGraphViz").is(':visible') == false) {
+                $(".BarGraphViz").show();
+                $(".BioGraphViz").hide();
+                
+                $("#bar-graph-viz").addClass("view-selected bottom-view-selected"); //darken
+                //$("#bar-graph-viz").css('background-color', '#879e4e'); //darken
+                
+                $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+               // $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+            } else {
+                $(".BarGraphViz").hide();
+                
+                $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
+                //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+            }
         }
     });
 
