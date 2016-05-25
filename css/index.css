@@ -1,70 +1,206 @@
-.navbar-logo {
-    margin-top: -15px;
+/*Styling for Index Page*/
+
+
+/********** Revising Defaults **********/
+body, h1, h2, h3, h4 {
+    margin-bottom:0px;
+    font-family:Lato, "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight:200;
 }
 
-.banner {
+h1 {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom:25px;
+}
+
+h2 {
+    font-weight: 500;
+    font-size:18pt;
+}
+
+h3 {
+    font-weight: 300;
+    font-size:14pt;
+}
+
+
+/********** Header Section **********/
+
+.jumbotron {
+    margin-bottom: 0;
     background: url('../img/journal-genetics.png') right 20%;
     -webkit-background-size: 80%;
     background-size: 80%;
     background-repeat: no-repeat;
     margin-top: -20px;
     position: relative;
-    width: inherit;
+    box-shadow: 0 0 15px grey;
+}
+
+.banner-ribbon {
+    background-color: rgba(255,255,255,0.90);
+    width: 60%;
+    /*border: 1px solid rgba(199,199,199,0.75);*/
+    padding-bottom:20px;
+}
+
+
+#tagline{
+    font-style: italic;
+    font-size: 18pt;
+    font-weight:200;
+
+}
+
+
+
+
+.tool {
+    width:100%; 
+    height:150px; 
+    text-align: center;
+    background-color:rgba(252,252,252,1);
+
+    /*#fffadd;*/
+    
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.fa-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+.fa {
+    display: inline-block;
+    /*font: normal normal normal 14px/1 FontAwesome;*/
+    /*font-size: inherit;*/
+    /*text-rendering: auto;*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+}
+
+
+.fa-github:before {
+    content: "\f09b";
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+
+
+
+
+/********** Features Section **********/
+
+#features{
+    background: url('../img/Background.png') right 20%;
+    background-size: 100%;
+    margin:0;
+    width:100%;
+    box-shadow: 0 0 10px grey;
+}
+
+.bit {
+    height: 135px;
+    background-color: rgba(248,248,248, 0.5);
+    padding:15px;
+    margin-left:7px;
+    margin-right:7px;
+    width:30%;
+    border-radius: 4px;
+    display:table;
+}
+
+.icon {
+    width: 25%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon > img {
+    opacity: 0.8;
+    width: 75px;
+}
+
+.info {
+    padding-left: 10px;
+    width: 72%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.info > h3, p{
+    margin:0;
+    padding:0;
+}
+
+.info > h3 {
+    padding-bottom:2px;
 }
 
 .row {
     margin-bottom: 20px;
 }
 
-.banner-ribbon {
-    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1)); /*Safari 5.1-6*/
-    background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1)); /*Opera 11.1-12*/
-    background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1)); /*Fx 3.6-15*/
-    bottom: 0;
-    font-style: italic;
-    left: 0;
-    padding-left: 20px;
-    position: absolute;
-    width: 60%;
-    height: 60px;
-}
 
-.banner-ribbon p {
-    font-size: 30pt;
-}
+/********** Sponsor Section **********/
 
-.bit {
-    height: 160px;
-}
-
-.bit .icon {
-    width: 25%;
-    display: inline-block;
-}
-
-.bit .icon img {
-    margin-top: -80%;
-    opacity: 0.7;
-    width: 80%;
-}
-
-.bit .info {
-    padding-left: 10px;
-    width: 75%;
-    display: inline-block;
+.sponsors{
+    width:100%;
+    height:200px;
 }
 
 .affiliates {
     margin-top: 30px;
 }
 
-.col-about {
-    width: 22%;
-    display: inline-block;
+
+/********** About Section **********/
+.about{
+    height:400px;
+    background-color: rgba(248,248,248,1);
+    padding-top:5px;
+    box-shadow: 0 0 10px grey;
 }
 
-.space {
-    clear: both;
-    padding: 50px;
+.content{
+    width: 85%;
+    margin-right:auto;
+    margin-left:auto;
 }
+
+.about-columns {
+    text-align: center;
+    
+}
+
+
+.aboutHeader {
+    text-align: center;
+    margin: 5px;
+}
+
+.aboutBody {
+    text-align: center; 
+}
+
+/*p {
+    display: inline;
+}
+*/
+.spyro-header {
+    font-size: 20px;
+}
+

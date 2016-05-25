@@ -7,3 +7,4 @@ $(document).ready(function(){
         height = $(window).width();
         $(".banner").height(height * 0.14);
     });
+});
