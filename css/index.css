@@ -25,6 +25,7 @@ h3 {
 }
 
 
+
 /********** Header Section **********/
 
 .jumbotron {
@@ -54,51 +55,21 @@ h3 {
 }
 
 
-
+/********** Tool Section **********/
 
 .tool {
     width:100%; 
-    height:150px; 
+    height:250px; 
     text-align: center;
-    background-color:rgba(252,252,252,1);
-
-    /*#fffadd;*/
-    
-    padding-top:20px;
+    /*background-color:rgba(252,252,252,1);*/
+    padding-top:5px;
     padding-bottom:20px;
 }
 
-.fa-fw {
-    width: 1.28571429em;
-    text-align: center;
+.tool > p {
+    font-size:14pt;
+    margin-bottom: 10px;
 }
-.fa {
-    display: inline-block;
-    /*font: normal normal normal 14px/1 FontAwesome;*/
-    /*font-size: inherit;*/
-    /*text-rendering: auto;*/
-    /*-webkit-font-smoothing: antialiased;*/
-    /*-moz-osx-font-smoothing: grayscale;*/
-}
-
-
-.fa-github:before {
-    content: "\f09b";
-    font-family: 'FontAwesome';
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-/*--adjust as necessary--*/
-    color: #000;
-    font-size: 18px;
-    padding-right: 0.5em;
-    position: absolute;
-    top: 10px;
-    left: 0;
-}
-
-
-
 
 
 /********** Features Section **********/
@@ -170,7 +141,8 @@ h3 {
 /********** About Section **********/
 .about{
     height:400px;
-    background-color: rgba(248,248,248,1);
+    background-color: #F5F5F5;
+    /*rgba(248,248,248,0.55);*/
     padding-top:5px;
     box-shadow: 0 0 10px grey;
 }
@@ -196,11 +168,20 @@ h3 {
     text-align: center; 
 }
 
-/*p {
-    display: inline;
-}
-*/
+
 .spyro-header {
     font-size: 20px;
 }
+
+
+/********** Footer Section **********/
+
+.footer{
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+}
+
+
 
