@@ -134,11 +134,12 @@ h3 {
 
 .sponsors{
     width:100%;
-    height:200px;
+    height:225px;
+    margin-top:35px;
 }
 
 .affiliates {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 
 
