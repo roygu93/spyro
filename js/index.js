@@ -374,7 +374,7 @@ function toggleActiveButtons() {
     var family = parts[1];
     var member = parts[2];
 
- // If the Bio Graph Visualization div is not currently displaying then display it
+    // If the Bio Graph Visualization div is not currently displaying then display it
     // If the Bio Graph Visualization div is not currently displaying then display it
     if($("#bottomSection").find(".BioGraphViz").css("display") == "none"){
         $(".data-vis-initial-msg").hide();
@@ -386,12 +386,11 @@ function toggleActiveButtons() {
         
         $("#bar-graph-viz").removeClass("view-selected bottom-view-selected");
         //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset 
-        
-        $(".data-vis-index-chrom").val(5);
-        $(".data-vis-index-start").val(12811015);
-        $(".data-vis-index-end").val(12820538);
     }
     
+    $(".data-vis-index-chrom").val(5);
+    $(".data-vis-index-start").val(12811015);
+    $(".data-vis-index-end").val(12820538);
 
     if(!$("#mfamilyview_" + commonId).hasClass("clicked") && !$("#fileview_" + commonId).hasClass("clicked")) {
         $('#mfamilyview_' + commonId).addClass("clicked");
