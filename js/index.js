@@ -242,7 +242,10 @@ $(document).ready(function(){
         
         //Save session 
         $("#save-session").on("click", function() {
-            saveSession();
+            if(document.getElementsByClassName("biograph-data").length >0){
+                saveSession();    
+            }
+            
         });
         
         //Retrieve saved session
@@ -499,7 +502,7 @@ function saveSession() {
     
     document.cookie = d.toUTCString() + "=" + mainOutput + "; " + expires;
         
-    alert("Session Saved under the name: " + d.toUTCString());
+    alert("Session Saved under the name: \n" + d.toUTCString());
 }
 
 function deleteSession(htmlElement) {
