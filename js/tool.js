@@ -1,4 +1,4 @@
-var synchronizedScrolling = true; //TODO: need to connect this to a button
+var synchronizedScrolling = true; //Optional: connect this to a button
 var startCoordinate, endCoordinate;
 var countToUpdate = 0;
 
@@ -8,7 +8,6 @@ $(document).ready(function(){
     var bottomSectionHeightBeforeCollapse= 0;
     var height = $(window).width();
     $("#family-view-icon").addClass("view-selected top-view-selected"); //darken - because already on the family view
-    //$("#family-view-icon").css('background-color', '#4b9188'); //darken - because already on the family view
     $(".banner").height(height *.14);
     
     appendExistingSessions();
@@ -25,15 +24,9 @@ $(document).ready(function(){
             $(".FileDirectoryContent").hide();
             
             $("#family-view-icon").addClass("view-selected top-view-selected"); //darken
-            //$("#family-view-icon").css('background-color', '#4b9188'); //darken
             
             $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
-            //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
-        // } else {
-        //     $(".FamilyViewContent").hide();
             
-        //     $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
-        //     //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
         }
     });
 
@@ -44,16 +37,8 @@ $(document).ready(function(){
             $(".FamilyViewContent").hide();
             
             $("#family-view-icon").removeClass("view-selected top-view-selected"); //reset
-            //$("#family-view-icon").css('background-color', '#98CBC3'); //reset
             
             $("#file-view-icon").addClass("view-selected top-view-selected"); //darken
-            //$("#file-view-icon").css('background-color', '#4b9188'); //darken
-        // } else {
-        //     $(".FileDirectoryContent").hide();
-            
-        //     $("#file-view-icon").removeClass("view-selected top-view-selected"); //reset
-        //     //$("#file-view-icon").css('background-color', '#98CBC3'); //reset
-
         }
     });
 
@@ -67,15 +52,14 @@ $(document).ready(function(){
                 $(".BarGraphViz").hide();
                 
                 $("#bio-graph-viz").addClass("view-selected bottom-view-selected"); //darken
-                //$("#bio-graph-viz").css('background-color', '#879e4e'); //darken 
                 
                 $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-                //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+
             } else {
                 $(".BioGraphViz").hide();
                 
                 $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-                //$("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+                
             }
         }
     });
@@ -89,15 +73,14 @@ $(document).ready(function(){
                 $(".BioGraphViz").hide();
                 
                 $("#bar-graph-viz").addClass("view-selected bottom-view-selected"); //darken
-                //$("#bar-graph-viz").css('background-color', '#879e4e'); //darken
                 
                 $("#bio-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-               // $("#bio-graph-viz").css('background-color', '#A9C662'); //reset
+
             } else {
                 $(".BarGraphViz").hide();
                 
                 $("#bar-graph-viz").removeClass("view-selected bottom-view-selected"); //reset
-                //$("#bar-graph-viz").css('background-color', '#A9C662'); //reset
+
             }
         }
     });
@@ -147,9 +130,6 @@ $(document).ready(function(){
                         height:newTopSectionHeight
                     });
 
-                    // $(".biograph-data").css({
-                        // height: "calc(97% - 25px)"
-                    // });        
                 }
                 
             }

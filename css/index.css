@@ -42,7 +42,6 @@ h3 {
 .banner-ribbon {
     background-color: rgba(255,255,255,0.90);
     width: 60%;
-    /*border: 1px solid rgba(199,199,199,0.75);*/
     padding-bottom:20px;
 }
 
@@ -59,9 +58,8 @@ h3 {
 
 .tool {
     width:100%; 
-    height:275px; 
+    height:300px; 
     text-align: center;
-    /*background-color:rgba(252,252,252,1);*/
     padding-top:12px;
     padding-bottom:20px;
 }
@@ -134,7 +132,7 @@ h3 {
 
 .sponsors{
     width:100%;
-    height:320px;
+    height:340px;
     margin-top:35px;
 }
 
@@ -153,10 +151,6 @@ h3 {
     vertical-align: top
 }
 
-.card-block {
-    /*margin-bottom:10px;*/
-}
-
 .card-title {
     font-weight:500;
     margin-bottom:5px;
@@ -167,7 +161,6 @@ h3 {
 .about{
     height:400px;
     background-color: #F5F5F5;
-    /*rgba(248,248,248,0.55);*/
     padding-top:5px;
     box-shadow: 0 0 10px grey;
 }

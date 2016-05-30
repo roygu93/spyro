@@ -1,3 +1,9 @@
+/*  NOTE: 
+    - ********** TITLES IN CAPS ********** = components on tool affected by the following CSS 
+    - ********** Titles not in caps ********** = sub-components within a larger component affected by the following CSS
+     - * note *  = comment/note on CSS
+ */
+
 
 body{
     margin-bottom:0px;
@@ -5,7 +11,7 @@ body{
     font-family:Lato, "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-/********** Top Nav Bar **********/
+/********** TOP NAV BAR **********/
 .navbar-fixed-top {
     margin-bottom: 0;
     position: relative;
@@ -31,9 +37,6 @@ body{
     width:100%;
 }
 
-.about-container, .index-container {
-    width: 98vw !important;
-}
 
 #navbar > ul > li > a{
     border-left:2px solid #C7C7C7;
@@ -57,8 +60,6 @@ body{
 
 .icon_links {
     padding: 5px 10px 0px 10px !important;
-    /*padding-left: 15px !important;
-    padding-right: 15px !important;*/
     border-right: 1px solid gray;
 }
 
@@ -83,31 +84,24 @@ body{
     padding: 7px
 }
 
-/********** Footer Bar **********/
+/********** FOOTER BAR **********/
 .footer {
     position:fixed;
     z-index:1000;
 }
 
-/********** Sections **********/
+/********** SECTIONS **********/
 #topSection {
 }
 
 
 #bottomSection {
-    /*margin-top:50vh;*/
     height:45vh;
-    /*width:100vw;*/
-    /*display:block;*/
-    /*border-top: 10px solid black;*/
     float:left;
-    /*position:absolute;*/
-    /*top:50vh;*/
-    /*overflow: scroll;*/
 }
 
 
-/********** SideBar **********/
+/********** SIDEBAR **********/
 .sidebar {
     display: inline-block;
     float: left;
@@ -133,13 +127,22 @@ body{
     /*margin-top:5px;*/
 }
 
+.top-view-selected {
+    background-color: #98CBC3; 
+}
+
+.bottom-view-selected {
+    background-color: #A9C662;
+}
+
+
+/********** SideBar Bottom - DOWNLOAD BUTTON **********/
 #downloadButton {
     background-color:rgba(255,255,255,0.20);
     text-align:center;
     position:fixed;
     bottom:30px;
     padding:5px;
-    /*padding-top:5px;*/
     width:75px;
 }
 
@@ -159,13 +162,6 @@ body{
     background-color:#879e4e;
 }
 
-.top-view-selected {
-    background-color: #98CBC3; 
-}
-
-.bottom-view-selected {
-    background-color: #A9C662;
-}
 
 /********** Background Shading for SideBar Selections **********/
 #family-view-icon:hover, #file-view-icon:hover, .top-view-selected {
@@ -177,38 +173,7 @@ body{
 }
 
 
-/********** Content **********/
-.section-header{
-    margin: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    margin-top:10px;
-    margin-bottom:5px;
-    font-size:15pt;
-    font-weight: 200;
-    font-style: italic;
-}
-
-.section-header > h1{
-    margin: 0;
-    padding-bottom: 5px;
-    margin-bottom:5px;
-    font-size:15pt;
-    font-weight: 200;
-    font-style: italic;
-    display:inline;
-}
-
-/********** Select Family Tree Dropdown **********/
-.select-family-labels {
-    color: black;
-}
-
-.select-family-checkboxes {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-}
-
+/********** CONTENT **********/
 .content{
     float: left;
     display: inline-block;
@@ -231,8 +196,31 @@ body{
     /*overflow: scroll;*/
 }
 
+.section-header{
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-size:15pt;
+    font-weight: 200;
+    font-style: italic;
+}
 
-/********** Family View Section **********/
+.section-header > h1{
+    margin: 0;
+    padding-bottom: 5px;
+    margin-bottom:5px;
+    font-size:15pt;
+    font-weight: 200;
+    font-style: italic;
+    display:inline;
+}
+
+
+
+
+/********** FAMILY VIEW SECTION **********/
 .FamilyViewContent {
     height:100%;
 }
@@ -247,6 +235,58 @@ body{
     margin-bottom:20px;
 }
 
+/* Div containing family cards */
+.section-body {
+    width: 100%; 
+    /*height: 100%; */
+    text-align: center;
+ }
+
+
+/* Initial Family View Prompt */
+.family-view-initial-msg {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.initial-msg {
+    line-height: 35px;   
+    font-weight: 200;
+    font-style:italic;
+}
+
+
+/********** Select Family Sidebar - Under Family View Section **********/
+#selectFamily {
+    width:14.9%;
+    height:100%;
+    background-color: rgba(238,238,238, 0.5);
+    float:right;
+    border-left: 5px solid #eeeeee;
+    text-align: center;
+}
+
+.familyDropdown {
+    list-style-type: none;
+    padding:0;
+    /*overflow:scroll;*/
+}
+
+.select-family-labels {
+    color: black;
+}
+
+.select-family-checkboxes {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+
+
+/********** Legend for Colors related to Roles **********/
 .family-button-key, .family-button-colors {
     display: inline-block;
 }
@@ -265,6 +305,7 @@ body{
     margin-bottom: 4px
 }
 
+/* Note: Hard coded colors to role on family card*/
 .father-color, .mother-color, .child-color {
     background-color: #F7F7F7; 
 }
@@ -281,30 +322,8 @@ body{
     border: 2px solid #b28e00;
 }
 
-/* Select Family Sidebar */
-#selectFamily {
-    width:14.9%;
-    height:100%;
-    background-color: rgba(238,238,238, 0.5);
-    float:right;
-    border-left: 5px solid #eeeeee;
-    text-align: center;
-}
 
-.familyDropdown {
-    list-style-type: none;
-    padding:0;
-    /*overflow:scroll;*/
-
-}
-
-.section-body {
-    width: 100%; 
-    /*height: 100%; */
-    text-align: center;
- }
-
-/* Multiple Family Cards */
+/********** Multiple Family Cards **********/
 .multiple-family-buttons {
     background-color: #F7F7F7; /*#EBEBEB;*/
     width: 80%;
@@ -341,7 +360,6 @@ body{
     color: #b28e00;
 }
 
-
 .multiple-family-cards {
     background-color: #95D7CF; 
     border-radius: 2em;
@@ -364,24 +382,10 @@ body{
     vertical-align: sub;
 }
 
-/* Initial Family View Prompt */
-.family-view-initial-msg {
-    width: 50%;
-    height: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-}
-
-.initial-msg {
-    line-height: 35px;   
-    font-weight: 200;
-    font-style:italic;
-}
 
 
 
-/********** File Directory **********/
+/********** FILE DIRECTORY **********/
 .FileDirectoryContent {
     display: none;
     height:100%;
@@ -412,7 +416,6 @@ body{
 }
 
 .fileview-checkmark {
-    /*background-image: url("../img/checkmark.png");*/
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
@@ -430,7 +433,10 @@ body{
     cursor: pointer;
 }
 
-/********** Divider Bar **********/
+
+
+
+/********** DIVIDER BAR **********/
 .hr {
     text-align: center;
     height:15px;
@@ -480,7 +486,7 @@ body{
 }
 
 
-/********** Bottom Content ***********/
+/********** BOTTOM SECTION ***********/
 .bottom-header {
     margin: 0;
     padding-bottom: 10px;
@@ -492,6 +498,7 @@ body{
     overflow-y:hidden;
 }
 
+/* for persistent scroll*/
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     height: 10px;
@@ -511,6 +518,8 @@ body{
 .data-vis-initial-msg {
     text-align: center;
 }
+
+/********** BIOGRAPH COORDINATE INPUT/TEXT FILEDS ***********/
 
 .data-vis-coordinates {
     /*display: inline-block;*/
@@ -547,11 +556,12 @@ body{
     width: 115px;
 }
 
+/* Note: Don't think this is necessary...*/
 .bottom-icon {
     border: none;
 }
 
-/********** Biograph Data ***********/
+/********** BIOGRAPH DATA CARDS***********/
 .biograph-data {
     background-color: #EBEBEB;
     width: 375px;
@@ -595,6 +605,7 @@ pre {
     border:none;
 }
 
+/*persistent scroll bar*/
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
